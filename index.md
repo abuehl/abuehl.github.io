@@ -1,5 +1,3 @@
 ---
-title: Welcome to my blog
+title: Adrian's notes
 ---
-
-Hello
