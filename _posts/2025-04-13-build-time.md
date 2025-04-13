@@ -5,9 +5,9 @@ date: 2025-04-13
 
 We have converted the C++ sources for our [Cadifra UML Editor](https://cadifra.com/) windows application from header files to using modules (see [PDF](https://cadifra.com/papers/converting-to-modules.pdf)).
 
-We have seen a increase of the time for full build in Visual Studio to 6:35 minutes.
+We have seen a increase of the time for a full build in Visual Studio to 6:35 minutes.
 
-I have found out, that setting "Scan Sources for Module Dependencies" in the project settings in Visual Studio reduces the time for full build to 3:45 minutes.
+I've now found out, that setting **"Scan Sources for Module Dependencies"** in the project settings in Visual Studio reduces the time for full build to 3:45 minutes.
 
 ![Scan Sources for Module Dependencies](/assets/scan-sources.png)
 
