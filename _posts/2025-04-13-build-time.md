@@ -13,6 +13,6 @@ I've now found out, that simply setting **"Scan Sources for Module Dependencies"
 
 Note that we just use normal C++20 modules (and partitions), not header units.
 
-We have ~40 packages in our sources, with &mdash; in general &mdash; one C++ module (and one C++ namespace) per package.
+We have ~40 packages in our sources, with &dash; in general &dash; one C++ module (and one C++ namespace) per package.
 
 ![Solution Explorer](/assets/solution-explorer.png)
