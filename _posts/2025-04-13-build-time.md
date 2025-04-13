@@ -9,6 +9,8 @@ We have seen a increase of the time for full build in Visual Studio to 6:35 minu
 
 I have found out, that setting "Scan Sources for Module Dependencies" in the project settings in Visual Studio reduces the time for full build to 3:45 minutes.
 
+![Scan Sources for Module Dependencies](/assets/scan-sources.png)
+
 Which is quite amazing.
 
 Note that we just use normal C++20 modules, not header units.
