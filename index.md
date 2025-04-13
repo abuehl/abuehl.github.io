@@ -1,3 +1,3 @@
 ---
-title: Adrian's notes
+title: Contents
 ---
