@@ -55,6 +55,6 @@ The declaration of B and its definition must be in the same module, [according t
 
 The Microsoft C++ compiler / linker as of version 19.43.34809 accepts this input without emitting a warning and produces a working binary.
 
-With C++ 20 modules, you can’t forward declare classes across module boundaries.
+**With C++ 20 modules, you can’t forward declare classes across module boundaries.**
 
 But you can forward declare classes across partition boundaries of partitions of the same module.
