@@ -3,13 +3,13 @@ title: "C++ modules and forward declarations"
 date: 2025-03-10
 ---
 
-In C++, forward declarations of classes are a well known feature. If a class appears in a definition of another class, often only the name of that other class needs to be declared.
+In C++, *forward declarations* of classes are a well known feature. If a class appears in a definition of another class, often only the name of that other class needs to be declared.
 
-For example, this declaration of the function `f` does not need the definition of class B:
+For example, this declaration of the function `f` does not need the definition of class `B`:
 
     void f(class B&);
 
-For function `f`, `class B` just needs to be forward declared like this:
+For function `f`, `class B` just needs to be *forward declared* like this:
 
     class B;
 
@@ -49,7 +49,7 @@ With this, interface module `X.A` can be rewritten by using `Y.Forward`:
     export void f(class Y::B&);
     }
 
-*Unfortunately, this input to the C++ compiler is ill-formed*, as the forward declaration attaches the name B to module Y.Forward, but the definition is in a different module.
+**Unfortunately, this input to the C++ compiler is ill-formed**, as the forward declaration attaches the name B to module Y.Forward, but the definition is in a different module.
 
 The declaration of B and its definition must be in the same module, [according to the standard](https://eel.is/c++draft/module#unit-7).
 
