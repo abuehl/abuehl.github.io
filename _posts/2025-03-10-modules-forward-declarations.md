@@ -49,9 +49,9 @@ With this, interface module `X.A` can be rewritten by using `Y.Forward`:
     export void f(class Y::B&);
     }
 
-**Unfortunately, this input to the C++ compiler is ill-formed**, as the forward declaration attaches the name B to module Y.Forward, but the definition is in a different module.
+**Unfortunately, this input to the C++ compiler is ill-formed**, as the forward declaration attaches the name `B` to module `Y.Forward`, but the definition is in a different module.
 
-The declaration of B and its definition must be in the same module, [according to the standard](https://eel.is/c++draft/module#unit-7).
+The declaration of `B` and its definition must be in the same module, [according to the standard](https://eel.is/c++draft/module#unit-7).
 
 The Microsoft C++ compiler / linker as of version 19.43.34809 accepts this input without emitting a warning and produces a working binary.
 
