@@ -17,7 +17,7 @@ We have ~40 packages in our sources, with &ndash; in general &ndash; one C++ mod
 
 ![Solution Explorer](/assets/solution-explorer.png)
 
-**Edit**: It turns out that simply setting the option **[/MP](https://learn.microsoft.com/en-us/cpp/build/reference/mp-build-with-multiple-processes?view=msvc-170)** is sufficient for a drastic reduction of the time for a full build to 3:22 minutes (without setting "Scan Sources for Module Dependencies").
+**Edit**: It turns out that simply setting the option **/MP** ([Multi-processor Compilation](https://learn.microsoft.com/en-us/cpp/build/reference/mp-build-with-multiple-processes?view=msvc-170)) is sufficient for a drastic reduction of the time for a full build to 3:22 minutes (without setting "Scan Sources for Module Dependencies").
 
 Note that with (any of those) options set, the utilization of the CPU is much better than without. Without /MP the CPU utilization was ~20% for significant portions of time during the build.
 
