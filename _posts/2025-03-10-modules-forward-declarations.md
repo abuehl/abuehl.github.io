@@ -9,7 +9,7 @@ For example, this declaration of the function `f` does not need the definition o
 
     void f(class B&);
 
-For function `f`, `class B` just needs to be *forward declared* like this:
+For function `f`, class `B` just needs to be *forward declared* like this:
 
     class B;
 
