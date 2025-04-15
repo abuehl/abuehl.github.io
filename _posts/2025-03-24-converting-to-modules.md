@@ -3,7 +3,7 @@ title: "Converting a C++ application to modules"
 date: 2025-03-24
 ---
 
-<span style="text-align: right">*(This blog posting is also available as a [PDF document](https://www.cadifra.com/papers/converting-to-modules.pdf))*</span>
+<p style="text-align: right">*(This blog posting is also available as a [PDF document](https://www.cadifra.com/papers/converting-to-modules.pdf))*</p>
 
 We have converted the C++ sources of our [Cadifra UML Editor](https://cadifra.com) from using header files to C++ 20 modules.
 
