@@ -3,6 +3,8 @@ title: "Converting a C++ application to modules"
 date: 2025-03-24
 ---
 
+*(This blog posting is also available as a [PDF document](https://www.cadifra.com/papers/converting-to-modules.pdf))*
+
 We have converted the C++ sources of our [Cadifra UML Editor](https://cadifra.com) from using header files to C++ 20 modules.
 
 The sources are organized into ~40 packages. Each package uses a C++ namespace with the same name as the package. In the drawing, you can see the most important packages with their dependencies. The picture was drawn using our UML Editor. Some less important packages have been omitted.
