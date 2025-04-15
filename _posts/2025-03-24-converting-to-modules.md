@@ -16,7 +16,7 @@ We had roughly one major class per `*.h/*.cpp` pair. We used forward declaration
 > Guideline: Never #include a header when a forward declaration will suffice.
 
 
-## First attempt
+### First attempt
 
 In a first naive attempt, I converted nearly every header file to an interface module (`.ixx`), with the implementation module in the `.cpp` file.
 
@@ -81,7 +81,7 @@ The problem with this is, that according to the [C++ 20 language specification](
 So, this didn’t work. But there is a &ndash; partial &ndash; solution for this.
 
 
-## Module partitions
+### Module partitions
 
 I changed the line
 
@@ -146,10 +146,9 @@ Inside module `Core`, we can import the `Forward` partition with
 which imports the forward declarations of the classes of module `Core` into the current partition.
 
 
-## Final remark
+### Final remark
 
 For the conversion to modules, no refactorings of our design were needed. The classes were ready for the conversion.
 
 
 (last edited 2025-04-15)
-
