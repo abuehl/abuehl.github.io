@@ -135,7 +135,7 @@ Then, wherever something from `Core` is needed somewhere, we have to
 
     import Core;
 
-Note that if a class outside of `Core` is used by reference (or a pointer), we now have to import `Core` as well, since we cannot forward declare a class in a module, which is defined in a different module. We also cannot use `Core:Forward` outside of `Core`.
+Note that if a class outside of `Core` is used by reference (or a pointer), we now have to import `Core` as well, since we cannot forward declare a class in a module, which is defined in a different module. We also cannot *import* `Core:Forward` outside of `Core`.
 
 Partitions can only be used inside a module anyway and may only be exported by the primary interface of the module (`Core/Module.ixx` in our case).
 
@@ -151,4 +151,4 @@ which imports the forward declarations of the classes of module `Core` into the 
 For the conversion to modules, no refactorings of our design were needed. The classes were ready for the conversion.
 
 
-(last edited 2025-04-15)
+(last edited 2025-04-16)
