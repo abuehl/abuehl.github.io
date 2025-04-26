@@ -31,7 +31,7 @@ If - for example - you have to deal with the giant `Windows.h` header, you can d
 
     }
     
-If, for exmple, you just have to use `HWN` (a handle to a window) in a interface somewhere, you can
+If, for exmple, you just have to use `HWND` (a handle to a window) in a interface somewhere, you can
 
     import d1.wintypes;
 
