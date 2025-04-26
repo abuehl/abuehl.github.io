@@ -39,6 +39,6 @@ instead of the horrors of doing
 
     #include <Windows.h>
 
-which defines myriads of (potentially) suprising macros.
+which defines myriads of (potentially) surprising macros.
 
 With the import, you get `d1::HWND` without all the horrible macros of `Windows.h`.
