@@ -5,7 +5,7 @@ date: 2025-04-26
 
 Just a reminder. If you are looking for reasons why to use C++ modules: Being able to wrap a messy header file is one of them.
 
-If - for example - you have to deal with the giant `Windows.h` header, you can do something like this (example from our Windows application):
+If - for example - you have to deal with the giant `Windows.h` header, you can do something like this (example from our [Windows application](https://cadifra.com/)):
 
     module;
 
