@@ -1,5 +1,5 @@
 ---
-title: "Impressive build speedup with MSVC Visual Studio 2022 version 17.4"
+title: "Impressive build speedup with new MSVC Visual Studio 2022 version 17.4"
 date: 2025-05-15
 ---
 
