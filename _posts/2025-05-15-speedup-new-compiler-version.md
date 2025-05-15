@@ -5,9 +5,9 @@ date: 2025-05-15
 
 *(Edit: An earlier version of this blog post had the wrong version number 17.4, the correct version is 17.14)*
 
-After having [converted](https://abuehl.github.io/2025/03/24/converting-to-modules.html) our C++20 sources to use modules, I installed the [newly released version 17.14](https://devblogs.microsoft.com/cppblog/c-language-updates-in-msvc-in-visual-studio-2022-17-14/) of Microsoft Visual Studio Community 2022.
+After having [converted](https://abuehl.github.io/2025/03/24/converting-to-modules.html) our C++20 sources to use modules months ago, I now installed the [newly released version 17.14](https://devblogs.microsoft.com/cppblog/c-language-updates-in-msvc-in-visual-studio-2022-17-14/) of Microsoft Visual Studio Community 2022.
 
-To our surprise, we noticed a significant reduction in build time from ~3 min to 2:26 min for a full build of [our application](https://cadifra.com/).
+To our surprise, we now noticed - caused by the mere upgrade of the compiler to version 17.14! - a significant reduction in build time from ~3 min to 2:26 min for a full build of [our application](https://cadifra.com/).
 
 We have a branch where we use the language option "latest" (/std:c++latest) and  "import std". The full build for this branch is now down to 2:04 min (was ~2:30 min before).
 
