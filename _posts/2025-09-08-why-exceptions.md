@@ -1,6 +1,6 @@
 ---
 title: "Why we need C++ Exceptions"
-date: 2025-08-09
+date: 2025-09-08
 ---
 
 There are modern programming languages which don't (or won't) support exceptions (e.g. Rust, [Carbon](https://github.com/carbon-language/carbon-lang/blob/trunk/docs/project/principles/error_handling.md)). We've used C++ exceptions for our [Cadifra UML Editor](https://cadifra.com/). I believe it would have been difficult to implement our editor without exceptions.
