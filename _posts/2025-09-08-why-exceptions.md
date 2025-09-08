@@ -3,7 +3,7 @@ title: "Why we need C++ Exceptions"
 date: 2025-08-09
 ---
 
-There are modern programming languages which don't (or won't) support exceptions (e.g. Rust, Carbon). We've used C++ exception for our [Cadifra UML Editor](https://cadifra.com/). I believe it would have been very difficult to implement our editor without exceptions.
+There are modern programming languages which don't (or won't) support exceptions (e.g. Rust, [Carbon](https://github.com/carbon-language/carbon-lang/blob/trunk/docs/project/principles/error_handling.md)). We've used C++ exceptions for our [Cadifra UML Editor](https://cadifra.com/). I believe it would have been difficult to implement our editor without exceptions.
 
 We have task objects which create transaction objects. Task objects handle events from Windows. We do have a single place where we catch exceptions and undo unfinished transactions. Finished transactions produce an undoer object. The undoer is kept in a list in memory. We support "unlimited" undo. Catastrophic exceptions like stack overflow are handled at the top level. The model objects all call member functions of other model objects.
 
@@ -13,4 +13,4 @@ A scond place where exceptions were really useful is our XML package, which deal
 
 Furthermore, it's nice that the old, perennial code bloat myth about C++ exceptions now got busted: See the ACCU 2025 talk by Khalil Estell (["C++ Exceptions are Code Compression"](https://www.youtube.com/watch?v=LorcxyJ9zr4)). Although we aren't affected by code bloat anyway. Even though we used C++ Exceptions and RTTI, our binary is ridiculously small for a Windows application (~3 MB).
 
-Our editor supports Windows drag and drop. So we had to deal with the full complexity of Windows, which includes all COM horrors. We didn't use any library. Just std and the Windows API. The editor looks like it was easy to develop, but it is a quite complex piece of software. All done in C++. At the moment in C++ 23. Which includes modules. The editor was started before C++11. We used C++ exceptions from the beginning. Imagine our pleasure when we could start using `std::unique_ptr`, `shared_ptr` and auto. Recently, I've [converted our code base to use C++ modules](https://abuehl.github.io/2025/03/24/converting-to-modules.html).
+Our editor supports Windows drag and drop. So we had to deal with the full complexity of Windows, which includes all COM horrors. We didn't use any library. Just std and the Windows API. The editor looks like it was easy to develop, but it is a quite complex piece of software. All done in C++. At the moment in C++ 23. Which includes modules. The editor was started before C++11. We used C++ exceptions from the beginning. Imagine our pleasure when we could start using `std::unique_ptr`, `shared_ptr` and `auto`. Recently, I've [converted our code base to use C++ modules](https://abuehl.github.io/2025/03/24/converting-to-modules.html).
