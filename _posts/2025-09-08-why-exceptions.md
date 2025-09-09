@@ -11,7 +11,7 @@ For example, in class diagrams, we have class objects, association segments, joi
 
 We once found a blocking bug in our software during internal testing. The bug was triggered by a pathological diagram, which consists of three UML notes, which are connected to each other's connectors. For fun, we [called it the borg virus](https://en.wikipedia.org/wiki/Borg). It is really difficult to think in advance of all the weird cases.
 
-![Cadifra Packages](/assets/borg-virus.png)
+<img src="/assets/borg-virus.png" width="150">
 
 A scond place where exceptions were really useful is our XML package, which deals with writing and reading diagram files. Diagrams are stored in [XML format](https://cadifra.com/schema/). The serialization of the model elements is spread throughout the whole software. Basically, model elements know how to restore themselves from persistent data. That code knows nothing about the details of parsing an XML file. Tunneling XML parsing errors through the restoration layer of model elements would have been a massive pain, if we would have been forced to do the error reporting with return values of function calls. Instead, the XML parser throws an exception, if a file has an error in the XML structure. The error is catched at a high level in our software and the user gets an error window, if a file can't be parsed. The read operation is then aborted.
 
