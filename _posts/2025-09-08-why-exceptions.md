@@ -3,7 +3,7 @@ title: "Why we need C++ Exceptions"
 date: 2025-09-08
 ---
 
-There are modern programming languages which don't (or won't) support exceptions (e.g. Rust, [Carbon](https://github.com/carbon-language/carbon-lang/blob/trunk/docs/project/principles/error_handling.md)). We've used C++ exceptions for our [UML Editor](https://cadifra.com/). I believe it would have been difficult to implement our editor without exceptions.
+There are modern programming languages which don't (or won't) support exceptions (e.g. [Rust](https://doc.rust-lang.org/book/ch09-00-error-handling.html), [Carbon](https://github.com/carbon-language/carbon-lang/blob/trunk/docs/project/principles/error_handling.md)). We've used C++ exceptions for our [UML Editor](https://cadifra.com/). I believe it would have been difficult to implement our editor without exceptions.
 
 We have task objects which create transaction objects. Task objects handle events from Windows. We do have a single place where we catch exceptions and undo unfinished transactions. Finished transactions produce an undoer object. The undoer is kept in a list in memory. We support "unlimited" undo. Catastrophic exceptions like stack overflow are handled at the top level. The model objects all call member functions of other model objects.
 
