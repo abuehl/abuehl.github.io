@@ -9,6 +9,8 @@ We have task objects which create transaction objects. Task objects handle event
 
 For example, in class diagrams, we have class objects, association segments, joins and ends. If the user moves a class object, the attached assoc end moves together with the class. The class object calls into a member function of assoc end to move it. So the size of the call stack depends on the data structure of the objects. Edits by users may result in call chains that never end if we have an error in our generic connector movement code. We didn't want that the users lose an unsaved diagram if we have an error in our software that leads to never ending call loops. If a stack overflow happens during a transaction, an exception is thrown[^1] and catched and the unfinished transaction is aborted, which restores all touched objects into the state they had before the transaction. The transaction knows all touched, newly created and deleted objects.
 
+[^1]: We have used [Windows SEH](https://learn.microsoft.com/en-us/cpp/cpp/structured-exception-handling-c-cpp?view=msvc-170) and [_resetstkoflw](https://learn.microsoft.com/en-us/cpp/c-runtime-library/reference/resetstkoflw?view=msvc-170). We translate SEH exceptions into C++ exceptions.
+
 We once found a blocking bug in our software during internal testing. The bug was triggered by a pathological diagram, which consists of three UML notes, which are connected to each other's connectors. For fun, we [called it the borg virus](https://en.wikipedia.org/wiki/Borg). It is really difficult to think in advance of all the weird cases.
 
 <img src="/assets/borg-virus.png" width="400">
@@ -19,6 +21,4 @@ Furthermore, it's nice that the old, perennial code bloat myth about C++ excepti
 
 Our editor supports Windows drag and drop. So we had to deal with the full complexity of Windows, which includes all COM horrors. We didn't use any library. Just the C++ standard library and the Windows API. The editor looks like it was easy to develop, but it is a quite complex piece of software. All done in C++. At the moment in C++ 23. Which includes modules. The editor was started before C++11. We used C++ exceptions from the beginning. Imagine our pleasure when we could start using `std::unique_ptr`, `shared_ptr` and `auto`. Recently, I've [converted our code base to use C++ modules](https://abuehl.github.io/2025/03/24/converting-to-modules.html).
 
-[^1]: We have used [Windows SEH](https://learn.microsoft.com/en-us/cpp/cpp/structured-exception-handling-c-cpp?view=msvc-170) and [_resetstkoflw](https://learn.microsoft.com/en-us/cpp/c-runtime-library/reference/resetstkoflw?view=msvc-170). We translate SEH exceptions into C++ exceptions.
-
-(last edited 2025-09-11)
+*(last edited 2025-09-11)*
