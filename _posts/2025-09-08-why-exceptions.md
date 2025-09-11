@@ -20,3 +20,5 @@ Furthermore, it's nice that the old, perennial code bloat myth about C++ excepti
 Our editor supports Windows drag and drop. So we had to deal with the full complexity of Windows, which includes all COM horrors. We didn't use any library. Just the C++ standard library and the Windows API. The editor looks like it was easy to develop, but it is a quite complex piece of software. All done in C++. At the moment in C++ 23. Which includes modules. The editor was started before C++11. We used C++ exceptions from the beginning. Imagine our pleasure when we could start using `std::unique_ptr`, `shared_ptr` and `auto`. Recently, I've [converted our code base to use C++ modules](https://abuehl.github.io/2025/03/24/converting-to-modules.html).
 
 [^1]: We have used [Windows SEH](https://learn.microsoft.com/en-us/cpp/cpp/structured-exception-handling-c-cpp?view=msvc-170) and [_resetstkoflw](https://learn.microsoft.com/en-us/cpp/c-runtime-library/reference/resetstkoflw?view=msvc-170). We translate SEH exceptions into C++ exceptions.
+
+(last edited 2025-09-11)
