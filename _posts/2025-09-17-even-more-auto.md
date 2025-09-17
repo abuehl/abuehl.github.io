@@ -9,7 +9,7 @@ As being someone who likes using "almost always auto" (AAA), I'm really glad I d
 
 After having recently seen yet another discussion about the subject, I later happened to stumble upon an older CppCon 2014 talk by Herb Sutter, where Herb also [talked about the usage of the auto keyword](https://www.youtube.com/watch?v=xnqTKD8uD64&t=1709s).
 
-The title of the talk was ["Back to the Basics! Essentials of Modern C++ Style"](https://www.youtube.com/watch?v=xnqTKD8uD64).
+The title of the talk was: ["Back to the Basics! Essentials of Modern C++ Style"](https://www.youtube.com/watch?v=xnqTKD8uD64).
 
 I think Herb pretty much nailed it in this talk.
 
