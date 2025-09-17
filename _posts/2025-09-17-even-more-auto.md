@@ -13,9 +13,9 @@ The title of the talk was ["Back to the Basics! Essentials of Modern C++ Style"]
 
 I think Herb pretty much nailed it in this talk.
 
-I also do like his ["left-to-right auto style"](https://youtu.be/xnqTKD8uD64?t=2458). We've applied it in our code!
+I also do like his ["left-to-right auto style"](https://youtu.be/xnqTKD8uD64?t=2458) a lot. We've applied it in the source code of our [UML Editor](https://cadifra.com/)!
 
-Compare this original snippet from our `ScreenCanvas module`
+Compare this original snippet from our `ScreenCanvas` [module](https://abuehl.github.io/2025/03/24/converting-to-modules.html):
 
     DCfromWindow dc{ itsWindow };
     GdiObjectOwner<HBITMAP> bm{ ::CreateCompatibleBitmap(dc, size.cx, size.cy) };
@@ -23,7 +23,7 @@ Compare this original snippet from our `ScreenCanvas module`
     GdiObjectSelector<HBITMAP> bms{ mdc };
     bms.Select(bm.get());
 
-which we changed to
+with
 
     auto dc = DCfromWindow{ itsWindow };
     auto bm = GdiObjectOwner<HBITMAP>{ ::CreateCompatibleBitmap(dc, size.cx, size.cy) };
