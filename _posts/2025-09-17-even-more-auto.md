@@ -15,7 +15,7 @@ I think Herb pretty much nailed it in this talk.
 
 I also do like his ["left-to-right auto style"](https://www.youtube.com/watch?v=xnqTKD8uD64&t=2458s) a lot. We've applied it in the source code of our [UML Editor](https://cadifra.com/)!
 
-Compare this original snippet from our `ScreenCanvas` [module](https://abuehl.github.io/2025/03/24/converting-to-modules.html):
+Compare this original snippet of C++ statements from our `ScreenCanvas` [module](https://abuehl.github.io/2025/03/24/converting-to-modules.html):
 
     DCfromWindow dc{ itsWindow };
     GdiObjectOwner<HBITMAP> bm{ ::CreateCompatibleBitmap(dc, size.cx, size.cy) };
@@ -23,7 +23,7 @@ Compare this original snippet from our `ScreenCanvas` [module](https://abuehl.gi
     GdiObjectSelector<HBITMAP> bms{ mdc };
     bms.Select(bm.get());
 
-with
+which I changed to
 
     auto dc = DCfromWindow{ itsWindow };
     auto bm = GdiObjectOwner<HBITMAP>{ ::CreateCompatibleBitmap(dc, size.cx, size.cy) };
@@ -31,7 +31,6 @@ with
     auto bms = GdiObjectSelector<HBITMAP>{ mdc };
     bms.Select(bm.get());
 
-Isn't that nice? In any case: I like it a lot.
+Isn't that nice? In any case: I like it a lot!
 
 I definitely recommend watching that talk. Even though it is from 2014, I think it still applies today. Congrats to Herb for that talk!
-
