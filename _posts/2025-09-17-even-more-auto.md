@@ -7,7 +7,7 @@ It seems the usage of the `auto` keyword of C++ is still the subject of discussi
 
 As being someone who likes using "almost always auto" (AAA), I'm really glad I do not have people who tell me when I'm allowed to use `auto` and when not.
 
-After having recently seen yet another discussion about the subject, I later happened to stumble upon an older CppCon 2014 talk by Herb Sutter, where Herb also [talked about the usage of the `auto` keyword](https://youtu.be/xnqTKD8uD64?t=1709).
+After having recently seen yet another discussion about the subject, I later happened to stumble upon an older CppCon 2014 talk by Herb Sutter, where Herb also [talked about the usage of the auto keyword](https://youtu.be/xnqTKD8uD64?t=1709).
 
 The title of the talk was ["Back to the Basics! Essentials of Modern C++ Style"](https://www.youtube.com/watch?v=xnqTKD8uD64).
 
@@ -15,7 +15,7 @@ I think Herb pretty much nailed it in this talk.
 
 I also do like his ["left-to-right auto style"](https://youtu.be/xnqTKD8uD64?t=2458). We've applied it in our code!
 
-Compare this original snippet from our ScreenCanvas module
+Compare this original snippet from our `ScreenCanvas module`
 
     DCfromWindow dc{ itsWindow };
     GdiObjectOwner<HBITMAP> bm{ ::CreateCompatibleBitmap(dc, size.cx, size.cy) };
@@ -23,7 +23,7 @@ Compare this original snippet from our ScreenCanvas module
     GdiObjectSelector<HBITMAP> bms{ mdc };
     bms.Select(bm.get());
 
-to
+which we changed to
 
     auto dc = DCfromWindow{ itsWindow };
     auto bm = GdiObjectOwner<HBITMAP>{ ::CreateCompatibleBitmap(dc, size.cx, size.cy) };
@@ -31,7 +31,7 @@ to
     auto bms = GdiObjectSelector<HBITMAP>{ mdc };
     bms.Select(bm.get());
 
-after having applied that style. Isn't that nice? In any case: I like it a lot.
+Isn't that nice? In any case: I like it a lot.
 
 I definitely recommend watching that talk. Even though it is from 2014, I think it still applies today. Congrats to Herb for that talk!
 
