@@ -3,7 +3,7 @@ title: "Even more auto"
 date: 2025-09-17
 ---
 
-It seems the usage of the `auto` keyword of C++ is still the subject of discussions. At least for some people (as it seems).
+It seems the usage of the `auto` keyword of C++ occasionally is still the subject of discussions.
 
 As being someone who likes using "almost always auto" (AAA), I'm really glad I do not have people who tell me when I'm allowed to use `auto` and when not.
 
