@@ -15,6 +15,8 @@ I think Herb pretty much nailed it in this talk.
 
 I also do like his ["left-to-right auto style"](https://www.youtube.com/watch?v=xnqTKD8uD64&t=2458s) a lot. We've applied it in the source code of our [UML Editor](https://cadifra.com/)!
 
+### Example 1
+
 Compare this original snippet of C++ statements from our `ScreenCanvas` [module](https://abuehl.github.io/2025/03/24/converting-to-modules.html):
 
     DCfromWindow dc{ itsWindow };
@@ -31,6 +33,25 @@ which I changed to
     auto bms = GdiObjectSelector<HBITMAP>{ mdc };
     bms.Select(bm.get());
 
+### Example 2
+
+We previously had somewhere:
+
+    d1::fPoint pos = itsOwner->GetPositionOf(*this);
+
+I changed that to the (semantically 100% equivalent!):
+
+    auto pos = d1::fPoint{ itsOwner->GetPositionOf(*this) };
+
+Hints:
+
+* `GetPositionOf()` returns a `d1::Point`
+* `d1::fPoint` has a converting constructor, which takes a `d1::Point`
+
+Notice how the `auto` style version makes the conversion very explicitly readable.
+
 Isn't that nice? In any case: I like it a lot!
 
-I definitely recommend watching that talk. Even though it is from 2014, I think it still applies today. Congrats to Herb for that talk!
+I definitely recommend watching Herb's talk. Even though it is from 2014, I think it still applies today. Congrats to Herb for that talk!
+
+(last edited 2025-09-19)
