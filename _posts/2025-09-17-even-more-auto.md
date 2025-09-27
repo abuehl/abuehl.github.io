@@ -54,4 +54,6 @@ Isn't that nice? In any case: I like it a lot!
 
 I definitely recommend watching Herb's talk. Even though it is from 2014, I think it still applies today. Congrats to Herb for that talk!
 
-(last edited 2025-09-19)
+See also [Herb's blog posting](https://herbsutter.com/2013/08/12/gotw-94-solution-aaa-style-almost-always-auto/) (section 4), about the topic.
+
+(last edited 2025-09-27)
