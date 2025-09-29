@@ -9,7 +9,7 @@ We have converted the C++ sources of our [Cadifra UML Editor](https://cadifra.co
 
 The sources are organized into ~40 packages. Each package uses a C++ namespace with the same name as the package. In the drawing, you can see the most important packages with their dependencies. The picture was drawn using our UML Editor. Some less important packages have been omitted.
 
-![Cadifra Packages](/assets/cadifra-packages.png)
+<img src="/assets/cadifra-packages.png" alt="Cadifra Packages" width="200"/>
 
 We had roughly one major class per `*.h/*.cpp` pair. We used forward declarations for classes to minimize dependencies between packages, following the [guideline](https://herbsutter.com/2013/08/19/gotw-7a-solution-minimizing-compile-time-dependencies-part-1/) by Herb Sutter:
 
