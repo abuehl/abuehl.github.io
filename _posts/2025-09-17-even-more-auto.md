@@ -13,7 +13,7 @@ The title of the talk was: ["Back to the Basics! Essentials of Modern C++ Style"
 
 I think Herb pretty much nailed it in this talk.
 
-I also do like his ["left-to-right auto style"](https://www.youtube.com/watch?v=xnqTKD8uD64&t=2458s) a lot. We've applied it in the source code of our [UML Editor](https://cadifra.com/)!
+I also do like his ["left-to-right auto style"](https://www.youtube.com/watch?v=xnqTKD8uD64&t=2458s) a lot ([slide on page 16](https://github.com/CppCon/CppCon2014/blob/master/Presentations/Back%20to%20the%20Basics!%20Essentials%20of%20Modern%20C%2B%2B%20Style/Back%20to%20the%20Basics!%20Essentials%20of%20Modern%20C%2B%2B%20Style%20-%20Herb%20Sutter%20-%20CppCon%202014.pdf)). We've applied it in the source code of our [UML Editor](https://cadifra.com/)!
 
 ### Example 1
 
