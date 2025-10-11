@@ -11,7 +11,7 @@ In this blog post, I would like to show how we used partitions in the `Core` pac
 
 `d1` and `WinUtil` are utility packages, `Core` contains base abstractions. `d1` contains a number of small modules, while `WinUtil` and `Core` are both bigger modules divided into partitions.
 
-### Starting Point
+### Starting point
 
 The starting point is the interface of the `Core` module, which we have in the source file [Core/_Module.ixx](https://github.com/abuehl/cadifra/blob/main/code/Core/_Module.ixx):
 
