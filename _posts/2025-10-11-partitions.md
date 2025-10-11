@@ -31,7 +31,7 @@ The first line of the file starts with the keywords `export module`, which indic
 
 Then follows a list of (exported) imports. The names of the imports are all preceded by a colon, which indicates that these are names of *partitions* of the `Core` module (`Attach`, `Container`, `Exceptions`, etc). Partition names are local to the module.
 
-### The Transaction Partition
+### The Transaction partition
 
 The `Transaction` partition is in the file [Core/Transaction.ixx](https://github.com/abuehl/cadifra/blob/main/code/Core/Transaction.ixx):
 
@@ -67,19 +67,19 @@ Then follows the import of the module `d1.Rect`. The dot in the name is just a c
 
 We have used `import std` for the standard library. Which made a noticeable difference for the time needed for a full build (now ~2 minutes in total). The MSVC compiler builds the std library on the fly, as needed.
 
-### Module Names and File Names
+### Module names and file names
 
 Note that the module names and partition names have no relation with the names of the files that contain them. The compiler scans the files for module and partition names. It builds a map of module or partition to file names on the fly, which happens really quickly during builds.
 
-### Module Names and Namespace Names
+### Module names and namespace names
 
 C++ namespace names are orthogonal to module names, meaning these are separate things. We used the namespace `Core` for the `Core` module as a convenience, but technically, it doesn't have to be like this. You can take whatever names you like, but it might be confusing for the readers of the sources, if the name of the module and the name of the primary namespace don't match.
 
-### Incomplete Types
+### Incomplete types
 
 An important aspect of partitions is, that they enable *forward declarations* of classes across partitions of the same module (the C++ standard uses the term "incomplete type" for forward declarations). Classes cannot be forward declared across module boundaries, but across partitions. Every name declared in module must be defined *in the same module*, but it can be declared in one (or more) partition and defined in a different partition of the same module (see [https://eel.is/c++draft/module#unit-7](https://eel.is/c++draft/module#unit-7)).
 
-### Module Implementations
+### Module implementations
 
 Module implementations can be split into multiple `*.cpp` files. All implementation files start with the `module` keyword, followed by the name of the module. Optionally, a module implementation file may start with the character sequence `module;`, which marks that start of the [global module fragment](https://en.cppreference.com/w/cpp/language/modules.html#Global_module_fragment). If an implementation file needs a good old header file, it must be included in the global module fragment.
 
