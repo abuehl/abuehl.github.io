@@ -1,5 +1,5 @@
 ---
-title: "Converting a C++ application to modules"
+title: "Converting a C++ Application to Modules"
 date: 2025-03-24
 ---
 
