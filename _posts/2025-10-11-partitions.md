@@ -127,7 +127,7 @@ Note that module implementation files do not need to import the interface of the
 
 ### Conclusion
 
-I really love the isolation which modules provide. For example, we have the file [d1/wintypes.ixx](https://github.com/abuehl/cadifra/blob/main/code/d1/wintypes.ixx):
+I really love the isolation which modules provide. For example, we have the [file d1/wintypes.ixx](https://github.com/abuehl/cadifra/blob/main/code/d1/wintypes.ixx):
 
     module;
 
