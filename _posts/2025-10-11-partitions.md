@@ -71,7 +71,7 @@ Without the export keyword, the partition would be an *internal partition*, whic
     namespace ScreenCanvas::Dashes
     {
 
-    // Functions that draw dashed lines with dashes that do not depend on
+    // Functions that draw dashed lines which do not depend on
     // the zoom factor ("Dash" and "Space" lengths in pixels).
 
     void horizontal(
