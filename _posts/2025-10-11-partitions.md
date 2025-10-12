@@ -3,7 +3,7 @@ title: "An Introduction to Partitions"
 date: 2025-10-11
 ---
 
-We have [converted the sources](https://abuehl.github.io/2025/03/24/converting-to-modules.html) for our [UML Editor](https://cadifra.com/) to using C++ modules.
+We have [converted the sources](https://abuehl.github.io/2025/03/24/converting-to-modules.html) for our [UML Editor](https://cadifra.com/) to using C++ modules. The editor runs on Windows and we use the MSVC toolchain with MSBuild.
 
 When I first read about C++ modules, I saw that modules also provide *partitions*, but I didn't really understand how important they are. Partitions proved to be quite essential for the conversion.
 
