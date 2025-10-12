@@ -121,7 +121,7 @@ It would be possible to forward-declare module-internal classes across module pa
 
 Module implementations can be split into multiple `*.cpp` files. All implementation files start with the `module` keyword, followed by the name of the module. Optionally, a module implementation file may start with the character sequence `module;` which marks the start of the [global module fragment](https://en.cppreference.com/w/cpp/language/modules.html#Global_module_fragment). If an implementation file needs a good old header file, it must be included in the global module fragment.
 
-For example, we have the file [Core/Transaction.cpp](https://github.com/abuehl/cadifra/blob/main/code/Core/Transaction.cpp), which contains implementations of member functions of the `Transaction` class.
+For example, we have the [file Core/Transaction.cpp](https://github.com/abuehl/cadifra/blob/main/code/Core/Transaction.cpp), which contains implementations of member functions of the `Transaction` class.
 
 Note that module implementation files do not need to import the interface of the module. Everything from the interface is implicitly imported. This can be vast for a big module.
 
