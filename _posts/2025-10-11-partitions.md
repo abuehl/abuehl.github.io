@@ -77,7 +77,6 @@ Without the export keyword, the partition would be an *internal partition*, whic
         const d1::int32 Dash = 3,
         const d1::int32 Space = 3);
 
-
     void vertical(
         DeviceContext&,
         d1::int32 starty, d1::int32 endy, d1::int32 x, // starty <= endy
