@@ -82,7 +82,7 @@ An important aspect of partitions is, that they enable *forward declarations* of
 
 ### Module implementations
 
-Module implementations can be split into multiple `*.cpp` files. All implementation files start with the `module` keyword, followed by the name of the module. Optionally, a module implementation file may start with the character sequence `module;`, which marks that start of the [global module fragment](https://en.cppreference.com/w/cpp/language/modules.html#Global_module_fragment). If an implementation file needs a good old header file, it must be included in the global module fragment.
+Module implementations can be split into multiple `*.cpp` files. All implementation files start with the `module` keyword, followed by the name of the module. Optionally, a module implementation file may start with the character sequence `module;` which marks that start of the [global module fragment](https://en.cppreference.com/w/cpp/language/modules.html#Global_module_fragment). If an implementation file needs a good old header file, it must be included in the global module fragment.
 
 For example, we have the file [Core/Transaction.cpp](https://github.com/abuehl/cadifra/blob/main/code/Core/Transaction.cpp), which contains implementations of member functions of the `Transaction` class.
 
