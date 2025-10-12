@@ -44,10 +44,8 @@ The `Transaction` partition is in the [file Core/Transaction.ixx](https://github
 
     import std;
 
-
     namespace Core
     {
-
     export class IFollowUpJob
     {
         ....
@@ -67,10 +65,8 @@ Without the export keyword, the partition would be an *internal partition*, whic
 
     import d1.Rect;
 
-
     namespace ScreenCanvas::Dashes
     {
-
     // Functions that draw dashed lines which do not depend on
     // the zoom factor ("Dash" and "Space" lengths in pixels).
 
@@ -88,7 +84,6 @@ Without the export keyword, the partition would be an *internal partition*, whic
         const d1::Rect& redrawArea,                    // l <= r, t <= b
         const d1::int32 Dash = 3,
         const d1::int32 Space = 3);
-
     }
 
 Internal partitions cannot export anything. The contents of internal partitions do not contribute to the interface of the module. Compiling internal partitions with the MSVC compiler requires [setting a special compiler flag](https://learn.microsoft.com/en-us/cpp/build/reference/internal-partition?view=msvc-170).
@@ -137,7 +132,6 @@ I really love the isolation which modules provide. For example, we have the [fil
 
     export namespace d1
     {
-
     using ::BYTE;
     using ::WORD;
     using ::DWORD;
@@ -166,7 +160,6 @@ I really love the isolation which modules provide. For example, we have the [fil
     using ::HCURSOR;
 
     using ::LCID;
-
     }
 
 which exports selected types from the giant `Windows.h` header. If you ever have been bitten by some horrible macro defined in Windows.h, you will appreciate being able to import just those types and nothing else.
