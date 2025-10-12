@@ -78,7 +78,7 @@ C++ namespace names are orthogonal to module names, meaning these are separate t
 
 ### Incomplete types
 
-An important aspect of partitions is, that they enable *forward declarations* of classes across partitions of the same module (the C++ standard uses the term "incomplete type" for forward declarations). Classes cannot be forward declared across module boundaries, but across partitions. Every name declared in module must be defined *in the same module*, but it can be declared in one (or more) partition and defined in a different partition of the same module (see [https://eel.is/c++draft/module#unit-7](https://eel.is/c++draft/module#unit-7)).
+An important aspect of partitions is, that they enable *forward declarations* of classes across partitions of the same module (the C++ standard uses the term "incomplete type" for forward declarations). Classes cannot be forward declared across module boundaries, but across partitions. Every name declared in a module must be defined *in the same module*, but it can be declared in one (or more) partition(s) and defined in a different partition of the same module (see [https://eel.is/c++draft/module#unit-7](https://eel.is/c++draft/module#unit-7)).
 
 ### Module implementations
 
