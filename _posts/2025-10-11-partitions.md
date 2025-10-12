@@ -59,7 +59,7 @@ The file starts with the keywords `export module`, followed by the name of the m
 
 The `export` keyword at the beginning indicates, that this partition *contributes to the interface* of the Core module. Exported partitions must be export-imported in the interface of the module (file `Core/_Module.ixx`).
 
-Without the export keyword, the partition would be an [internal partition](https://learn.microsoft.com/en-us/cpp/build/reference/internal-partition?view=msvc-170), which we have used for example in the `ScreenCanvas` package (not part of the published snapshot yet):
+Without the export keyword, the partition would be an *internal partition*, which we have used for example in the `ScreenCanvas` package (not part of the published snapshot yet):
 
     module ScreenCanvas:Dashes;
 
@@ -91,9 +91,9 @@ Without the export keyword, the partition would be an [internal partition](https
 
     }
 
-Internal partitions cannot export anything. The contents of internal partitions do not contribute to the interface of the module.
+Internal partitions cannot export anything. The contents of internal partitions do not contribute to the interface of the module. Compiling internal partitions with the MSVC compiler requires [setting a special compiler flag](https://learn.microsoft.com/en-us/cpp/build/reference/internal-partition?view=msvc-170).
 
-Let's go back to the `Core:Transaction` partition: It continues with an import of the sister partition `:IElement` (in [file Core/IElement.ixx](https://github.com/abuehl/cadifra/blob/main/code/Core/IElement.ixx)). If a partition needs definitions from other partitions, then those need to be imported. Note that the chain of imports may not have cycles. Import cycles will be caught as errors by the compiler.
+But let's go back to the `Core:Transaction` partition: It continues with an import of the sister partition `:IElement` (in [file Core/IElement.ixx](https://github.com/abuehl/cadifra/blob/main/code/Core/IElement.ixx)). If a partition needs definitions from other partitions, then those need to be imported. Note that the chain of imports may not have cycles. Import cycles will be caught as errors by the compiler.
 
 Then follows the import of the module `d1.Rect` (in [file d1/Rect.ixx](https://github.com/abuehl/cadifra/blob/main/code/d1/Rect.ixx)). The dot in the name is just a convention. The name denotes a module in our [d1 package](https://github.com/abuehl/cadifra/tree/main/code/d1). Every `*.ixx` file in the d1 directory contains a module. I've decided to use small modules in the d1 package, because it turned out to be too much of a pain to have a monolithic d1 module. When I had a single d1 module, almost everything had to be recompiled when I changed a single file in d1. It is normally recommended to have a bit bigger modules, which contain more than a class definition or two, but it turned out to be useful to separate d1 into smaller bits. There was not much of a difference when doing a full build of the project.
 
