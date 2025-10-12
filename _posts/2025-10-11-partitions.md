@@ -113,6 +113,10 @@ C++ namespace names are orthogonal to module names, meaning these are separate t
 
 An important aspect of partitions is, that they enable *forward declarations* of classes across partitions of the same module (the C++ standard uses the term "incomplete type" for forward declarations). Classes cannot be forward declared across module boundaries, but across partitions. Every name declared in a module must be defined *in the same module*, but it can be declared in one (or more) partition(s) and defined in a different partition of the same module (see [https://eel.is/c++draft/module#unit-7](https://eel.is/c++draft/module#unit-7)).
 
+The C++ language differentiates between exported and non-exported forward declarations of classes. Exported classes need to use the export keyword also on forward declarations.
+
+It would be possible to forward-declare module-internal classes across module partitions, but [the MSVC compiler currently still has a bug](https://github.com/abuehl/internal-partition-test) which prevents their use.
+
 ### Module implementations
 
 Module implementations can be split into multiple `*.cpp` files. All implementation files start with the `module` keyword, followed by the name of the module. Optionally, a module implementation file may start with the character sequence `module;` which marks the start of the [global module fragment](https://en.cppreference.com/w/cpp/language/modules.html#Global_module_fragment). If an implementation file needs a good old header file, it must be included in the global module fragment.
