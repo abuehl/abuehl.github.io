@@ -140,25 +140,8 @@ I really love the isolation which modules provide. For example, we have the [fil
     using ::LRESULT;
     using ::WPARAM;
     using ::LPARAM;
+    ...
 
-    using ::POINT;
-    using ::RECT;
-    using ::SIZE;
-
-    using ::CLSID;
-
-    using ::MSG;
-    using ::LPMSG;
-
-    using ::HANDLE;
-    using ::HWND;
-    using ::HMENU;
-    using ::HDC;
-    using ::HDROP;
-    using ::HGLOBAL;
-    using ::HCURSOR;
-
-    using ::LCID;
     }
 
 which exports selected types from the giant `Windows.h` header. If you ever have been bitten by some horrible macro defined in Windows.h, you will appreciate being able to import just those types and nothing else.
