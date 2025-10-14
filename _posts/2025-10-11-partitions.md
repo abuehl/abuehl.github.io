@@ -41,8 +41,8 @@ export import :Transaction;
 The first line of the file starts with the keywords `export module`, which indicates that this
 is the interface of a module. The line ends with the name of the module (`Core`).
 
-The C++ standard uses the term "primary module interface unit". Quote
-([https://eel.is/c++draft/module#unit-2](https://eel.is/c++draft/module#unit-2)):
+The C++ standard uses the term "primary module interface unit".
+[Quote](https://eel.is/c++draft/module#unit-2):
 
 > A module interface unit is a module unit whose module-declaration starts with export-keyword;
 > any other module unit is a module implementation unit. A named module shall contain exactly one
@@ -54,8 +54,7 @@ which indicates that these are names of *partitions* of the `Core` module (`Atta
 `Exceptions`, etc). Partition names are local to the module.
 
 The standard mandates, that all (non-internal) partitions of the module need to be
-export-imported in the module interface. Quote
-([https://eel.is/c++draft/module#unit-3](https://eel.is/c++draft/module#unit-3)):
+export-imported in the module interface. [Quote](https://eel.is/c++draft/module#unit-3):
 
 > All module partitions of a module that are module interface units shall be
 > directly or indirectly exported by the primary module interface unit (module.import).
@@ -174,8 +173,7 @@ across partitions of the same module (the C++ standard uses the term "incomplete
 for forward declarations). Classes cannot be forward declared across module boundaries,
 but across partitions. Every name declared in a module must be defined *in the same module*,
 but it can be declared in one (or more) partition(s) and defined in a different partition
-of the same module (see
-[https://eel.is/c++draft/module#unit-7](https://eel.is/c++draft/module#unit-7)).
+of the same module (as [mandated by the C++ Standard](https://eel.is/c++draft/module#unit-7)).
 
 The C++ language differentiates between exported and non-exported forward declarations of
 classes. Exported classes need to use the export keyword also on forward declarations.
