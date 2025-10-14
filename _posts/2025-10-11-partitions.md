@@ -24,17 +24,19 @@ of small modules, while `WinUtil` and `Core` are both bigger modules divided int
 The starting point is the interface of the `Core` module, which we have in the source file
 [Core/_Module.ixx](https://github.com/abuehl/cadifra/blob/main/code/Core/_Module.ixx):
 
-    export module Core;
+```cpp
+export module Core;
 
-    export import :Attach;
-    export import :Container;
-    export import :Exceptions;
-    export import :IDiagram;
-    export import :IElement;
-    export import :Interfaces;
-    export import :IView;
-    export import :Names;
-    export import :Transaction;
+export import :Attach;
+export import :Container;
+export import :Exceptions;
+export import :IDiagram;
+export import :IElement;
+export import :Interfaces;
+export import :IView;
+export import :Names;
+export import :Transaction;
+```
 
 The first line of the file starts with the keywords `export module`, which indicates that this
 is the interface of a module, followed by the name of the module (`Core`).
@@ -57,23 +59,25 @@ primary module interface unit. Quote
 The `Transaction` partition is in the
 [file Core/Transaction.ixx](https://github.com/abuehl/cadifra/blob/main/code/Core/Transaction.ixx):
 
-    export module Core:Transaction;
+```cpp
+export module Core:Transaction;
 
-    import :IElement;
+import :IElement;
 
-    import d1.Rect;
-    import d1.Shared;
+import d1.Rect;
+import d1.Shared;
 
-    import std;
+import std;
 
-    namespace Core
-    {
-    export class IFollowUpJob
-    {
-        ...
-    };
-    
+namespace Core
+{
+export class IFollowUpJob
+{
     ...
+};
+
+...
+```
 
 The file starts with the keywords `export module`, followed by the name of the module (`Core`),
 followed by a colon and the name of the partition (`Transaction`).
@@ -85,31 +89,33 @@ of the Core module. Exported partitions must be export-imported in the interface
 Without the export keyword, the partition would be an *internal partition*, which we have used
 for example in the `ScreenCanvas` package (not part of the published snapshot yet):
 
-    module ScreenCanvas:Dashes;
+```cpp
+module ScreenCanvas:Dashes;
 
-    import :DeviceContext;
+import :DeviceContext;
 
-    import d1.Rect;
+import d1.Rect;
 
-    namespace ScreenCanvas::Dashes
-    {
-    // Functions that draw dashed lines which do not depend on
-    // the zoom factor ("Dash" and "Space" lengths in pixels).
+namespace ScreenCanvas::Dashes
+{
+// Functions that draw dashed lines which do not depend on
+// the zoom factor ("Dash" and "Space" lengths in pixels).
 
-    void horizontal(
-        DeviceContext&,
-        d1::int32 startx, d1::int32 endx, d1::int32 y, // startx <= endx
-        const d1::Rect& redrawArea,                    // l <= r, t <= b
-        const d1::int32 Dash = 3,
-        const d1::int32 Space = 3);
+void horizontal(
+    DeviceContext&,
+    d1::int32 startx, d1::int32 endx, d1::int32 y, // startx <= endx
+    const d1::Rect& redrawArea,                    // l <= r, t <= b
+    const d1::int32 Dash = 3,
+    const d1::int32 Space = 3);
 
-    void vertical(
-        DeviceContext&,
-        d1::int32 starty, d1::int32 endy, d1::int32 x, // starty <= endy
-        const d1::Rect& redrawArea,                    // l <= r, t <= b
-        const d1::int32 Dash = 3,
-        const d1::int32 Space = 3);
-    }
+void vertical(
+    DeviceContext&,
+    d1::int32 starty, d1::int32 endy, d1::int32 x, // starty <= endy
+    const d1::Rect& redrawArea,                    // l <= r, t <= b
+    const d1::int32 Dash = 3,
+    const d1::int32 Space = 3);
+}
+```
 
 Internal partitions cannot export anything. The contents of internal partitions do not
 contribute to the interface of the module. Compiling internal partitions with the MSVC
@@ -192,26 +198,28 @@ Everything from the interface is implicitly imported. This can be vast for a big
 
 I really love the isolation which modules provide. For example, we have the [file d1/wintypes.ixx](https://github.com/abuehl/cadifra/blob/main/code/d1/wintypes.ixx):
 
-    module;
+```cpp
+module;
 
-    #include <Windows.h>
+#include <Windows.h>
 
-    export module d1.wintypes;
+export module d1.wintypes;
 
-    export namespace d1
-    {
-    using ::BYTE;
-    using ::WORD;
-    using ::DWORD;
-    using ::UINT;
-    using ::LONG;
+export namespace d1
+{
+using ::BYTE;
+using ::WORD;
+using ::DWORD;
+using ::UINT;
+using ::LONG;
 
-    using ::LRESULT;
-    using ::WPARAM;
-    using ::LPARAM;
-    ...
+using ::LRESULT;
+using ::WPARAM;
+using ::LPARAM;
+...
 
-    }
+}
+```
 
 which exports selected types from the giant `Windows.h` header. If you ever have been
 bitten by some horrible macro defined in Windows.h, you will appreciate being able to
