@@ -19,7 +19,7 @@ which contains three of our packages: `d1`, `WinUtil` and `Core` (in the
 `d1` and `WinUtil` are utility packages, `Core` contains base abstractions. `d1` contains a number
 of small modules, while `WinUtil` and `Core` are both bigger modules divided into partitions.
 
-### Starting point
+#### Starting point
 
 The starting point is the interface of the `Core` module, which we have in the source file
 [Core/_Module.ixx](https://github.com/abuehl/cadifra/blob/main/code/Core/_Module.ixx):
@@ -62,7 +62,7 @@ export-imported in the module interface. [Quote](https://eel.is/c++draft/module#
 
 Partitions can only be imported inside other parts of the same module.
 
-### The Transaction partition
+#### The Transaction partition
 
 The `Transaction` partition is in the
 [file Core/Transaction.ixx](https://github.com/abuehl/cadifra/blob/main/code/Core/Transaction.ixx):
@@ -148,19 +148,19 @@ a single `d1` module, almost everything had to be recompiled when I changed a si
 definition or two, but it turned out to be useful to separate `d1` into smaller bits. There was
 not much of a difference when doing a full build of the project.
 
-### import std
+#### import std
 
 We have used `import std` for the standard library. Which made a noticeable difference for
 the time needed for a full build (now ~2 minutes in total). The MSVC compiler builds the
 std library on the fly, as needed.
 
-### Module names and file names
+#### Module names and file names
 
 Note that the module names and partition names have no relation with the names of the files
 that contain them. The compiler scans the files for module and partition names. It builds
 a map of module or partition to file names on the fly, which happens really quickly during builds.
 
-### Module names and namespace names
+#### Module names and namespace names
 
 C++ namespace names are orthogonal to module names, meaning these are separate things.
 We used the namespace `Core` for the `Core` module as a convenience, but technically, it
@@ -168,7 +168,7 @@ doesn't have to be like this. You can take whatever names you like, but it might
 for the readers of the sources, if the name of the module and the name of the primary
 namespace don't match.
 
-### Incomplete types
+#### Incomplete types
 
 An important aspect of partitions is, that they enable *forward declarations* of classes
 across partitions of the same module (the C++ standard uses the term "incomplete type"
@@ -184,7 +184,7 @@ It would be possible to forward-declare module-internal classes across module pa
 but [the MSVC compiler currently still has a bug](https://github.com/abuehl/internal-partition-test)
 which prevents their use.
 
-### Module implementations
+#### Module implementations
 
 Module implementations can be split into multiple `*.cpp` files. All implementation files
 start with the `module` keyword, followed by the name of the module. Optionally, a module
@@ -201,7 +201,7 @@ which contains implementations of member functions of the `Transaction` class.
 Note that module implementation files do not need to import the interface of the module.
 Everything from the interface is implicitly imported. This can be vast for a big module.
 
-### Conclusion
+#### Conclusion
 
 I really love the isolation which modules provide. For example, we have the [file d1/wintypes.ixx](https://github.com/abuehl/cadifra/blob/main/code/d1/wintypes.ixx):
 
