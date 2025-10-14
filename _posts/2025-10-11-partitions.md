@@ -39,8 +39,15 @@ export import :Transaction;
 ```
 
 The first line of the file starts with the keywords `export module`, which indicates that this
-is the interface of a module. The C++ standard uses the term "primary module interface unit".
-The line ends with the name of the module (`Core`).
+is the interface of a module. The line ends with the name of the module (`Core`).
+
+The C++ standard uses the term "primary module interface unit". Quote
+([https://eel.is/c++draft/module#unit-2](https://eel.is/c++draft/module#unit-2)):
+
+> A module interface unit is a module unit whose module-declaration starts with export-keyword;
+> any other module unit is a module implementation unit. A named module shall contain exactly one
+> module interface unit with no module-partition, known as the *primary module interface unit*
+> of the module; **no diagnostic is required.**
 
 Then follows a list of (exported) imports. The names of the imports are all preceded by a colon,
 which indicates that these are names of *partitions* of the `Core` module (`Attach`, `Container`,
