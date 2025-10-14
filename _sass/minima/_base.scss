@@ -181,7 +181,7 @@ code {
     border: 1px solid $grey-color-light;
     border-radius: 3px;
     background: rgb(240, 240, 240);
-    @include relative-font-size(0.75);
+    @include relative-font-size(1);
 }
 // Fix the code size in headers.
 h2 > code {
