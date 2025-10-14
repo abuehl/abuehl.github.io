@@ -227,7 +227,7 @@ using ::LPARAM;
 ```
 
 which exports selected types from the giant `Windows.h` header. If you ever have been
-bitten by some horrible macro defined in Windows.h, you will appreciate being able to
+bitten by some horrible macro defined in `Windows.h`, you will appreciate being able to
 import just those types and nothing else.
 
 (last edited 2025-10-14)
