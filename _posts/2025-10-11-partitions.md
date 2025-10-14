@@ -60,6 +60,8 @@ export-imported in the module interface. [Quote](https://eel.is/c++draft/module#
 > directly or indirectly exported by the primary module interface unit (module.import).
 > **No diagnostic is required for a violation of these rules.**
 
+Partitions can only be imported inside other parts of the same module.
+
 ### The Transaction partition
 
 The `Transaction` partition is in the
