@@ -31,6 +31,10 @@ The first line of the file starts with the keywords `export module`, which indic
 
 Then follows a list of (exported) imports. The names of the imports are all preceded by a colon, which indicates that these are names of *partitions* of the `Core` module (`Attach`, `Container`, `Exceptions`, etc). Partition names are local to the module.
 
+The C++ standard uses the term "primary module interface unit" for our `Core/_Module.ixx` file. All (non-internal) partitions of the Core module need to be export-imported in the primary module interface unit. Quote ([https://eel.is/c++draft/module#unit-3](https://eel.is/c++draft/module#unit-3)):
+
+> All module partitions of a module that are module interface units shall be directly or indirectly exported by the primary module interface unit ([module.import]). **No diagnostic is required for a violation of these rules.**
+
 ### The Transaction partition
 
 The `Transaction` partition is in the [file Core/Transaction.ixx](https://github.com/abuehl/cadifra/blob/main/code/Core/Transaction.ixx):
@@ -146,4 +150,4 @@ I really love the isolation which modules provide. For example, we have the [fil
 
 which exports selected types from the giant `Windows.h` header. If you ever have been bitten by some horrible macro defined in Windows.h, you will appreciate being able to import just those types and nothing else.
 
-(last edited 2025-10-12)
+(last edited 2025-10-14)
