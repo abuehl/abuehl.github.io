@@ -39,15 +39,15 @@ export import :Transaction;
 ```
 
 The first line of the file starts with the keywords `export module`, which indicates that this
-is the interface of a module, followed by the name of the module (`Core`).
+is the interface of a module. The C++ standard uses the term "primary module interface unit".
+The line ends with the name of the module (`Core`).
 
 Then follows a list of (exported) imports. The names of the imports are all preceded by a colon,
 which indicates that these are names of *partitions* of the `Core` module (`Attach`, `Container`,
 `Exceptions`, etc). Partition names are local to the module.
 
-The C++ standard uses the term "primary module interface unit" for our `Core/_Module.ixx`
-file. All (non-internal) partitions of the `Core` module need to be export-imported in the
-primary module interface unit. Quote
+The standard mandates, that all (non-internal) partitions of the module need to be
+export-imported in the module interface. Quote
 ([https://eel.is/c++draft/module#unit-3](https://eel.is/c++draft/module#unit-3)):
 
 > All module partitions of a module that are module interface units shall be
