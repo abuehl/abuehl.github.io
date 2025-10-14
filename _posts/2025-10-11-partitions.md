@@ -33,7 +33,9 @@ Then follows a list of (exported) imports. The names of the imports are all prec
 
 The C++ standard uses the term "primary module interface unit" for our `Core/_Module.ixx` file. All (non-internal) partitions of the Core module need to be export-imported in the primary module interface unit. Quote ([https://eel.is/c++draft/module#unit-3](https://eel.is/c++draft/module#unit-3)):
 
-> All module partitions of a module that are module interface units shall be directly or indirectly exported by the primary module interface unit ([module.import]). **No diagnostic is required for a violation of these rules.**
+> All module partitions of a module that are module interface units shall be
+> directly or indirectly exported by the primary module interface unit (module.import).
+> No diagnostic is required for a violation of these rules.
 
 ### The Transaction partition
 
