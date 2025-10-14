@@ -13,8 +13,8 @@ conversion.
 
 In this blog post, I would like to show how we used partitions in the `Core` package of our editor.
 I've uploaded a [partial snapshot](https://github.com/abuehl/cadifra) of our sources to github,
-which contains three of our packages: `d1`, `WinUtil` and `Core` (in
-[directory code](https://github.com/abuehl/cadifra/tree/main/code))
+which contains three of our packages: `d1`, `WinUtil` and `Core` (in the
+[code directory](https://github.com/abuehl/cadifra/tree/main/code))
 
 `d1` and `WinUtil` are utility packages, `Core` contains base abstractions. `d1` contains a number
 of small modules, while `WinUtil` and `Core` are both bigger modules divided into partitions.
