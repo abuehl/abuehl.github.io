@@ -148,7 +148,7 @@ a single `d1` module, almost everything had to be recompiled when I changed a si
 definition or two, but it turned out to be useful to separate `d1` into smaller bits. There was
 not much of a difference when doing a full build of the project.
 
-### import std
+### Import std
 
 We have used `import std` for the standard library. Which made a noticeable difference for
 the time needed for a full build (now ~2 minutes in total). The MSVC compiler builds the
