@@ -48,10 +48,10 @@
   .nv    { color: #008080 } // Name.Variable
   .ow    { font-weight: bold } // Operator.Word
   .w     { color: #bbb } // Text.Whitespace
-  .mf    { color: rgb(0, 140, 0);} // Literal.Number.Float
-  .mh    { color: rgb(0, 140, 0);} // Literal.Number.Hex
-  .mi    { color: rgb(0, 140, 0);} // Literal.Number.Integer
-  .mo    { color: rgb(0, 140, 0);} // Literal.Number.Oct
+  .mf    { color: #000 } // Literal.Number.Float
+  .mh    { color: #000 } // Literal.Number.Hex
+  .mi    { color: #000 } // Literal.Number.Integer
+  .mo    { color: #000 } // Literal.Number.Oct
   .sb    { color: #d14 } // Literal.String.Backtick
   .sc    { color: #d14 } // Literal.String.Char
   .sd    { color: #d14 } // Literal.String.Doc
