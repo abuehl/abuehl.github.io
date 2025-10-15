@@ -1,43 +1,52 @@
 ---
-title: "Wrapping messy header files"
+title: "Wrapping messy Header Files"
 date: 2025-04-26
 ---
 
-Just a reminder. If you are looking for reasons why to use C++ modules: Being able to wrap a messy header file is one of them.
+Just a reminder. If you are looking for reasons why to use C++ modules: Being able
+to wrap a messy header file is one of them.
 
-If - for example - you have to deal with the giant `Windows.h` header, you can do something like this (example from our [Windows application](https://cadifra.com/)):
+If - for example - you have to deal with the giant `Windows.h` header, you can do
+something like this (example from our [Windows application](https://cadifra.com/)):
 
-    module;
+```cpp
+module;
 
-    #include <Windows.h>
+#include <Windows.h>
 
-    export module d1.wintypes;
+export module d1.wintypes;
 
-    export namespace d1
-    {
+export namespace d1
+{
 
-    using ::BYTE;
-    using ::WORD;
-    using ::DWORD;
-    using ::UINT;
-    using ::LONG;
+using ::BYTE;
+using ::WORD;
+using ::DWORD;
+using ::UINT;
+using ::LONG;
 
-    using ::RECT;
+using ::RECT;
 
-    using ::HANDLE;
-    using ::HWND;
-    using ::HMENU;
-    using ::HDC;
+using ::HANDLE;
+using ::HWND;
+using ::HMENU;
+using ::HDC;
 
-    }
-    
-If, for exmple, you just have to use `HWND` (a handle to a window) in a interface somewhere, you can
+}
+```
 
-    import d1.wintypes;
+If, for exmple, you just have to use `HWND` (a handle to a window) in a interface
+somewhere, you can
+
+```cpp
+import d1.wintypes;
+```
 
 instead of the horrors of doing
 
-    #include <Windows.h>
+```cpp
+#include <Windows.h>
+```
 
 which defines myriads of (potentially) surprising macros.
 
