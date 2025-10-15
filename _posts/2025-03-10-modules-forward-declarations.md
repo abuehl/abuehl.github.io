@@ -1,5 +1,5 @@
 ---
-title: "C++ modules and forward declarations"
+title: "C++ Modules and forward Declarations"
 date: 2025-03-10
 ---
 
