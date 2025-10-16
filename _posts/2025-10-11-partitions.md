@@ -195,7 +195,7 @@ If an implementation file needs a good old header file, it must be included in t
 module fragment.
 
 For example, we have the
-[file Core/Transaction.cpp](https://github.com/abuehl/cadifra/blob/main/code/Core/Transaction.cpp),
+[file Core/Transaction.cpp](https://github.com/cadifra/cadifra/blob/main/code/Core/Transaction.cpp),
 which contains implementations of member functions of the `Transaction` class.
 
 Note that module implementation files do not need to import the interface of the module.
