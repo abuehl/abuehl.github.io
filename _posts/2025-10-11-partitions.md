@@ -12,9 +12,9 @@ really understand how important they are. Partitions proved to be quite essentia
 conversion.
 
 In this blog post, I would like to show how we used partitions in the `Core` package of our editor.
-I've uploaded a [partial snapshot](https://github.com/abuehl/cadifra) of our sources to github,
+I've uploaded a [partial snapshot](https://github.com/cadifra/cadifra) of our sources to github,
 which contains three of our packages: `d1`, `WinUtil` and `Core` (in the
-[code directory](https://github.com/abuehl/cadifra/tree/main/code))
+[code directory](https://github.com/cadifra/cadifra/tree/main/code))
 
 `d1` and `WinUtil` are utility packages, `Core` contains base abstractions. `d1` contains a number
 of small modules, while `WinUtil` and `Core` are both bigger modules divided into partitions.
@@ -22,7 +22,7 @@ of small modules, while `WinUtil` and `Core` are both bigger modules divided int
 ### Starting point
 
 The starting point is the interface of the `Core` module, which we have in the source file
-[Core/_Module.ixx](https://github.com/abuehl/cadifra/blob/main/code/Core/_Module.ixx):
+[Core/_Module.ixx](https://github.com/cadifra/cadifra/blob/main/code/Core/_Module.ixx):
 
 ```cpp
 export module Core;
@@ -65,7 +65,7 @@ Partitions can only be imported inside other parts of the same module.
 ### The Transaction partition
 
 The `Transaction` partition is in the
-[file Core/Transaction.ixx](https://github.com/abuehl/cadifra/blob/main/code/Core/Transaction.ixx):
+[file Core/Transaction.ixx](https://github.com/cadifra/cadifra/blob/main/code/Core/Transaction.ixx):
 
 ```cpp
 export module Core:Transaction;
@@ -132,15 +132,15 @@ compiler requires
 
 But let's go back to the `Core:Transaction` partition: It continues with an import of the sister
 partition `:IElement` (in
-[file Core/IElement.ixx](https://github.com/abuehl/cadifra/blob/main/code/Core/IElement.ixx)).
+[file Core/IElement.ixx](https://github.com/cadifra/cadifra/blob/main/code/Core/IElement.ixx)).
 If a partition needs definitions from other partitions, then those need to be imported.
 Note that the chain of imports may not have cycles. Import cycles will be caught as
 errors by the compiler.
 
 Then follows the import of the module `d1.Rect` (in
-[file d1/Rect.ixx](https://github.com/abuehl/cadifra/blob/main/code/d1/Rect.ixx)).
+[file d1/Rect.ixx](https://github.com/cadifra/cadifra/blob/main/code/d1/Rect.ixx)).
 The dot in the name is just a convention. The name denotes a module in our
-[d1 package](https://github.com/abuehl/cadifra/tree/main/code/d1). Every `*.ixx` file
+[d1 package](https://github.com/cadifra/cadifra/tree/main/code/d1). Every `*.ixx` file
 in the `d1` directory contains a module. I've decided to use small modules in the `d1` package,
 because it turned out to be too much of a pain to have a monolithic `d1` module. When I had
 a single `d1` module, almost everything had to be recompiled when I changed a single file in
@@ -203,7 +203,8 @@ Everything from the interface is implicitly imported. This can be vast for a big
 
 ### Conclusion
 
-I really love the isolation which modules provide. For example, we have the [file d1/wintypes.ixx](https://github.com/abuehl/cadifra/blob/main/code/d1/wintypes.ixx):
+I really love the isolation which modules provide. For example, we have the
+[file d1/wintypes.ixx](https://github.com/cadifra/cadifra/blob/main/code/d1/wintypes.ixx):
 
 ```cpp
 module;
