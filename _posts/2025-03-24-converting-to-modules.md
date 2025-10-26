@@ -14,7 +14,7 @@ the same name as the package. In the drawing, you can see the most important pac
 with their dependencies. The picture was drawn using our UML Editor. Some less important
 packages have been omitted.
 
-<img src="/assets/cadifra-packages.png" alt="Cadifra Packages" width="500"/>
+<img src="/assets/cadifra-packages.png" alt="Cadifra Packages" width="600"/>
 
 We had roughly one major class per `*.h/*.cpp` pair. We used forward declarations for
 classes to minimize dependencies between packages, following the [guideline](https://herbsutter.com/2013/08/19/gotw-7a-solution-minimizing-compile-time-dependencies-part-1/)
