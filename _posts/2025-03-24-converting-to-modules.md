@@ -185,4 +185,4 @@ For the conversion to modules, no refactorings of our design were needed. The
 classes were ready for the conversion.
 
 
-(last edited 2025-09-29)
+(last edited 2025-10-26)
