@@ -16,8 +16,9 @@ I've uploaded a [partial snapshot](https://github.com/cadifra/cadifra) of our so
 which contains three of our packages: `d1`, `WinUtil` and `Core` (in the
 [code directory](https://github.com/cadifra/cadifra/tree/main/code))
 
-`d1` and `WinUtil` are utility packages, `Core` contains base abstractions. `d1` contains a number
-of small modules, while `WinUtil` and `Core` are both bigger modules divided into partitions.
+`d1` and `WinUtil` are utility packages. The `Core` package contains base abstractions. `d1`
+and `WinUtil` contain lots of small C++ modules. The `Core` package contains a single, big
+C++ module with the same name, which is sub-divided into partitions.
 
 ### Starting point
 
@@ -233,4 +234,4 @@ which exports selected types from the giant `Windows.h` header. If you ever have
 bitten by some horrible macro defined in `Windows.h`, you will appreciate being able to
 import just those types and nothing else.
 
-(last edited 2025-10-14)
+(last edited 2025-10-28)
