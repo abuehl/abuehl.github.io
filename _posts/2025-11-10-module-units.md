@@ -3,7 +3,7 @@ title: "Understanding C++ Module Units"
 date: 2025-11-10
 ---
 
-C++ modules again! Do you ues them? We're using them for our [UML Editor](https://cadifra.com/)
+C++ modules again! Do you use them? We're using them for our [UML Editor](https://cadifra.com/)
 (Windows, MSVC).
 
 At first glance, C++ modules look like they are easy to understand. After all, we
@@ -34,9 +34,9 @@ export double g(double);
 }
 ```
 
-So, that's easy, right? Module A declares functions f and g.
+So, that's easy, right? Module `A` declares functions `f` and `g`.
 
-**But where do we implement the functions f and g?** Answer: In a *module unit*!
+But where do we implement the functions f and g? Answer: In a *module unit*!
 
 The C++ standard says ([Quote](https://eel.is/c++draft/module#unit-1)):
 
@@ -46,9 +46,9 @@ Ok. Se we need a module unit. But let's read on (Quote):
 
 > A named module is the collection of module units with the same module-name
 
-Oh. So there is collection of module units.
+Oh! So there is a collection of module units.
 
-This means, we can split the implementation of our module A into multiple
+This means, we can split the implementation of our module `A` into multiple
 module units.
 
 Let's say, the first module unit contains (file `Af.cpp`):
@@ -104,15 +104,15 @@ interface is found by the name of the module (`A`).
 
 Again: Where is the footgun?
 
-Names in modules are [attached to the module](https://eel.is/c++draft/module#unit-7).
+*Names in modules are [attached to the module](https://eel.is/c++draft/module#unit-7).*
 
-For example, the name `A::f` is attached to module A.
+For example, the name `A::f` is attached to module `A`.
 
 The thing is: There is a an invisible gaint module called the *gobal module*.
 Every name which is not attached to a module, is in the global module.
 
-It's even possible to have fragment of the global module in each module
-source file. It's the part between after the character sequence `module;`.
+It's even possible to have a fragment of the global module in each module
+source file. It's the part after the character sequence `module;`.
 If you want to use a good old header file, you should include it in the
 global module fragment.
 
@@ -134,7 +134,7 @@ I wrote
 import A;
 ```
 
-Ok. Again: But where is the footgun? It compiled an linked without
+Ok. Again: But where is the footgun? It compiled and linked without
 any error and the resulting program ran fine.
 
 Again: Where is the footgun?
@@ -165,7 +165,7 @@ What is the problem with that?
 The contents of this altered version of `Af.cpp` now belong to the
 global module!
 
-But with the MSVC compiler the program compile, links an runs fine.
+But with the MSVC compiler, the program compiles, links an runs fine.
 
 There you have the footgun!
 
@@ -173,7 +173,8 @@ What are other compilers saying about this?
 
 I tried gcc 15.2.0:
 
-```PS > g++ -std=gnu++26 -fmodules -c Af.cpp
+```
+PS > g++ -std=gnu++26 -fmodules -c Af.cpp
 Af.cpp:6:5: error: redeclaring 'int A::f(int)' in global module conflicts with import
     6 | int f(int a)
       |     ^
@@ -183,11 +184,8 @@ In module A, imported at Af.cpp:1:
       |            ^
 ```
 
-gcc correctly complains that the A::f is attached to module `A`, but we now
-present an implementation in the global module.
-
-Perfect!
+gcc correctly complains that the `A::f` is attached to module `A`, but we now
+present an implementation in the global module. Yikes!
 
 If you use the MSVC compiler, it won't tell you about your error.
-
 
