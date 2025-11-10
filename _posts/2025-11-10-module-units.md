@@ -36,7 +36,7 @@ export double g(double);
 
 So, that's easy, right? Module `A` declares functions `f` and `g`.
 
-But where do we implement the functions f and g? Answer: In a *module unit*!
+But where do we implement the functions `f` and `g`? Answer: In a *module unit*!
 
 The C++ standard says ([Quote](https://eel.is/c++draft/module#unit-1)):
 
@@ -104,7 +104,7 @@ interface is found by the name of the module (`A`).
 
 Again: Where is the footgun?
 
-*Names in modules are [attached to the module](https://eel.is/c++draft/module#unit-7).*
+**Names in modules are [attached to the module](https://eel.is/c++draft/module#unit-7).**
 
 For example, the name `A::f` is attached to module `A`.
 
