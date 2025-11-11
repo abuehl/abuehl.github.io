@@ -106,7 +106,7 @@ Again: Where is the footgun?
 
 For example, the name `A::f` is attached to module `A`.
 
-The thing is: There is a an invisible gaint module called the *gobal module*.
+The thing is: There is an invisible gaint module called the *gobal module*.
 Every name which is not attached to a module, is in the global module.
 
 It's even possible to have a fragment of the global module in each module
