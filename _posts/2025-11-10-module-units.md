@@ -87,10 +87,8 @@ double g(double x)
 Our complete module `A` consists of exactly one primary module interface
 unit and two module units.
 
-But where is the footgun?
-
-Let me first point out, that a module unit *implicitly imports* the
-primary interface unit of its module.
+But where is the footgun? Let me first point out, that a module unit
+*implicitly imports* the primary interface unit of its module.
 
 The C++ standard says ([Quote](https://eel.is/c++draft/module#unit-8)):
 
@@ -116,10 +114,6 @@ source file. It's the part after the character sequence `module;`.
 If you want to use a good old header file, you should include it in the
 global module fragment.
 
-Again: Where is the footgun?
-
-Well. The footgun is not really in the C++ standard.
-
 We use the MSVC compiler.
 
 I recently made an error in a module unit. Instead of writing
@@ -134,12 +128,10 @@ I wrote
 import A;
 ```
 
-Ok. Again: But where is the footgun? It compiled and linked without
-any error and the resulting program ran fine.
+Surprise: It compiled and linked without any error and the resulting
+program ran fine. What is the problem?
 
-Again: Where is the footgun?
-
-Answer: That program is ill-formed. Why?
+Answer: That program is ill-formed. But Why?
 
 Let's say we have the following contents of file `Af.cpp`:
 
@@ -160,14 +152,10 @@ int f(int a)
 The difference to the version we had above is, that instead of the `module`
 keyword, we have the `import` keyword.
 
-What is the problem with that?
-
-The contents of this altered version of `Af.cpp` now belong to the
+The contents of this altered version of `Af.cpp` are attached to the
 global module!
 
 But with the MSVC compiler, the program compiles, links an runs fine.
-
-There you have the footgun!
 
 What are other compilers saying about this?
 
@@ -188,4 +176,7 @@ gcc correctly complains that the `A::f` is attached to module `A`, but we now
 present an implementation in the global module. Yikes!
 
 If you use the MSVC compiler, it won't tell you about your error.
+
+(last edited 2025-11-11)
+
 
