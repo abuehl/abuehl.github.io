@@ -118,15 +118,11 @@ We use the MSVC compiler.
 
 I recently made an error in a module unit. Instead of writing
 
-```cpp
-module A;
-```
+`module A;`
 
 I wrote
 
-```cpp
-import A;
-```
+`import A;`
 
 Surprise: It compiled and linked without any error and the resulting
 program ran fine. What is the problem?
