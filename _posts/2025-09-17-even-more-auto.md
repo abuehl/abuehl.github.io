@@ -76,16 +76,16 @@ See also [Herb's blog posting](https://herbsutter.com/2013/08/12/gotw-94-solutio
 ### Advantages
 
 The advantage of this style is, that it makes sure the variable is initialized
-right at the point of declaration.
+right at the point of declaration. It's impossible to forget to initialize it.
 
 It's also easy to read, because when you see the `auto` keyword at the beginning
 of the line, you can immediately conclude that a new local variable is
-introduced. You don't have to skip over a (potentially long type name) first
-to find the name of the variable.
+introduced.
 
-The name of the variable appears first, always at the same column. Long type names
-are moved to the right, similar to the trailing return types on functions
-(`->` syntax, introduced with C++11).
+You don't have to skip over a (potentially long) type name first
+to find the name of the variable. The name appears always at the same column.
+Long type names are moved to the right, similar to the trailing return types
+on functions (`->` syntax, introduced with C++11).
 
 But in the end, it's just a coding style. In my view, it's a more modern one.
 Of course, you may prefer using the traditional style. Old habits die hard.
