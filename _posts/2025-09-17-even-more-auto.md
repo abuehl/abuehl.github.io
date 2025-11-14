@@ -73,4 +73,32 @@ still applies today. Congrats to Herb for that talk!
 See also [Herb's blog posting](https://herbsutter.com/2013/08/12/gotw-94-solution-aaa-style-almost-always-auto/)
 (section 4), about the topic.
 
-(last edited 2025-09-27)
+### Advantages
+
+The advantage of this style is, that it makes sure the variable is initialized
+right at the point of declaration.
+
+It's also easy to read, because when you see the `auto` keyword at the beginning
+of the line, you can immediately conclude that a new local variable is
+introduced. You don't have to skip over a (potentially long type name) first
+to find the name of the variable.
+
+The name of the variable appears first, always at the same column. Long type names
+are moved to the right, similar to the trailing return types on functions
+(`->` syntax, introduced with C++11).
+
+But in the end, it's just a coding style. In my view, it's a more modern one.
+Of course, you may prefer using the traditional style. Old habits die hard.
+
+### Guaranteed performance
+
+In C++17, the materialization of temporaries is deferred until the initialization
+is performed, as Sy Brand explains it in-depth in a blog posting of 2018 (
+["Guaranteed Copy Elision Does Not Elide Copies"](https://tartanllama.xyz/posts/guaranteed-copy-elision/))
+
+So, C++17 gaurantees that there are no copies involved when using this style.
+Compilers already elided temporaries long before that, but it was not
+required by the standard. In C++17 there aren't any copies that would need
+to be elided any more. This auto style is guaranteed to be 100% equivalent.
+
+(last edited 2025-11-14)
