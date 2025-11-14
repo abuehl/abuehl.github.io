@@ -94,7 +94,7 @@ Of course, you may prefer using the traditional style. Old habits die hard.
 
 In C++17, the materialization of temporaries is deferred until the initialization
 is performed, as Sy Brand explains it in-depth in a blog posting of 2018 (
-["Guaranteed Copy Elision Does Not Elide Copies"](https://tartanllama.xyz/posts/guaranteed-copy-elision/))
+["Guaranteed Copy Elision Does Not Elide Copies"](https://tartanllama.xyz/posts/guaranteed-copy-elision/)).
 
 So, C++17 gaurantees that there are no copies involved when using this style.
 Compilers already elided temporaries long before that, but it was not
