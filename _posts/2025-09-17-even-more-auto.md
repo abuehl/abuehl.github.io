@@ -98,7 +98,7 @@ is performed, as Sy Brand explains it in-depth in a blog posting of 2018 (
 
 So, C++17 gaurantees that there are no copies involved when using this style.
 Compilers already elided temporaries long before that, but it was not
-required by the standard. In C++17 there aren't any copies that would need
-to be elided any more. This auto style is guaranteed to be 100% equivalent.
+required by the standard. In C++17 there aren't any copies any more that
+would need to be elided. This `auto` style is guaranteed to be 100% equivalent.
 
 (last edited 2025-11-14)
