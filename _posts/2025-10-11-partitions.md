@@ -29,14 +29,12 @@ The starting point is the interface of the `Core` module, which we have in the s
 export module Core;
 
 export import :Attach;
+export import :Base;
 export import :Container;
-export import :Exceptions;
-export import :IDiagram;
-export import :IElement;
+export import :Diagram;
 export import :Interfaces;
-export import :IView;
-export import :Names;
 export import :Transaction;
+export import :View;
 ```
 
 The first line of the file starts with the keywords `export module`, which indicates that this
@@ -51,8 +49,8 @@ The C++ standard uses the term "primary module interface unit".
 > of the module; **no diagnostic is required.**
 
 Then follows a list of (exported) imports. The names of the imports are all preceded by a colon,
-which indicates that these are names of *partitions* of the `Core` module (`Attach`, `Container`,
-`Exceptions`, etc). Partition names are local to the module.
+which indicates that these are names of *partitions* of the `Core` module (`Attach`, `Base`,
+`Container`, etc). Partition names are local to the module.
 
 The standard mandates, that all (non-internal) partitions of the module need to be
 export-imported in the module interface. [Quote](https://eel.is/c++draft/module#unit-3):
@@ -71,7 +69,7 @@ The `Transaction` partition is in the
 ```cpp
 export module Core:Transaction;
 
-import :IElement;
+import :Base;
 
 import d1.Rect;
 import d1.Shared;
@@ -132,8 +130,8 @@ compiler requires
 [setting a special compiler flag](https://learn.microsoft.com/en-us/cpp/build/reference/internal-partition?view=msvc-170).
 
 But let's go back to the `Core:Transaction` partition: It continues with an import of the sister
-partition `:IElement` (in
-[file Core/IElement.ixx](https://github.com/cadifra/cadifra/blob/main/code/Core/IElement.ixx)).
+partition `:Base` (in
+[file Core/Base.ixx](https://github.com/cadifra/cadifra/blob/main/code/Core/Base.ixx)).
 If a partition needs definitions from other partitions, then those need to be imported.
 Note that the chain of imports may not have cycles. Import cycles will be caught as
 errors by the compiler.
@@ -234,4 +232,4 @@ which exports selected types from the giant `Windows.h` header. If you ever have
 bitten by some horrible macro defined in `Windows.h`, you will appreciate being able to
 import just those types and nothing else.
 
-(last edited 2025-10-28)
+(last edited 2025-11-18)
