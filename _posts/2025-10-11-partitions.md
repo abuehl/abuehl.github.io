@@ -151,7 +151,8 @@ not much of a difference when doing a full build of the project.
 
 We have used `import std` for the standard library. Which made a noticeable difference for
 the time needed for a full build (now ~2 minutes in total). The MSVC compiler builds the
-std library on the fly, as needed.
+[BMI](https://clang.llvm.org/docs/StandardCPlusPlusModules.html#built-module-interface)
+for the standard library on the fly, as needed.
 
 ### Module names and file names
 
@@ -232,4 +233,4 @@ which exports selected types from the giant `Windows.h` header. If you ever have
 bitten by some horrible macro defined in `Windows.h`, you will appreciate being able to
 import just those types and nothing else.
 
-(last edited 2025-11-18)
+(last edited 2025-11-25)
