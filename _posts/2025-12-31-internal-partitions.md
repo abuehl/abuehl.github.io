@@ -20,8 +20,8 @@ He writes about internal partitions (quote):
 > partitions. They do not. They just act like internal header files for a module and may provide
 > both declarations and definitions.
 
-*partition implementation unit* is a quite misleading term, so I agree with Josuttis to just use
-the term *internal partitions* consistently instead.
+*Partition implementation unit* is a quite misleading term, so I agree with Josuttis to just
+consistently use the term *internal partition* instead.
 
 Josuttis provides a nice example in his book. He defines a `struct Order` in an internal partition
 with the same name in module `Mod2`:
@@ -101,9 +101,7 @@ export class Customer {
 
 Here, the line
 
-```cpp
-export module Mod2;
-```
+`export module Mod2;`
 
 introduces the interface of the module `Mod2`, which then can be imported by
 users of the module.
