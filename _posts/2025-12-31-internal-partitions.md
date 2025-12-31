@@ -1,17 +1,18 @@
 ---
-title: "There's nothing wrong with internal partitions"
+title: "There's nothing wrong with Internal Partitions"
 date: 2025-12-31
 ---
 
 Currently, the Clang C++ compiler [seems to be giving a warning when importing an internal
 partition in a module interface](https://chuanqixu9.github.io/c++/2025/12/30/C++20-Modules-Best-Practices.en.html).
 
-Nicolai Josuttis explains C++ modules in his nice [C++20 book](https://www.cppstd20.com/) pretty well.
+[Nicolai Josuttis](https://www.josuttis.com/) explains C++ modules in his nice [C++20 book](https://www.cppstd20.com/)
+pretty well. I really do recommend that book.
+
 He writes about internal partitions (quote):
 
 > With *internal partitions*, you can declare and define internal types and functions of a module
-> in separate files. Note that *partitions* can also be used to define parts of an exported interface
-> in a separate file, which we will discuss later.
+> in separate files. (...)
 >
 > Note that *internal partitions* are sometimes called *partition implementation units*, which is based
 > on the fact that in the C++20 standard, they are officially called “*module implementation units*
@@ -19,7 +20,7 @@ He writes about internal partitions (quote):
 > partitions. They do not. They just act like internal header files for a module and may provide
 > both declarations and definitions.
 
-*partition implementation units* is quite misleading term, so I agree with Josuttis to just use
+*partition implementation unit* is a quite misleading term, so I agree with Josuttis to just use
 the term *internal partitions* consistently instead.
 
 Josuttis provides a nice example in his book. He defines a `struct Order` in an internal partition
