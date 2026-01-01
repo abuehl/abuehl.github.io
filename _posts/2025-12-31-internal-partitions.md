@@ -9,7 +9,7 @@ partition in a module interface](https://chuanqixu9.github.io/c++/2025/12/30/C++
 [Nicolai Josuttis](https://www.josuttis.com/) explains C++ modules in his nice [C++20 book](https://www.cppstd20.com/)
 pretty well. I really do recommend that book.
 
-He writes about internal partitions (quote):
+He writes about internal partitions (page 573):
 
 > With *internal partitions*, you can declare and define internal types and functions of a module
 > in separate files. (...)
@@ -130,3 +130,5 @@ not re-exported.
 
 Note that you cannot export anything from an internal partition. Everything
 inside it is available inside the module without using the export keyword.
+
+(last edited 2026-01-01)
