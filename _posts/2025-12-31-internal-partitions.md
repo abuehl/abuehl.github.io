@@ -168,12 +168,15 @@ which is an internal partition of module `A` (#3).
  
  which is implemented in #4.
  
- The exportd function
+ The exported function
  
  `int foo()`
  
  in module `A` calls `bar` in the implementation. There's nothing wrong with
  implementing that function right in the interface of the module (#2).
+ 
+ Again: There's nothing wrong with importing an internal partition for
+the purpose of implementing an interface. 
 
 
 (last edited 2026-01-03)
