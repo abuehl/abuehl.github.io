@@ -134,7 +134,7 @@ inside it is available inside the module without using the export keyword.
 
 ### Examples in the C++ standard
 
-The C++ Standard also has [an example for an internal partion](
+The C++ standard also has [an example for an internal partion](
 https://eel.is/c++draft/module.unit#example-1). Quote:
 
 ```cpp
@@ -161,5 +161,19 @@ int baz() { return 30; }
 
 In these code examples, the interface partition `A:Foo` (#2) imports `:Internals`,
 which is an internal partition of module `A` (#3).
+
+\#3 declares the function
+
+ `int bar();`
+ 
+ which is implemented in #4.
+ 
+ The exportd function
+ 
+ `int foo()`
+ 
+ in module `A` calls `bar` in the implementation. There's nothing wrong with
+ implementing that function right in the interface of the module (#2).
+
 
 (last edited 2026-01-03)
