@@ -134,8 +134,8 @@ inside it is available inside the module without using the export keyword.
 
 ### Examples in the C++ standard
 
-The C++ Standard also has [an example for an internal partion]
-(https://eel.is/c++draft/module.unit#example-1). Quote:
+The C++ Standard also has [an example for an internal partion](
+https://eel.is/c++draft/module.unit#example-1). Quote:
 
 ```cpp
 // Translation unit #1:
