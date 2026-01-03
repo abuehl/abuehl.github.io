@@ -172,11 +172,10 @@ which is an internal partition of module `A` (#3).
  
  `int foo()`
  
- in module `A` calls `bar` in the implementation. There's nothing wrong with
- implementing that function right in the interface of the module (#2).
+ in module `A` calls `bar` in the implementation (#2). There's nothing wrong with
+ implementing that function right in the interface of the module.
  
- Again: There's nothing wrong with importing an internal partition for
+Again: There's nothing wrong with importing an internal partition for
 the purpose of implementing an interface. 
-
 
 (last edited 2026-01-03)
