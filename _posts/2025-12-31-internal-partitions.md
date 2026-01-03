@@ -131,4 +131,35 @@ not re-exported.
 Note that you cannot export anything from an internal partition. Everything
 inside it is available inside the module without using the export keyword.
 
-(last edited 2026-01-01)
+
+### Examples in the C++ standard
+
+The C++ Standard also has [an example for an internal partion]
+(https://eel.is/c++draft/module.unit#example-1). Quote:
+
+```cpp
+// Translation unit #1:
+export module A;
+export import :Foo;
+export int baz();
+
+// Translation unit #2:
+export module A:Foo;
+import :Internals;
+export int foo() { return 2 * (bar() + 1); }
+
+// Translation unit #3:
+module A:Internals;
+int bar();
+
+// Translation unit #4:
+module A;
+import :Internals;
+int bar() { return baz() - 10; }
+int baz() { return 30; }
+```
+
+In these code examples, the interface partition `A:Foo` (#2) imports `:Internals`,
+which is an internal partition of module `A` (#3).
+
+(last edited 2026-01-03)
