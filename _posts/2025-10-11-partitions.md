@@ -94,7 +94,7 @@ of the Core module. Exported partitions must be export-imported in the interface
 (file `Core/_Module.ixx`).
 
 Without the export keyword, the partition would be an *internal partition*, which we have used
-for example for the `Undoer` partition ([file Core/Undoer.ixx.cpp](https://github.com/cadifra/cadifra/blob/main/code/Core/Undoer.ixx.cpp):
+for example for the `Undoer` partition ([file Core/Undoer.ixx.cpp](https://github.com/cadifra/cadifra/blob/main/code/Core/Undoer.ixx.cpp)):
 
 ```cpp
 module Core:Undoer;
