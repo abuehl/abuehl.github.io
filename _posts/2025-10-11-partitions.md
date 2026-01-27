@@ -94,33 +94,51 @@ of the Core module. Exported partitions must be export-imported in the interface
 (file `Core/_Module.ixx`).
 
 Without the export keyword, the partition would be an *internal partition*, which we have used
-for example in the `ScreenCanvas` package (not part of the published snapshot yet):
+for example for the `Undoer` partition ([file Core/Undoer.ixx.cpp](https://github.com/cadifra/cadifra/blob/main/code/Core/Undoer.ixx.cpp):
 
 ```cpp
-module ScreenCanvas:Dashes;
+module Core:Undoer;
 
-import :DeviceContext;
+import :Base;
 
-import d1.Rect;
 
-namespace ScreenCanvas::Dashes
+namespace Core
 {
-// Functions that draw dashed lines which do not depend on
-// the zoom factor ("Dash" and "Space" lengths in pixels).
 
-void horizontal(
-    DeviceContext&,
-    d1::int32 startx, d1::int32 endx, d1::int32 y, // startx <= endx
-    const d1::Rect& redrawArea,                    // l <= r, t <= b
-    const d1::int32 Dash = 3,
-    const d1::int32 Space = 3);
+...
 
-void vertical(
-    DeviceContext&,
-    d1::int32 starty, d1::int32 endy, d1::int32 x, // starty <= endy
-    const d1::Rect& redrawArea,                    // l <= r, t <= b
-    const d1::int32 Dash = 3,
-    const d1::int32 Space = 3);
+class TransactionUndoer: public Undoer
+{
+    using MESet = std::vector<IElementRef>;
+
+    UndoerRef touchedUndoers_;
+    MESet newlyCreatedElements_;
+    ElementSet trashedElements_;
+    MESet untrashedClients_;
+    ElementSet uncreatedClients_;
+    d1::uint32 transactionNo_;
+
+public:
+    //-- Undoer
+
+    void undoImp(Param&) override;
+    void redoImp(Param&) override;
+    bool isNull() const override;
+    bool merge(Undoer& u) override;
+    void remove(IElement&) override;
+
+    //--
+
+    TransactionUndoer(
+        UndoerRef theTouchedUndoer,
+        const MESet& theNewlyCreatedElements,
+        ElementSet theTrashedElements,
+        d1::uint32 theTransactionNo);
+
+private:
+    static void findCommonElements(MESet& res, const MESet&, const ElementSet&);
+};
+
 }
 ```
 
@@ -233,4 +251,4 @@ which exports selected types from the giant `Windows.h` header. If you ever have
 bitten by some horrible macro defined in `Windows.h`, you will appreciate being able to
 import just those types and nothing else.
 
-(last edited 2025-11-25)
+(last edited 2026-01-27)
