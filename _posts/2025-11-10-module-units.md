@@ -106,7 +106,7 @@ Again: Where is the footgun?
 
 For example, the name `A::f` is attached to module `A`.
 
-The thing is: There is an invisible gaint module called the *gobal module*.
+The thing is: There is an invisible giant module called the *gobal module*.
 Every name which is not attached to a module, is in the global module.
 
 It's even possible to have a fragment of the global module in each module
@@ -151,7 +151,7 @@ keyword, we have the `import` keyword.
 The contents of this altered version of `Af.cpp` are attached to the
 global module!
 
-But with the MSVC compiler, the program compiles, links an runs fine.
+But with the MSVC compiler, the program compiles, links and runs fine.
 
 What are other compilers saying about this?
 
@@ -173,6 +173,6 @@ present an implementation in the global module. Yikes!
 
 If you use the MSVC compiler, it won't tell you about your error.
 
-(last edited 2025-11-11)
+(last edited 2026-03-16)
 
 
