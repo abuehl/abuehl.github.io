@@ -80,7 +80,12 @@ The MSVC compiler implicitly imports the interface of the partition `P1`, as
 defined in the file `AP1.ixx` above.
 
 The compiler even issues an error message, if no file with `export module A:P1;` is
-found.
+found:
+
+```
+1>  AP1.cpp
+1>AP1.cpp(1,12): error C7621: module partition 'P1' for module unit 'A' was not found
+```
 
 So MSVC treats external partitions similar to normal modules.
 
