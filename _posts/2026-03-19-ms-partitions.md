@@ -33,7 +33,7 @@ export struct S
 };
 ```
 
-Partition `P1` declares a function `foo` which returns an `S`.
+Partition `P1` declares a function `foo` which returns an `S`:
 
 ```cpp
 // file AP1.ixx
@@ -44,7 +44,7 @@ import :P0;
 export S foo();
 ```
 
-Partition `P2` declares a function `bar` which also returns an `S`.
+Partition `P2` declares a function `bar` which also returns an `S`:
 
 ```cpp
 // file AP2.ixx
@@ -125,8 +125,8 @@ Files with extension `.ixx` are interfaces (and thus produce a [BMI-file](https:
 files with the extension `.cpp` contain implementations.
 
 If you want to use an internal partition as defined by the C++ standard,
-you must provide the extra command line argument `/internalPartition` when
-invoking the MSVC-compiler on the source file.
+you must provide the extra command line argument [`/internalPartition`](https://learn.microsoft.com/en-us/cpp/build/reference/internal-partition?view=msvc-170)
+when invoking the MSVC-compiler on the source file.
 
 
 ### Consequences
