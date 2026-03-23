@@ -38,6 +38,9 @@ usable outside of module `A`.
 Even though that partition is marked as `export`, we do not `export import` the
 partition in the primary interface of the module `A`.
 
+Note that files having `export module` at the beginning, must have the file extension
+`.ixx`.
+
 
 ### Marking all implementation files with the name of the partition
 
@@ -51,7 +54,7 @@ module A;
 This implies that the whole primary interface (or simply: The interface) of `A`
 is implicitly imported.
 
-This is inconvenient if we want to implement the functions that are declared in an
+This is inconvenient if we want to implement the functions that are declared in a
 specific partition.
 
 Let's say we have an interface partition `Bar` of module `A`:
@@ -103,18 +106,19 @@ void hello()
 }
 ```
 
-With that, the MSVC compiler then implicitly imports the external partition
-`Bar`.
+With that, the MSVC compiler implicitly imports the external partition
+`Bar` (instead of the whole interface of `A`, as before).
 
 The MSVC compiler also allows to have multiple files with the same:
 
+```cpp
 module A:Bar;
+```
 
-at the beginning. We can thus implement function of partition Bar in one
+at the beginning. We can thus implement functions of partition `Bar` in one
 or more cpp files.
 
-All these cpp files only (implicitly) import the interface partition Bar,
-so these files are only recompiled if A/Bar.ixx changes.
-
+All these cpp files only (implicitly) import the interface partition `Bar`,
+so these files are only recompiled if `A/Bar.ixx` changes.
 
 (last edited 2026-03-23)
