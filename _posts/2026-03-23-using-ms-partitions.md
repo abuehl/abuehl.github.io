@@ -10,7 +10,7 @@ not conform to the C++ standard, as described in
 We're now using the non-standard partitions of the MSVC compiler for our
 [UML Editor](https://cadifra.com/) as explained in the rest of this blog posting.
 
-**Please note that the follwing code examples are not compliant with the current
+**Please note that the following code examples are not compliant with the current
 C++ standard. As such they can be seen as erroneous, but they satisfy the
 current implementation of the MSVC compiler.**
 
