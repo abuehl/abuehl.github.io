@@ -81,8 +81,6 @@ If we want to implement function `hello`, we could do it like this:
 // file A/Bar.cpp
 module A;
 
-import :Bar;
-
 void hello()
 {
     ...
