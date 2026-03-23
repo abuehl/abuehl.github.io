@@ -88,7 +88,7 @@ void hello()
 ```
 
 This would be conformant to the C++ standard, but it has the drawback that
-the whole primary interface of module `A` is implicilty imported, which
+the whole primary interface of module `A` is implicitly imported, which
 has the consequence that if *any* interface partition of `A` is changed,
 that file needs to be recompiled.
 
