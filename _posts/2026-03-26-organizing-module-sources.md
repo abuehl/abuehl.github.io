@@ -37,7 +37,7 @@ export import :View;
 It contains the partitions `Attach`, `Base`, `Container`, etc.
 
 All source files for each partition are now placed into a separate
-directory. Here is a screenshot of the `Base` partition in Visual Studio
+sub-directory. Here is a screenshot of the `Base` partition in Visual Studio
 Explorer:
 
 ![Parition Core:Base](/assets/Core-Base-Partition.png)
