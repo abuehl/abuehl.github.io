@@ -42,17 +42,19 @@ Explorer:
 
 ![Parition Core:Base](/assets/Core-Base-Partition.png)
 
-The file `Core/Base/Base.ixx` contains the declarations of the types in the
-`Base` partition.
+The file
+[`Core/Base/Base.ixx`](https://github.com/cadifra/cadifra/blob/main/code/Core/Base/Base.ixx)
+contains the declarations of the types in the `Base` partition.
 
-It contains the line:
+It has the line:
 
 ```cpp
 export module Core:Base;
 ```
 
-The (member) functions declared in `Base` are then defined in one or more
-`*.cpp` files in the same directory.
+The (member-) functions declared in `Base` are then defined in one or more
+`*.cpp` files
+[in the same directory](https://github.com/cadifra/cadifra/tree/main/code/Core/Base).
 
 These contain the line:
 
@@ -63,8 +65,8 @@ module Core:Base;
 The names of the files are not relevant. Module and partition names are found
 during the scanning process when compiling.
 
-Having all files that are relevant for a partition inside a single, distinct
-directory, has proven to be helpful. There is now a single namespace for
+Having all files that are needed for a partition inside a single, distinct
+directory, has proven to be helpful. There is also now a single namespace for
 file names per partition. All files of a partition can be found in a single
 place.
 
