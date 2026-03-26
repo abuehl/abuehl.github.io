@@ -5,7 +5,7 @@ date: 2026-03-26
 
 After having worked with C++ modules using the Microsft compiler with Visual
 Studio for quite a while now, I've finally found a useful structure how to
-organize the sources files.
+organize the source files.
 
 Previously, we had a rather flat tree for the sources of our
 [UML Editor](https://cadifra.com/).
