@@ -11,7 +11,7 @@ Previously, we had a rather flat tree for the sources of our
 [UML Editor](https://cadifra.com/).
 
 We have ~40 packages. For each of these we have a directory and a project
-in Visual studio.
+in Visual Studio.
 
 We have for example a package `Core`. It defines a single C++ module with
 the same name. It also defines a C++ namespace with the same name.
