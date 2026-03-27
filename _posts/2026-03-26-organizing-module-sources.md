@@ -52,11 +52,10 @@ It has the line:
 export module Core:Base;
 ```
 
-The (member-) functions declared in `Base` are then defined in one or more
-`*.cpp` files
+The (member-) functions declared in `Base` are then defined in several `*.cpp` files
 [in the same directory](https://github.com/cadifra/cadifra/tree/main/code/Core/Base).
 
-These contain the line:
+These cpp-files all contain the line:
 
 ```cpp
 module Core:Base;
@@ -67,8 +66,9 @@ during the scanning process when compiling.
 
 Having all files that are needed for a partition inside a single, distinct
 directory, has proven to be helpful. There is also now a single namespace for
-file names per partition. All files of a partition can be found in a single
-place.
+the file names of a partition.
+
+All files of a partition can be found in a single place.
 
 I've published an updated
 [partial snapshot of the sources on github](https://github.com/cadifra/cadifra/tree/main/code/Core). 
