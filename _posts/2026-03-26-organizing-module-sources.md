@@ -19,10 +19,10 @@ the same name. It also defines a C++ namespace with the same name.
 The `Core` module is further structured into
 [module partitions](https://abuehl.github.io/2026/03/23/using-ms-partitions.html).
 
-The primary interface of the `Core` module looks like this:
+The primary interface of the `Core` module looks like this (file 
+[`Core/_Module.ixx`](https://github.com/cadifra/cadifra/blob/main/code/Core/_Module.ixx)):
 
 ```cpp
-// file Core/_Module.ixx
 export module Core;
 
 export import :Attach;
