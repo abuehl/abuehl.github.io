@@ -70,8 +70,8 @@ the file names of a partition.
 
 All files of a partition can now be found at a single place.
 
-Note that the MSVC compiler recompiles only the cpp-files belonging to `Base` partition,
-if the interface file `Core/Base/Base.ixx` is changed. The cpp-files in other
+Note that the MSVC compiler recompiles only the cpp-files belonging to the `Base`
+partition, if the interface file `Core/Base/Base.ixx` is changed. The cpp-files in other
 partitions of the same module aren't recompiled in that case.
 
 I've published an updated
