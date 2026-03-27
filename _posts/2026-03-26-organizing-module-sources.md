@@ -36,7 +36,7 @@ export import :View;
 
 It contains the partitions `Attach`, `Base`, `Container`, etc.
 
-All source files for each partition are now placed into a separate
+The source files for a specific partition are now grouped together into a dedicated
 sub-directory. Here is a screenshot of the `Base` partition in Visual Studio
 Explorer:
 
@@ -73,4 +73,4 @@ place.
 I've published an updated
 [partial snapshot of the sources on github](https://github.com/cadifra/cadifra/tree/main/code/Core). 
 
-(last edited 2026-03-26)
+(last edited 2026-03-27)
