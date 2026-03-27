@@ -4,7 +4,7 @@ date: 2026-03-26
 ---
 
 After having worked with C++ modules using the Microsft compiler with Visual
-Studio for quite a while now, I've finally found a useful structure how to
+Studio for quite a while now, I think I've finally found a useful structure to
 organize the source files.
 
 Previously, we had a rather flat tree for the sources of our
@@ -65,7 +65,7 @@ The names of the files are not relevant. Module and partition names are found
 during the scanning process when compiling.
 
 Having all files that are needed for a partition inside a single, distinct
-sub-directory, has proven to be helpful. There is now a separate namespace for
+sub-directory, has proven to be helpful. There is also now a separate namespace for
 the file names of a partition.
 
 All files of a partition can now be found at a single place.
@@ -93,4 +93,11 @@ The dot in the name of those modules doesn't convey a special meaning to
 the compiler. The C++ standard just allows to use period characters in module
 names, which can be used for grouping names.
 
-(last edited 2026-03-27)
+A third kind of packages contains just the files without using further
+sub-directories. We have used that for basic infrastructure packages like
+[`d1`](https://github.com/cadifra/cadifra/tree/main/code/d1)
+and
+[`WinUtil`](https://github.com/cadifra/cadifra/tree/main/code/WinUtil),
+which contain lots of small modules.
+
+(last edited 2026-03-28)
