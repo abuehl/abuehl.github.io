@@ -84,13 +84,13 @@ package.
 
 It contains the modules:
 
-* GraphUtil.Functions
-* GraphUtil.Line
-* GraphUtil.Metafile
-* GraphUtil.Shapes
+* `GraphUtil.Functions`
+* `GraphUtil.Line`
+* `GraphUtil.Metafile`
+* `GraphUtil.Shapes`
 
 The dot in the name of those modules doesn't convey a special meaning to
-the compiler. The C++ standard just allows to use period characters in Module
-names. Which can be used for grouping names.
+the compiler. The C++ standard just allows to use period characters in module
+names, which can be used for grouping names.
 
 (last edited 2026-03-27)
