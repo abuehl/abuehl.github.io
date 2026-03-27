@@ -71,6 +71,26 @@ the file names of a partition.
 All files of a partition can now be found at a single place.
 
 I've published an updated
-[partial snapshot of the sources on github](https://github.com/cadifra/cadifra/tree/main/code/Core). 
+[partial snapshot of the sources on github](https://github.com/cadifra/cadifra/tree/main/code/Core).
+
+A second kind of package contains just a number of (sub-) modules, with a
+subdirectory per module.
+
+An example for such a package is our
+[`GraphUtil`](https://github.com/cadifra/cadifra/tree/main/code/GraphUtil)
+package.
+
+![GraphUtil package](/assets/GraphUtil.png)
+
+It contains the modules:
+
+* GraphUtil.Functions
+* GraphUtil.Line
+* GraphUtil.Metafile
+* GraphUtil.Shapes
+
+The dot in the name of those modules doesn't convey a special meaning to
+the compiler. The C++ standard just allows to use period characters in Module
+names. Which can be used for grouping names.
 
 (last edited 2026-03-27)
