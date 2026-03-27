@@ -3,7 +3,7 @@ title: "Organizing C++ Module Sources"
 date: 2026-03-26
 ---
 
-After having worked with C++ modules using the Microsft compiler with Visual
+After having worked with C++ modules using the Microsoft compiler with Visual
 Studio for quite a while now, I think I've finally found a useful structure to
 organize the source files.
 
