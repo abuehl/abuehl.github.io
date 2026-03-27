@@ -68,7 +68,7 @@ Having all files that are needed for a partition inside a single, distinct
 sub-directory, has proven to be helpful. There is now a separate namespace for
 the file names of a partition.
 
-All the files of a partition can now be found at a single place.
+All files of a partition can now be found at a single place.
 
 I've published an updated
 [partial snapshot of the sources on github](https://github.com/cadifra/cadifra/tree/main/code/Core). 
