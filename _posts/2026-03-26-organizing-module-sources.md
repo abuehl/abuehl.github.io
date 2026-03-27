@@ -4,8 +4,8 @@ date: 2026-03-26
 ---
 
 After having worked with C++ modules using the Microsoft compiler with Visual
-Studio for quite a while now, I think I've finally found a useful structure to
-organize the source files.
+Studio for quite a while now, I think I've finally found a useful structure for
+organizing the source tree with modules.
 
 Previously, we had a rather flat tree for the sources of our
 [UML Editor](https://cadifra.com/).
