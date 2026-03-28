@@ -71,7 +71,7 @@ during the scanning process when compiling.
 
 Having all files that are needed for a partition inside a single, distinct
 sub-directory, has proven to be helpful. There is also now a separate namespace for
-the file names of a partition.
+the file names of each partition.
 
 All files of a partition can now be found at a single place.
 
