@@ -79,6 +79,13 @@ Note that the MSVC compiler recompiles only the cpp-files belonging to the `Base
 partition, if the interface file `Core/Base/Base.ixx` is changed. The cpp-files in other
 partitions of the same module aren't recompiled in that case.
 
+Partitions aren't visible to the users of `Core`. It can only be imported has a whole.
+
+Advantages for using partitions are:
+
+1. Partitions allow to split a large interface into multiple parts
+2. The module can internally use forward declarations of classes across partitions.
+
 I've published an updated
 [partial snapshot of the sources on github](https://github.com/cadifra/cadifra/tree/main/code/Core).
 
