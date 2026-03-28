@@ -15,8 +15,8 @@ in Visual Studio.
 
 ### Single module with partitions
 
-We have for example a package `Core`. It defines a single C++ module with
-the same name. It also defines a C++ namespace with the same name.
+We have for example a package `Core`. It defines a single C++ module and a
+C++ namespace with the same name.
 
 The `Core` module is further structured into
 [module partitions](https://abuehl.github.io/2026/03/23/using-ms-partitions.html).
@@ -77,13 +77,14 @@ All files of a partition can now be found at a single place.
 
 Note that the MSVC compiler recompiles only the cpp-files belonging to the `Base`
 partition, if the interface file `Core/Base/Base.ixx` is changed. The cpp-files in other
-partitions of the same module aren't recompiled in that case.
+partitions of the same module are not recompiled in that case.
 
-Partitions aren't visible to the users of `Core`. It can only be imported has a whole.
+Partitions aren't visible to the users of the `Core` module. It can only be
+imported has a whole.
 
 Advantages for using partitions are:
 
-1. Partitions allow to split a large interface into multiple parts
+1. Partitions provide a means to split large module interfaces into multiple parts.
 2. The module can internally use forward declarations of classes across partitions.
 
 I've published an updated
