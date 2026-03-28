@@ -61,6 +61,9 @@ These cpp-files all contain the line:
 module Core:Base;
 ```
 
+Due to that, the MSVC compiler implicitly imports the interface of partition `Base`,
+as declared in the file `Core/Base/Base.ixx`.
+
 The names of the files are not relevant. Module and partition names are found
 during the scanning process when compiling.
 
