@@ -13,6 +13,8 @@ Previously, we had a rather flat tree for the sources of our
 We have ~40 packages. For each of these we have a directory and a project
 in Visual Studio.
 
+### Single module with partitions
+
 We have for example a package `Core`. It defines a single C++ module with
 the same name. It also defines a C++ namespace with the same name.
 
@@ -80,6 +82,8 @@ partitions of the same module aren't recompiled in that case.
 I've published an updated
 [partial snapshot of the sources on github](https://github.com/cadifra/cadifra/tree/main/code/Core).
 
+### Several modules
+
 A second kind of package contains just a number of (sub-) modules, with a
 subdirectory per module.
 
@@ -99,6 +103,8 @@ It contains the modules:
 The dot in the name of those modules doesn't convey a special meaning to
 the compiler. The C++ standard just allows to use period characters in module
 names, which can be used for grouping names.
+
+### Lots of small modules
 
 A third kind of packages contains just the files without using further
 sub-directories. We have used that for basic infrastructure packages like
