@@ -70,9 +70,8 @@ The names of the files are not relevant. Module and partition names are found
 during the scanning process when compiling.
 
 Having all files that are needed for a partition inside a single, distinct
-sub-directory, has proven to be helpful.
-
-All files of a partition can now be found at a single place.
+sub-directory, has proven to be helpful. All files of a partition can now be found
+at a single place.
 
 Unfortunately, there currently is a caveat though: The compiler emits files that
 are produced by the compilation, like for example the `.ifc` files, to the
