@@ -94,7 +94,7 @@ if they explicitly `import :Transaction`.
 Partitions aren't visible to the users of the `Core` module. It can only be
 imported has a whole.
 
-Advantages for using partitions are:
+Advantages of using partitions are:
 
 1. Partitions provide a means to split large module interfaces into multiple parts.
 2. The module can internally use forward declarations of classes across partitions.
