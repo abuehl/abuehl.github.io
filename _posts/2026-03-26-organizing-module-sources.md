@@ -70,10 +70,22 @@ The names of the files are not relevant. Module and partition names are found
 during the scanning process when compiling.
 
 Having all files that are needed for a partition inside a single, distinct
-sub-directory, has proven to be helpful. There is also now a separate namespace for
-the file names of each partition.
+sub-directory, has proven to be helpful.
 
 All files of a partition can now be found at a single place.
+
+Unfortunately, there currently is a caveat though: The compiler emits files that
+are produced by the compilation, like for example the `.ifc` files, to the
+same output directory. If two partitions use the same name for their `.ixx` file,
+the output file names will clash when building with MSBuild. Luckily, MSBuild warns
+about this:
+
+```
+1>...\MSBuild\Microsoft\VC\v180\Microsoft.CppBuild.targets(1142,5):
+warning MSB8027: Two or more files with the name of Base.ixx will produce outputs
+to the same location. This can lead to an incorrect build result.
+The files involved are Base\Base.ixx, Diagram\Base.ixx.
+```
 
 Note that the MSVC compiler recompiles only the cpp-files belonging to the `Base`
 partition, if the interface file `Core/Base/Base.ixx` is changed. The cpp-files in other
@@ -121,4 +133,4 @@ and
 [`WinUtil`](https://github.com/cadifra/cadifra/tree/main/code/WinUtil),
 which contain lots of small modules.
 
-(last edited 2026-03-28)
+(last edited 2026-03-29)
