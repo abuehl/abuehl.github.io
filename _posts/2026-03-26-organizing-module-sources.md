@@ -8,7 +8,7 @@ Studio for quite a while now, I think I've finally found a useful structure for
 organizing the source tree with modules.
 
 Previously, we had a rather flat tree for the sources of our
-[UML Editor](https://cadifra.com/).
+[UML Editor](https://cadifra.com/), which was difficult to navigate.
 
 We have ~40 packages. For each of these we have a directory and a project
 in Visual Studio.
