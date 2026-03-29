@@ -86,9 +86,10 @@ to the same location. This can lead to an incorrect build result.
 The files involved are Base\Base.ixx, Diagram\Base.ixx.
 ```
 
-Note that the MSVC compiler recompiles only the cpp-files belonging to the `Base`
-partition, if the interface file `Core/Base/Base.ixx` is changed. The cpp-files in other
-partitions of the same module are not recompiled in that case.
+Note that the MSVC compiler for example recompiles only the cpp-files belonging
+to the `Transaction` partition, if the interface file `Core/Transaction/Transaction.ixx`
+is changed. The cpp-files in other partitions of the `Core` module are only recompiled,
+if they explicitly `import :Transaction`.
 
 Partitions aren't visible to the users of the `Core` module. It can only be
 imported has a whole.
