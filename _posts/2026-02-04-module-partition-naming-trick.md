@@ -16,41 +16,51 @@ presenting this pattern and the problem
 
 The pattern looks like this:
 
-    // file bar.cppm
-    export module foo:bar;
-    ...
-    
-    // file bar1.cpp
-    module foo:bar.impl1;
-    import :bar;
-    ...
-    
-    // file bar2.cpp
-    module foo:bar.impl2;
-    import :bar;
-    ...
+```cpp
+// file bar.cppm
+export module foo:bar;
+...
+
+// file bar1.cpp
+module foo:bar.impl1;
+import :bar;
+...
+
+// file bar2.cpp
+module foo:bar.impl2;
+import :bar;
+...
+```
 
 `bar` is a partition of module `foo`. Interface partition `bar` is imported in`bar1.cpp` and
 `bar2.cpp,`which are both part of the implementation of module `foo`.
 
-    export module foo:bar;
+```cpp
+export module foo:bar;
+```
 
 is the "interface" of the partition `bar`. For the purpose of this posting, it is assumed to
 be imported in the interface of module `foo` like this:
 
-    export module foo;
-    export import :bar;
+```cpp
+export module foo;
+export import :bar;
+```
 
 Note that per the current C++ standard, bar is *not* implicitly imported by the line
 
-    // file bar1.cpp
-    module foo:bar.impl1;
+```cpp
+// file bar1.cpp
+module foo:bar.impl1;
+```
 
 # What problem does the pattern solve?
 
 A naive implementation of the file `bar1.cpp` would start like this:
 
-`module foo;`
+```cpp
+module foo;
+```
 
 This implicitly imports the whole interface of `foo`. Which has the consequence that if any
 of the interface partitions of `foo` are changed, *all* implementation cpp-files of `foo`
