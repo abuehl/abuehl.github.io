@@ -79,7 +79,7 @@ when using the MSVC compiler.
 
 **Option 3 (non-standard)**
 
-Instead of using Option 2 (which requires using the /InternalPartition option
+Instead of using option 2 (which requires using the /InternalPartition option
 of the MSVC compiler), the MSVC compiler by default allows to do the following:
 
 
@@ -98,7 +98,8 @@ module foo:moon;
 ```
 
 `"module foo:bar;"` implicitly imports the interface partition `:bar`. This behavior
-of the MSVC compiler violates the current C++ standard.
+of the MSVC compiler violates the current C++ standard. According to the standard,
+such program input is "IF-NDR" (ill-formed, no diagnostic required).
 
 If the interface partition `:moon` is changed, only `moon.cpp` needs to be recompiled
 (same as option 2).
