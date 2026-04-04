@@ -66,7 +66,7 @@ If the interface partition `:moon` is changed, only `moon.cpp` needs to be recom
 in this case. The files `bar1.cpp` and `bar2.cpp` won't need to be recompiled, as
 they do not import `:moon`. Furthermore, partition units (e.g. `"module foo:bar.impl1;"`),
 as specified by the C++ standard, do *not* implicitly import the primary interface
-of their module.
+of their module (`foo.ixx`).
 
 In this case, the build creates 3 BMI files, which are not used.
 
