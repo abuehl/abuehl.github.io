@@ -75,7 +75,7 @@ C++ standard. The MSVC compiler by default will not compile this, as it uses
 a non-standard conformant semantic for partition units (see option 3 below).
 The cpp files shown in option 2 can by compiled with the MSVC compiler by
 explicitly setting the
-[/InternalPartition](https://learn.microsoft.com/en-us/cpp/build/reference/internal-partition?view=msvc-170),
+[/InternalPartition](https://learn.microsoft.com/en-us/cpp/build/reference/internal-partition?view=msvc-170)
 compiler option for each of these cpp files. CMake transparently handles this
 when using the MSVC compiler.
 
