@@ -70,48 +70,10 @@ of their module (`foo.ixx`).
 
 In this case, the build creates 3 BMI files, which are not used.
 
-Note that using option 2 requires a C++ compiler, which is conformant to the
-C++ standard. The MSVC compiler by default will not compile this, as it uses
-a non-standard conformant semantic for partition units (see option 3 below).
 The cpp files shown in option 2 can by compiled with the MSVC compiler by
-explicitly setting the
+setting the
 [/InternalPartition](https://learn.microsoft.com/en-us/cpp/build/reference/internal-partition?view=msvc-170)
 compiler option for each of these cpp files. CMake transparently handles this
 when using the MSVC compiler.
 
-**Option 3 (non-standard)**
-
-Instead of using option 2 (which requires using the /InternalPartition option
-of the MSVC compiler), the MSVC compiler by default allows to do the following:
-
-
-```cpp
-// file bar1.cpp
-module foo:bar;
-...
-
-// file bar2.cpp
-module foo:bar;
-...
-
-// file moon.cpp
-module foo:moon;
-...
-```
-
-`"module foo:bar;"` implicitly imports the interface partition `:bar`. This behavior
-of the MSVC compiler violates the current C++ standard. According to the standard,
-such program input is "IF-NDR" (ill-formed, no diagnostic required).
-
-If the interface partition `:moon` is changed, only `moon.cpp` needs to be recompiled
-(same as option 2).
-
-No unneeded BMI files are created and option 3 allows to express the intention of
-the programmer, that these cpp files are not meant to be imported anywhere (for which
-we already have precedent in the C++ standard: `"module A;"` implicitly imports
-the interface of module `A`).
-
-Option 3 removes the obligation (forced by the current C++ standard) to provide
-superfluous, unique partition unit names, which are error prone and a maintenance burden.
-
-(last edited 2026-04-04)
+(last edited 2026-04-08)
