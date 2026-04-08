@@ -8,7 +8,7 @@ not conform to the C++ standard, as described in
 [my previous blog posting](https://abuehl.github.io/2026/03/19/ms-partitions.html).
 
 **Please note that the following code examples are not compliant with the current
-C++ standard.
+C++ standard.**
 
 ### Removing all existing uses of /internalPartition
 
