@@ -7,12 +7,8 @@ Microsoft's C++ compiler has an implementation of C++ module partitions, which d
 not conform to the C++ standard, as described in
 [my previous blog posting](https://abuehl.github.io/2026/03/19/ms-partitions.html).
 
-We're now using the non-standard partitions of the MSVC compiler for our
-[UML Editor](https://cadifra.com/) as explained in the rest of this blog posting.
-
 **Please note that the following code examples are not compliant with the current
-C++ standard. As such they can be seen as erroneous, but they satisfy the
-current implementation of the MSVC compiler.**
+C++ standard.
 
 ### Removing all existing uses of /internalPartition
 
@@ -119,4 +115,4 @@ or more cpp files.
 All these cpp files only (implicitly) import the interface partition `Bar`,
 so these files are only recompiled if `A/Bar.ixx` changes.
 
-(last edited 2026-03-23)
+(last edited 2026-04-05)
