@@ -125,7 +125,7 @@ for better readability.
 Compiling internal partitions with the MSVC compiler requires setting the
 [/internalPartition](https://learn.microsoft.com/en-us/cpp/build/reference/internal-partition?view=msvc-170)
 flag of the compiler. External partitions must be
-saved using the `"*.ixx"` file extension, when using the MSVC compiler (or it
+saved using the `*.ixx` file extension, when using the MSVC compiler (or it
 requires setting a special compiler option).
 
 [^1]: Even if nothing at all is exported from that external partition.
