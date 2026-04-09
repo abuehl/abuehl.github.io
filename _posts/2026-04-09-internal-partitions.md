@@ -20,7 +20,7 @@ export module M:P;
 ...
 ```
 
-This declares external partition `:P` of module `M`;
+This declares external partition `:P` of module `M`.
 
 Selected declarations in external partitions can be declared to be
 exported by using the `export` keyword. Such declarations
