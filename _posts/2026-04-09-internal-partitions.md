@@ -1,5 +1,5 @@
 ---
-title: "C++ modules: Internal Partitions"
+title: "C++ Modules: Internal Partitions"
 date: 2026-04-09
 ---
 
@@ -37,7 +37,7 @@ the partition `:P` is not exported from the interface of module `M`.
 That is, the program is incorrect, but the compiler doesn't need to
 report that error.
 
-** Internal partitions **
+### Internal partitions
 
 Internal partitions contain
 
