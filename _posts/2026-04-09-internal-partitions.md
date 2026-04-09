@@ -15,6 +15,7 @@ Both kinds of partitions can contain declarations and definitions.
 External partitions contain
 
 ```cpp
+// Translation unit #1
 export module M:P;
 ...
 ```
@@ -35,6 +36,7 @@ be exported from the primary interface of the module, using the keyword
 sequence `"export import"`:
 
 ```cpp
+// Translation unit #2
 export module M;
 
 export import :P;
@@ -50,7 +52,7 @@ to report that error.
 Internal partitions contain
 
 ```cpp
-// file MQ.cppm
+// Translation unit #3
 module M:Q;
 ...
 ```
@@ -66,64 +68,64 @@ internal partition is reported as an error by the compiler.
 Modules can have implementation files (`*.cpp`). They contain:
 
 ```cpp
-// file M1.cpp
+// Translation unit #4
 module M;
 ...
 
-// file M2.cpp
+// Translation unit #5
 module M;
 ...
 ```
 
-The line `module M;` implicitly imports the interface of module `M`, making
-the declarations in the interface available in these implementation files.
+The line `module M;` implicitly imports the interface of module `M` (TU \#2)
+making the declarations in the interface available in these implementation files.
 
 The C++ standard doesn't provide a similar mechanism for partitions. There are
-no implementation files for partitions.
+no "implementation files" for partitions.
 
 Partitions do not implicitly import anything. Not even the interface of their
-module.
+module (TU \#2).
 
 Implementations of functions declared in external or internal partitions can
 be placed into such module implementation files. They can also be placed into
 external or internal partitions.
 
 The lack of separate "implementation files" for partitions can be circumvented by
-adding just another internal partition for each file, giving it a distinct name,
-for example like this:
+adding just another internal partition for each file, giving it a distinct name.
+For example like this:
 
 ```cpp
-// file MP1.cpp
+// Translation unit #6
 module M:P.impl1;
 import :P;
 ...
 
-// file MP2.cpp
+// Translation unit #7
 module M:P.impl2;
 import :P
 ...
 ```
 
-The names of these internal partitions have to specified, but they are not used
-anywhere else. The produced
+The names of these internal partitions (TU \#6 and \#7)) have to be specified,
+but those names are not used anywhere else. The produced
 [BMI files](https://clang.llvm.org/docs/StandardCPlusPlusModules.html#built-module-interface)
 are thus unused.
 
 A similar effect could have been achievd by using module implementation files.
 But these would (implicitly) import the *whole* interface of the module (`M`), whereas
 in the above example, only the interface partition `:P` is imported. This allows for
-finer grained control what is imported and avoids uneeded dependencies, which
-reduces the number of files that need to recompiled if an interface partition is
+finer grained control what is imported and avoids uneeded dependencies on module units,
+which reduces the number of files that need to recompiled if an interface partition is
 modified.
 
 Module and partion names can contain period characters. These period characters
-convey no special meaning and can just be used to group the names into readable parts
-for better readabiltiy.
+convey no special meaning and can just be used to group the names into parts
+for better readability.
 
-Compiling internal partions with the MSVC compiler requires setting The
+Compiling internal partions with the MSVC compiler requires setting the
 [/InternalPartition](https://learn.microsoft.com/en-us/cpp/build/reference/internal-partition?view=msvc-170)
 flag of the compiler. External partitions must be
-saved using the `"*.ixx"` file extension when using the MSVC compiler (or
+saved using the `"*.ixx"` file extension, when using the MSVC compiler (or it
 requires setting a special compiler option).
 
 [^1]: Even if nothing at all is exported from that external partition.
