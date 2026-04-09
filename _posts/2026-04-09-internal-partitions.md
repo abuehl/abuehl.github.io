@@ -73,7 +73,7 @@ module M;
 ```
 
 The line `module M;` implicitly imports the interface of module `M`, making
-the declarations in the interface available in the immplementation files.
+the declarations in the interface available in these implementation files.
 
 The C++ standard doesn't provide a similar mechanism for partitions. There are
 no implementation files for partitions.
@@ -83,7 +83,7 @@ be placed into such module implementation files. They can also be placed into
 external or internal partitions.
 
 The lack of separate implementation files for partitions can be circumvented by
-adding just another internal partition giving it a distinct name for example
+adding just another internal partition, giving it a distinct name for example
 like this:
 
 ```cpp
@@ -98,6 +98,9 @@ module M:Q.impl2;
 
 Module and partion names can contain period characters. They convey no special
 meaning and can be used to group the names into readable parts.
+
+The names of such pseudo partition implementations are not used anywhere else.
+The produced BMI files are thus unused.
 
 Compiling internal partions with the MSVC compiler requires setting The
 [/InternalPartition](https://learn.microsoft.com/en-us/cpp/build/reference/internal-partition?view=msvc-170)
