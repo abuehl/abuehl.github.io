@@ -115,7 +115,7 @@ A similar effect could have been achievd by using module implementation files (T
 But these would (implicitly) import the *whole* interface of the module (`M`), whereas
 in the above example, only the interface partition `:P` (TU \#1) is imported. This allows for
 finer grained control of what is imported and avoids uneeded dependencies on module units,
-which reduces the number of files that need to recompiled if an interface partition is
+which reduces the number of files that need to be recompiled, if an interface partition is
 modified.
 
 Module and partition names can contain period characters. These period characters
