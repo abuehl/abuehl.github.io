@@ -19,12 +19,19 @@ export module M:P;
 ...
 ```
 
-The declarations in external partitions can be declared to be
-exported using the `export` keyword. Such declarations contribute
-to the interface of the module.
+This declares external partition `:P` of module `M`;
+
+Selected declarations in external partitions can be declared to be
+exported by using the `export` keyword. Such declarations
+contribute to the interface of the module (`M`).
+
+The `export` keyword on such a declaration means, that the item is
+exported *from the module* (not the partition). If a partition is
+imported in another part of the module, *all* (exported and non-exported)
+declarations are imported.
 
 External partitions must be exported from the primary interface of
-the module:
+the module using the keyword sequence `"export import"`:
 
 ```cpp
 export module M;
@@ -34,8 +41,8 @@ export import :P;
 
 The program is IF-NDR ("ill formed, no diagnostic required") if 
 the partition `:P` is not exported from the interface of module `M`.
-That is, the program is incorrect, but the compiler doesn't need to
-report that error.
+That is, the program is incorrect, but the compiler is not required
+to report that error.
 
 ### Internal partitions
 
@@ -96,17 +103,21 @@ import :P
 ...
 ```
 
-A similar effect could have been achievd by using module implementation files.
-But these would (implicitly) import the whole interface of the module `M`, whereas
-in the above example, only the interface partition `:P` is imported;
-
-Module and partion names can contain period characters. They convey no special
-meaning and can be used to group the names into readable parts.
-
-The names of such pseudo partition implementations are not used anywhere else.
-The produced
+The names of these internal partitions have to specified, but they are not used
+anywhere else. The produced
 [BMI files](https://clang.llvm.org/docs/StandardCPlusPlusModules.html#built-module-interface)
 are thus unused.
+
+A similar effect could have been achievd by using module implementation files.
+But these would (implicitly) import the *whole* interface of the module (`M`), whereas
+in the above example, only the interface partition `:P` is imported. This allows for
+finer grained control what is imported and avoids uneeded dependencies, which
+reduces the number of files that need to recompiled if an interface partition is
+modified.
+
+Module and partion names can contain period characters. These period characters
+convey no special meaning and can just be used to group the names into readable parts
+for better readabiltiy.
 
 Compiling internal partions with the MSVC compiler requires setting The
 [/InternalPartition](https://learn.microsoft.com/en-us/cpp/build/reference/internal-partition?view=msvc-170)
