@@ -52,13 +52,8 @@ of the module they belong to. Their names are local to that module. Every
 partition of a module needs to have a distinct partition name. Two separate
 partitions cannot use the same partition name.
 
-Partitions do not implicitly import anything. Not even the interface of their
-module.
-
 Internal partitions cannot export anything. Using the `export` keyword in a 
 internal partition is reported as an error by the compiler.
-
-Partitions do not implicitly import anything.
 
 Modules can have implementation files (`*.cpp`). They contain:
 
@@ -78,29 +73,40 @@ the declarations in the interface available in these implementation files.
 The C++ standard doesn't provide a similar mechanism for partitions. There are
 no implementation files for partitions.
 
+Partitions do not implicitly import anything. Not even the interface of their
+module.
+
 Implementations of functions declared in external or internal partitions can
 be placed into such module implementation files. They can also be placed into
 external or internal partitions.
 
-The lack of separate implementation files for partitions can be circumvented by
-adding just another internal partition, giving it a distinct name for example
-like this:
+The lack of separate "implementation files" for partitions can be circumvented by
+adding just another internal partition for each file, giving it a distinct name,
+for example like this:
 
 ```cpp
-// file MQ1.cpp
-module M:Q.impl1;
+// file MP1.cpp
+module M:P.impl1;
+import :P;
 ...
 
-// file MQ2.cpp
-module M:Q.impl2;
+// file MP2.cpp
+module M:P.impl2;
+import :P
 ...
 ```
+
+A similar effect could have been achievd by using module implementation files.
+But these would (implicitly) import the whole interface of the module `M`, whereas
+in the above example, only the interface partition `:P` is imported;
 
 Module and partion names can contain period characters. They convey no special
 meaning and can be used to group the names into readable parts.
 
 The names of such pseudo partition implementations are not used anywhere else.
-The produced BMI files are thus unused.
+The produced
+[BMI files](https://clang.llvm.org/docs/StandardCPlusPlusModules.html#built-module-interface)
+are thus unused.
 
 Compiling internal partions with the MSVC compiler requires setting The
 [/InternalPartition](https://learn.microsoft.com/en-us/cpp/build/reference/internal-partition?view=msvc-170)
