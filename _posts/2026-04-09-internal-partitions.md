@@ -106,7 +106,7 @@ import :P
 ...
 ```
 
-The names of these internal partitions (TU \#6 and \#7)) have to be specified,
+The names of these internal partitions (TU \#6 and \#7) have to be specified,
 but those names are not used anywhere else. The produced
 [BMI files](https://clang.llvm.org/docs/StandardCPlusPlusModules.html#built-module-interface)
 are thus unused.
