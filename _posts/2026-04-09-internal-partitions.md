@@ -30,8 +30,9 @@ exported *from the module* (not the partition). If a partition is
 imported in another part of the module, *all* (exported and non-exported)
 declarations are imported.
 
-External partitions must be exported from the primary interface of
-the module using the keyword sequence `"export import"`:
+The C++ standard unconditionally[^1] mandates that external partitions *must*
+be exported from the primary interface of the module, using the keyword
+sequence `"export import"`:
 
 ```cpp
 export module M;
@@ -125,5 +126,6 @@ flag of the compiler. External partitions must be
 saved using the `"*.ixx"` file extension when using the MSVC compiler (or
 requires setting a special compiler option).
 
+[^1]: Even if nothing at all is exported from that external partition.
 
 (last edited 2026-04-09)
