@@ -19,7 +19,7 @@ We have for example a package `Core`. It defines a single C++ module and a
 C++ namespace with the same name.
 
 The `Core` module is further structured into
-[module partitions](https://abuehl.github.io/2026/03/23/using-ms-partitions.html).
+[module partitions](https://abuehl.github.io/2026/04/04/options-for-organizing-partitions.html).
 
 The primary interface of the `Core` module looks like this (file 
 [`Core/_Module.ixx`](https://github.com/cadifra/cadifra/blob/main/code/Core/_Module.ixx)):
@@ -57,20 +57,36 @@ export module Core:Base;
 The (member-) functions declared in `Base` are then defined in several `*.cpp` files
 [in the same directory](https://github.com/cadifra/cadifra/tree/main/code/Core/Base).
 
-These cpp-files all contain the line:
+For example the file
+[Core/Base/IElement.cpp](https://github.com/cadifra/cadifra/blob/main/code/Core/Base/IElement.cpp)
+contains the lines:
 
 ```cpp
-module Core:Base;
+module Core:Base.IElement;
+import :Base;
 ```
 
-Due to that, the MSVC compiler implicitly imports the interface of partition `Base`,
-as declared in the file `Core/Base/Base.ixx`.
+This is an internal partition compliant with the C++ standard. To compile this with
+the MSVC compiler, the compiler flag 
+[`/InternalPartition`](https://learn.microsoft.com/en-us/cpp/build/reference/internal-partition?view=msvc-170)
+must be set.
 
-The names of the files are not relevant. Module and partition names are found
+Partitions do not implicitly import any other partitions or modules. Specifically,
+the interface partition `:Base` is not implicitly imported and thus needs to be
+explicitly imported.
+
+The name of the internal partition (`:Base.IElement`) is not used anywwhere else.
+Its name must unique within the module. This internal partition only serves as
+place for defining functions of the `:Base` partition. See my
+posting
+["The Module Partition Naming Trick"](https://abuehl.github.io/2026/04/02/module-partition-naming-trick.html)
+for why we use this pattern.
+
+The file names of the files are not relevant. Module and partition names are found
 during the scanning process when compiling.
 
 Having all files that are needed for a partition inside a single, distinct
-sub-directory, has proven to be helpful. All files of a partition can now be found
+sub-directory, has proven to be helpful. The files of a partition can now be found
 at a single place.
 
 Unfortunately, there currently is a caveat though: The compiler emits files that
@@ -98,6 +114,7 @@ Advantages of using partitions are:
 
 1. Partitions provide a means to split large module interfaces into multiple parts.
 2. The module can internally use forward declarations of classes across partitions.
+3. If an interface partition is changed, only files that directly or indirecty import it need to be recompiled.
 
 I've published an updated
 [partial snapshot of the sources on github](https://github.com/cadifra/cadifra/tree/main/code/Core).
@@ -133,4 +150,4 @@ and
 [`WinUtil`](https://github.com/cadifra/cadifra/tree/main/code/WinUtil),
 which contain lots of small modules.
 
-(last edited 2026-03-29)
+(last edited 2026-04-09)
