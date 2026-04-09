@@ -114,7 +114,7 @@ are thus unused.
 A similar effect could have been achievd by using module implementation files (TU \#4 and \#5).
 But these would (implicitly) import the *whole* interface of the module (`M`), whereas
 in the above example, only the interface partition `:P` (TU \#1) is imported. This allows for
-finer grained control what is imported and avoids uneeded dependencies on module units,
+finer grained control of what is imported and avoids uneeded dependencies on module units,
 which reduces the number of files that need to recompiled if an interface partition is
 modified.
 
