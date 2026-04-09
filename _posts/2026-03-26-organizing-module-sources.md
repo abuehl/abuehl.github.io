@@ -76,7 +76,7 @@ the interface partition `:Base` is not implicitly imported and thus needs to be
 explicitly imported.
 
 The name of the internal partition (`:Base.IElement`) is not used anywwhere else.
-It must unique within the module. This internal partition only serves as a
+It must be unique within the module. This internal partition only serves as a
 place for defining functions of the `:Base` partition. See my
 posting
 ["The Module Partition Naming Trick"](https://abuehl.github.io/2026/04/02/module-partition-naming-trick.html)
