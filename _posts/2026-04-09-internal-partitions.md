@@ -3,14 +3,14 @@ title: "C++ Modules: Internal Partitions"
 date: 2026-04-09
 ---
 
-C++20 introduced modules. A subfeature of modules are partitions.
+C++20 introduced modules. Partitions are a sub-feature of modules.
 
-There are two kinds of partitions:
+There are two types of partitions:
 
 * External partitions
 * Internal partitions
 
-Both kinds of partitions can contain declarations and definitions.
+Both of these can contain declarations and definitions.
 
 External partitions contain
 
