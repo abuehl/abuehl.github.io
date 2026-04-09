@@ -32,8 +32,8 @@ imported in another part of the module, *all* (exported and non-exported)
 declarations are imported.
 
 The C++ standard unconditionally[^1] mandates, that external partitions *must*
-be exported from the primary interface of the module, using the keyword
-sequence `"export import"`:
+be exported from the primary interface of the module (TU \#2 below), using
+the keyword sequence `"export import"`:
 
 ```cpp
 // Translation unit #2
@@ -43,9 +43,9 @@ export import :P;
 ```
 
 The program is IF-NDR ("ill formed, no diagnostic required") if 
-the partition `:P` is not exported from the interface of module `M`.
-That is, the program is incorrect, but the compiler is not required
-to report that error.
+the external partition `:P` (TU \#1) is not exported from the interface of
+module `M` (TU \#2). That is, the program is incorrect, but the
+compiler is not required to report that error.
 
 ### Internal partitions
 
@@ -57,7 +57,7 @@ module M:Q;
 ...
 ```
 
-Both external and internal partions can only be imported inside other parts
+Both external and internal partitions can only be imported inside other parts
 of the module they belong to. Their names are local to that module. Every
 partition of a module needs to have a distinct partition name. Two separate
 partitions cannot use the same partition name.
@@ -111,18 +111,18 @@ but those names are not used anywhere else. The produced
 [BMI files](https://clang.llvm.org/docs/StandardCPlusPlusModules.html#built-module-interface)
 are thus unused.
 
-A similar effect could have been achievd by using module implementation files.
+A similar effect could have been achievd by using module implementation files (TU \#4 and \#5).
 But these would (implicitly) import the *whole* interface of the module (`M`), whereas
-in the above example, only the interface partition `:P` is imported. This allows for
+in the above example, only the interface partition `:P` (TU \#1) is imported. This allows for
 finer grained control what is imported and avoids uneeded dependencies on module units,
 which reduces the number of files that need to recompiled if an interface partition is
 modified.
 
-Module and partion names can contain period characters. These period characters
+Module and partition names can contain period characters. These period characters
 convey no special meaning and can just be used to group the names into parts
 for better readability.
 
-Compiling internal partions with the MSVC compiler requires setting the
+Compiling internal partitions with the MSVC compiler requires setting the
 [/InternalPartition](https://learn.microsoft.com/en-us/cpp/build/reference/internal-partition?view=msvc-170)
 flag of the compiler. External partitions must be
 saved using the `"*.ixx"` file extension, when using the MSVC compiler (or it
