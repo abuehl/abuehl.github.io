@@ -30,7 +30,7 @@ exported *from the module* (not the partition). If a partition is
 imported in another part of the module, *all* (exported and non-exported)
 declarations are imported.
 
-The C++ standard unconditionally[^1] mandates that external partitions *must*
+The C++ standard unconditionally[^1] mandates, that external partitions *must*
 be exported from the primary interface of the module, using the keyword
 sequence `"export import"`:
 
