@@ -19,7 +19,7 @@ export import :Transaction;
 export import :View;
 ```
 
-The files for the `Transaction` partition are in
+The files for the `:Transaction` partition are in
 [`code/Core/Transaction`](https://github.com/cadifra/cadifra/tree/main/code/Core/Transaction):
 
 ```
@@ -37,7 +37,8 @@ export module Core:Transaction;
 ...
 ```
 
-This is an [external partition](https://abuehl.github.io/2026/04/09/internal-partitions.html).
+This is an [external partition](https://abuehl.github.io/2026/04/09/internal-partitions.html)
+with the name `:Transaction`.
 
 The file [`Core/Transaction/FinalizerDock.cpp`](https://github.com/cadifra/cadifra/blob/main/code/Core/Transaction/FinalizerDock.cpp) contains:
 
@@ -49,8 +50,8 @@ import :Transaction;
 This is an implementation file of the `Core` module. The first line should only define
 what module is defined in that file.
 
-The next line then imports the `Transaction` partition. This makes all the declarations
-of the `Transaction` partition available for use in the rest of the file.
+The next line then imports the `:Transaction` partition. This makes all the declarations
+of the `:Transaction` partition available for use in the rest of the file.
 
 If the file `Transaction.ixx` is changed, `FinalizerDock.cpp` needs to be recompiled.
 If the file `Diagram.ixx` is changed, `FinalizerDock.cpp` should not be recompiled.
