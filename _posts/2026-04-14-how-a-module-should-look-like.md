@@ -46,16 +46,20 @@ module Core;
 import :Transaction;
 ```
 
-This is an implementation file of the Core module. The first line should only define what Module
-it is. The next line then imports the Transaction partition. This makes all the declarations
-of the Transaction partition available.
+This is an implementation file of the `Core` module. The first line should only define what Module
+it defines.
 
-If the file Transaction.ixx is changed, FinalizerDock.cpp needs to be recompiled.
-If the file Diagram.ixx is changed, FinalizerDock.cpp should not need to be recompiled.
+The next line then imports the `Transaction` partition. This makes all the declarations
+of the `Transaction` partition available for use in the rest of the file.
 
-Unfortunately that's not what happens currently. The C++ standard says, that the line
+If the file `Transaction.ixx` is changed, `FinalizerDock.cpp` needs to be recompiled.
+If the file `Diagram.ixx` is changed, `FinalizerDock.cpp` should not be recompiled.
+
+Unfortunately, that's not what happens currently.
+[The C++ standard says](https://eel.is/c++draft/module#unit-8),
+that the line
 `module Core;` not just begins the implementation of a module, but it also implicitly
-imports the whole interface of the Core partition (file Core/_Module.ixx). This means
+imports the whole interface of the `Core` module (file `Core/_Module.ixx`). This means
 that all interface partitions are imported as well. But we don't need that.
 
 The standard should be changed to not implicitly import anything. Because we only
@@ -65,8 +69,8 @@ The code as shown above is valid per the current C++ standard and compiles just 
 However, the `import :Transaction;` is redundant, because that partition was already
 implicitly imported by the line above.
 
-We are now leaving those redunant imports in our code. We are hoping that the standar
-will be changed so that this code does what it's expected to do.
+We are now leaving those redunfant imports in our code. We are hoping that the standarf
+will be changed in the future so that our code does what it is expected to do.
 
 There have been discussions to add a new syntax to the standard, which looks like this:
 
@@ -78,7 +82,7 @@ import :Transaction;
 Which would also do what we want. We will see what happens. If we need to insert
 extra colons in our code, we will do that.
 
-For now we will keep the redunant imports. Because our code looks like Module
+For now, we will leave the redunant imports. Because our code looks like module
 implementation code really should look like.
 
 (last edited 2026-04-09)
