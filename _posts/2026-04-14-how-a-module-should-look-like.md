@@ -87,7 +87,7 @@ This would also do what we want.
 
 We will see what happens. If we need to insert extra colons in our code, we will do that.
 
-For now, we will leave those redunant imports in our code. Because our code looks like
-module implementation code really should look like.
+For now, we will leave those redundant imports in our code. Because our code looks like
+module implementation code should look like.
 
 (last edited 2026-04-09)
