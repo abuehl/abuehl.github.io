@@ -1,6 +1,6 @@
 ---
 title: "How a Module should look like"
-date: 2026-04-13
+date: 2026-04-14
 ---
 
 Our `Core` module is in [`code/Core`](https://github.com/cadifra/cadifra/tree/main/code/Core).
