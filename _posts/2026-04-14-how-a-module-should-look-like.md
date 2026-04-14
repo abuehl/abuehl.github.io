@@ -19,7 +19,7 @@ export import :Transaction;
 export import :View;
 ```
 
-The files for the Transaction partition are in
+The files for the `Transaction` partition are in
 [`code/Core/Transaction`](https://github.com/cadifra/cadifra/tree/main/code/Core/Transaction):
 
 ```
@@ -30,16 +30,16 @@ Transaction.ixx
 TransactionImp.cpp
 ```
 
-The file [`/Core/Transaction/Transaction.ixx`](https://github.com/cadifra/cadifra/blob/main/code/Core/Transaction/Transaction.ixx) contains:
+The file [`Core/Transaction/Transaction.ixx`](https://github.com/cadifra/cadifra/blob/main/code/Core/Transaction/Transaction.ixx) contains:
 
 ```cpp
 export module Core:Transaction;
 ...
 ```
 
-This is an external partition.
+This is an [external partition](https://abuehl.github.io/2026/04/09/internal-partitions.html).
 
-The file [`/Core/Transaction/FinalizerDock.cpp`](https://github.com/cadifra/cadifra/blob/main/code/Core/Transaction/FinalizerDock.cpp) contains:
+The file [`Core/Transaction/FinalizerDock.cpp`](https://github.com/cadifra/cadifra/blob/main/code/Core/Transaction/FinalizerDock.cpp) contains:
 
 ```cpp
 module Core;
