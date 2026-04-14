@@ -5,7 +5,7 @@ date: 2026-04-13
 
 Our `Core` module is in [`code/Core`](https://github.com/cadifra/cadifra/tree/main/code/Core).
 
-The file [`_Module.ixx](https://github.com/cadifra/cadifra/blob/main/code/Core/_Module.ixx`) contains:
+The file [`Core/_Module.ixx`](https://github.com/cadifra/cadifra/blob/main/code/Core/_Module.ixx) contains:
 
 ```cpp
 export module Core;
