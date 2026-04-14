@@ -45,6 +45,7 @@ The file [`Core/Transaction/FinalizerDock.cpp`](https://github.com/cadifra/cadif
 ```cpp
 module Core;
 import :Transaction;
+...
 ```
 
 This is an implementation file of the `Core` module. The first line should only define
@@ -79,6 +80,7 @@ looks like this (file `Core/Transaction/FinalizerDock.cpp`):
 ```cpp
 module Core:;  // note the extra colon
 import :Transaction;
+...
 ```
 
 This would also do what we want.
