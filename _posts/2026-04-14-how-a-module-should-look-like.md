@@ -46,8 +46,8 @@ module Core;
 import :Transaction;
 ```
 
-This is an implementation file of the `Core` module. The first line should only define what Module
-it defines.
+This is an implementation file of the `Core` module. The first line should only define
+what module is defined in that file.
 
 The next line then imports the `Transaction` partition. This makes all the declarations
 of the `Transaction` partition available for use in the rest of the file.
@@ -69,20 +69,22 @@ The code as shown above is valid per the current C++ standard and compiles just 
 However, the `import :Transaction;` is redundant, because that partition was already
 implicitly imported by the line above.
 
-We are now leaving those redunfant imports in our code. We are hoping that the standarf
-will be changed in the future so that our code does what it is expected to do.
+We are now leaving those redundant imports in our code. We are hoping that the standard
+will be changed in the future, so that our code does what it is expected to do.
 
-There have been discussions to add a new syntax to the standard, which looks like this:
+There have been discussions to alternatively add a new syntax to the C++ standard, which
+looks like this (file `Core/Transaction/FinalizerDock.cpp`):
 
 ```cpp
 module Core:;  // note the extra colon
 import :Transaction;
 ```
 
-Which would also do what we want. We will see what happens. If we need to insert
-extra colons in our code, we will do that.
+This would also do what we want.
 
-For now, we will leave the redunant imports. Because our code looks like module
-implementation code really should look like.
+We will see what happens. If we need to insert extra colons in our code, we will do that.
+
+For now, we will leave those redunant imports in our code. Because our code looks like
+module implementation code really should look like.
 
 (last edited 2026-04-09)
