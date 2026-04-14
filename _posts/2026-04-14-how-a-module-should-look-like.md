@@ -3,9 +3,9 @@ title: "How a Module should look like"
 date: 2026-04-13
 ---
 
-Our `Core` module is in `[code/Core](https://github.com/cadifra/cadifra/tree/main/code/Core)`.
+Our `Core` module is in [`code/Core`](https://github.com/cadifra/cadifra/tree/main/code/Core).
 
-The file `[_Module.ixx](https://github.com/cadifra/cadifra/blob/main/code/Core/_Module.ixx)` contains:
+The file [`_Module.ixx](https://github.com/cadifra/cadifra/blob/main/code/Core/_Module.ixx`) contains:
 
 ```cpp
 export module Core;
@@ -20,7 +20,7 @@ export import :View;
 ```
 
 The files for the Transaction partition are in
-`[code/Core/Transaction](https://github.com/cadifra/cadifra/tree/main/code/Core/Transaction)`:
+[`code/Core/Transaction`](https://github.com/cadifra/cadifra/tree/main/code/Core/Transaction):
 
 ```
 >dir /b
