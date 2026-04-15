@@ -26,8 +26,8 @@ case). A module unit is a special form of translation unit (TU).
 `Core/_Module.ixx` is just an aggregate of external partitions. They are all exported from that
 PMIU. Normally, only declarations can be exported, but the `export` keyword can also be combined
 with the `import` keyword. The keyword sequence (`export import`) means, that all exported
-declarations of an imported module unit are not only imported into the PMUI, but also exported
-from that PMUI. All exported declarations in all these partitions are then usable for importers
+declarations of an imported module unit are not only imported into the PMIU, but also exported
+from that PMIU. All exported declarations in all these partitions are then usable for importers
 of the `Core` module.
 
 The files for the `:Transaction` partition are in
@@ -49,7 +49,7 @@ export module Core:Transaction;
 ```
 
 This is an external partition with the name `:Transaction`. All these must be exported by
-the PMUI, or the resulting program is "ill formed, no diagnostic required" (IF-NDR).
+the PMIU, or the resulting program is "ill formed, no diagnostic required" (IF-NDR).
 
 Partition names are local to a module.
 
@@ -92,7 +92,7 @@ Unfortunately, that's not what happens.
 [The C++ standard says](https://eel.is/c++draft/module#unit-8),
 that the line `module Core;` not just begins a module implementation unit, but it also
 *implicitly imports* the whole interface of the `Core` module (file `Core/_Module.ixx`).
-This means that all interface partitions of the Core module are imported as well.
+This means that all interface partitions of the `Core` module are imported as well.
 
 But we don't need nor want that here.
 
