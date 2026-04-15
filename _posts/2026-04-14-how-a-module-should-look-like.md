@@ -56,7 +56,7 @@ Partition names are local to a module.
 Partitions are not visible outside of the module. They serve as a means to structure
 the source code of larger modules into smaller module units.
 
-The export `keyword` on declarations in external partitions signifies, that said declaration
+The `export` keyword on declarations in external partitions signifies, that said declaration
 is exported from the module, not from the partition. If a partition is imported, all
 declarations contained in that partition are made available to the importing module unit
 (not just those marked with the `export` keyword). So the `export` keyword on declarations
