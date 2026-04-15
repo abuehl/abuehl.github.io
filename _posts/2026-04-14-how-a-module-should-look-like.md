@@ -1,5 +1,5 @@
 ---
-title: "How a Module Should Look Like"
+title: "How a Module Should Look"
 date: 2026-04-14
 ---
 
