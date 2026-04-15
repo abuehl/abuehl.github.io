@@ -48,16 +48,15 @@ export module Core:Transaction;
 ...
 ```
 
-This is an [external partition](https://abuehl.github.io/2026/04/09/internal-partitions.html)
-with the name `:Transaction`. All these must be exported by the PMUI, or the resulting
-program is "ill formed, no diagnostic required" (IF-NDR).
+This is an external partition with the name `:Transaction`. All these must be exported by
+the PMUI, or the resulting program is "ill formed, no diagnostic required" (IF-NDR).
 
-Partition names are local to a module. They are not visible outside of the module.
+Partition names are local to a module.
 
-Partitions serve as a mean to structure the source code of larger modules into smaller module
-units.
+Partitions are not visible outside of the module. They serve as a means to structure
+the source code of larger modules into smaller module units.
 
-The export `keyword` on declarations in external partition signifies, that said declaration
+The export `keyword` on declarations in external partitions signifies, that said declaration
 is exported from the module, not from the partition. If a partition is imported, all
 declarations contained in that partition are made available to the importing module unit
 (not just those marked with the `export` keyword). So the `export` keyword on declarations
