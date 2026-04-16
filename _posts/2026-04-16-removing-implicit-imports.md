@@ -83,8 +83,8 @@ case here.
 The effect of this new syntax would be, that the standard would effectively
 contain two syntaxes for basically the same thing:
 
-1. `"module M;"`  // implicitly imports interface M
-2. `"module M:;"` // with a colon, imports nothing
+1. `module M;  // implicitly imports interface M`
+2. `module M:; // with a colon, imports nothing`
 
 The main intention of these two syntaxes is defining a module implementation
 unit.
@@ -101,8 +101,8 @@ What if we were able to adjust the semantics of `"module M;"`?
 If we could start on a blank sheet with modules, we could imagine to have the
 following two syntaxes:
 
-1. `"module M;"`        // defines module M without importing anything
-2. `"module import M;"` // defines module M plus imports interface M
+1. `module M;        // defines module M without importing anything`
+2. `module import M; // defines module M plus imports interface M`
 
 This would cover both use cases.
 
