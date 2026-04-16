@@ -3,7 +3,7 @@ title: "Thoughts About Changing the C++ Standard: Removing Implicit Imports"
 date: 2026-04-16
 ---
 
-As you probalby are already well aware,
+As you probably are already well aware,
 [the C++ standard mandates](https://eel.is/c++draft/module#unit-8)
 that a module implementation unit (`"module M;"`) implicitly imports its interface.
 
