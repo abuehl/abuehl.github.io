@@ -40,6 +40,7 @@ which are declared in partition `:P`, we would be tempted to write the obvious:
 // Translation unit #4
 module M;
 import :P;
+...
 ```
 
 But TU #4 does not have the desired minimal number of dependencies as we are used
@@ -69,6 +70,7 @@ to the standard:
 // Translation unit #5
 module M:; // note the colon
 import :P;
+...
 ```
 
 which would have the desired semantic: Nothing is implicitly imported.
@@ -112,6 +114,7 @@ This would cover both use cases.
 // Translation unit #6
 module M;
 import M;
+...
 ```
 
 The C++ standard currently
