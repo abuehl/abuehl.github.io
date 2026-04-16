@@ -3,8 +3,9 @@ title: "Thoughts About Changing the C++ Standard: Removing Implicit Imports"
 date: 2026-04-16
 ---
 
-As you probalby are already well aware, the C++ standard mandates that a module
-implementation unit (`"module M;"`) implicitly imports its interface.
+As you probalby are already well aware,
+[the C++ standard mandates](https://eel.is/c++draft/module#unit-8)
+that a module implementation unit (`"module M;"`) implicitly imports its interface.
 
 ```cpp
 // Translation unit #1
@@ -52,10 +53,8 @@ What can be done? There is a messy pattern which involves defining an internal
 partition unit for each implementation file, which solves the problem of unneeded
 recompilations, but adds new problems: Each internal partition needs a unique
 name, which is unused, and the produced BMI file is not needed.
-Maintaining possibly hundreds of unique identifiers is tricky and error prone and
-the resulting code looks messy and isn't really a pleasure to read.
-
-What can be done?
+Maintaining possibly hundreds of unsued unique identifiers is tricky and error
+prone and the resulting code looks messy and isn't really a pleasure to read.
 
 As previously already mentioned, there have been discussion about introducing
 a new syntax
@@ -68,7 +67,7 @@ import :P;
 
 which has the desired semantic: Nothing is implicitly imported.
 
-This follows the long-standing tradition of C++: If you have a problem, add
+This follows a long-standing tradition of C++: If you have a problem, add
 a new syntax to the standard.
 
 This has the benefit that existing code doesn't have to be changed.
@@ -82,23 +81,25 @@ contain two syntaxes for basically the same thing:
 2. "module M:;" // with the colon, which imports nothing
 
 The main intention of these two syntaxes is defining a module implementation
-unit. But if we would restart designing modules, we would need only
+unit.
+
+But if we would restart designing modules, we would in fact need only
 one of these two syntaxes: namely number #1, wouldn't we?
 
-Given how slow the adoption of modules actually is, does it really make
-sense to keep the old syntax forever?
+Given how slow the adoption of modules actually happens, does it really make
+sense to keep the old semantic forever?
 
-What, if we were able to adjust the semantics?
+What if we were able to adjust the semantics?
 
 If we could start on a blank sheet with modules, we could imagine to have the
 following two syntaxes:
 
-1. `"module import M;"` // defines module M and imports interface M
-2. `"module M;"`        // defines module M without importin anything
+1. `"module M;"`        // defines module M without importin anything
+2. `"module import M;"` // defines module M and imports interface M
 
 This would cover both use cases.
 
-"module import M;" would be shorthand for:
+`"module import M;"` would be a shorthand for:
 
 ```cpp
 // Translation unit #6
@@ -106,38 +107,39 @@ module M;
 import M;
 ```
 
-The C++ standard currently explicitly forbids this, but it is not really
-clear why. For example, the MSVC compiler today compiles TU #6 just fine,
-of course currently with the effect that the interface of `M` (the PMIU) is
-imported twice.
+The C++ standard currently
+[explicitly forbids](https://eel.is/c++draft/module#import-9)
+this, but it is not really clear why. For example, the MSVC compiler today
+compiles TU #6 just fine, of course currently with the effect that the
+interface of `M` (the PMIU) is imported twice. In general, the standard
+doesn't prohibit duplicated imports. It doens't even prescribe a
+diagnostic.
 
-In theory, we could for example ad the following new syntax in C++29:
+In theory, we could for example add the following new syntax in C++29:
 
 `"module import M;"`
 
-which would the same as `"module M;"`. So existing code using
+which would do the same as `"module M;"`. So existing code using
 `"module M;"` would not be affected.
 
-But C++29 could deprecate the old semantic of `"module M;"` which
+But C++29 could **deprecate** the old semantic of `"module M;"` which
 imports `M` as a side effect.
 
 The old semantic of `"module M;"` would be in deprecation state for a full
 revision cycle of the standard, which would allow to remove it
-in C+32 and finally reuse the C+29 syntax for what it should have been
+in C++32 and finally reuse the C+29 syntax for what it should have been
 in the first place: Declaring an implementation module without
-importing anything.
+importing anything as a side effect.
 
-The complaint that there is lot of old cruft in the C++ standard is
-regulary raised. This would now be an excellent occasion to finally
+People regularly complain that the C++ language has accumulated
+a lot of old cruft. This would now be an excellent occasion to finally
 do the right thing and eliminate the old behavior of `"module M;"`.
 
 We programmers should be in control. Bundling the import with the
-declaration of the module unit has been proven now to be a bad
-thing.
+declaration of the module unit has now proven to be unhelpful.
 
 I'm not familiar with the gory details of the standardization
-process. And I've heard that doing what I described above
-would be impossible to into the standard. I think that's
-real pity.
+process for C++. And I've heard that doing what I described above
+would not be accepted. I think that's real pity.
 
 (last edited 2026-04-16)
