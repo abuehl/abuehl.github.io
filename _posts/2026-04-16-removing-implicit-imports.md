@@ -26,7 +26,7 @@ translation units are module implementation units of module `M`, but those lines
 additionally also *implicitly* import the interface of `M` (TU #1).
 
 For small modules, this may make some sense. But this implies unneeded build
-dependencies for large modules that export partitions in their primary module
+dependencies for larger modules that export partitions in their primary module
 unterface unit (PMIU, TU #1).
 
 See also my earlier blog posting
