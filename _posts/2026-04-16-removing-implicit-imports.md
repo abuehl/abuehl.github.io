@@ -42,7 +42,7 @@ module M;
 import :P;
 ```
 
-But TU #4 does not have the desired minimal number of dependencies, as we are used
+But TU #4 does not have the desired minimal number of dependencies as we are used
 to have when doing everything using header files.
 
 TU #4 causes unneded rebuilds of files, because it not only imports the explicitly
