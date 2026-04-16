@@ -152,6 +152,6 @@ declaration of the module unit has now proven to be unhelpful.
 
 I'm not familiar with the gory details of the standardization
 process for C++. And I've heard that doing what I described above
-would not be accepted. I think that's real pity.
+would not be accepted. I think that's a real pity.
 
-(last edited 2026-04-16)
+(last edited 2026-04-17)
