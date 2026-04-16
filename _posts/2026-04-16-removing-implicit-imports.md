@@ -76,9 +76,8 @@ which would have the desired semantic: Nothing is implicitly imported.
 This follows a long-standing tradition of C++: If we have a problem, we add
 a new syntax to the standard.
 
-This has the benefit that existing code doesn't have to be changed.
-
-This is often a good idea, but there are some questions about the specific
+This has the benefit that existing code doesn't have to be changed. This is
+often a good idea, but there are some questions about the specific
 case here.
 
 The effect of this new syntax would be, that the standard would effectively
