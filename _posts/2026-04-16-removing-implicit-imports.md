@@ -25,9 +25,9 @@ The lines `"module M;"` in translation units #2 and #3 not only declare that tho
 translation units are module implementation units of module `M`, but those lines
 additionally also *implicitly* import the interface of `M` (TU #1).
 
-For small modules, this may make some sense. But for large modules which export
-partitions in their primary module unterface unit (PMIU, TU #1), this implies
-unneeded build dependencies.
+For small modules, this may make some sense. But this implies unneeded build
+dependencies for large modules that export partitions in their primary module
+unterface unit (PMIU, TU #1).
 
 If we want to have an implementation unit that implements some functions of `M`,
 which are declared in partition `:P`, we would be tempted to write the obvious:
