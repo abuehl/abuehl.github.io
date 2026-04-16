@@ -4,12 +4,10 @@ date: 2026-04-14
 ---
 
 Our `Core` module is in
-[`code/Core`]
-(https://github.com/cadifra/cadifra/tree/2026.1/code/Core).
+[`code/Core`](https://github.com/cadifra/cadifra/tree/2026.1/code/Core).
 
 The file
-[`Core/_Module.ixx`]
-(https://github.com/cadifra/cadifra/blob/2026.1/code/Core/_Module.ixx)
+[`Core/_Module.ixx`](https://github.com/cadifra/cadifra/blob/2026.1/code/Core/_Module.ixx)
 contains:
 
 ```cpp
@@ -36,8 +34,7 @@ from that PMIU. All exported declarations in all these partitions are then usabl
 of the `Core` module.
 
 The files for the `:Transaction` partition are in
-[`code/Core/Transaction`]
-(https://github.com/cadifra/cadifra/tree/2026.1/code/Core/Transaction):
+[`code/Core/Transaction`](https://github.com/cadifra/cadifra/tree/2026.1/code/Core/Transaction):
 
 ```
 >dir /b
@@ -73,12 +70,10 @@ other module units.
 
 Partitions can only be imported into module units of the same module (see also
 the blog posting
-["C++ Modules: Internal Partitions"]
-(https://abuehl.github.io/2026/04/09/internal-partitions.html)).
+["C++ Modules: Internal Partitions"](https://abuehl.github.io/2026/04/09/internal-partitions.html)).
 
 The file
-[`Core/Transaction/FinalizerDock.cpp`]
-(https://github.com/cadifra/cadifra/blob/2026.1/code/Core/Transaction/FinalizerDock.cpp)
+[`Core/Transaction/FinalizerDock.cpp`](https://github.com/cadifra/cadifra/blob/2026.1/code/Core/Transaction/FinalizerDock.cpp)
 contains:
 
 ```cpp
