@@ -62,8 +62,8 @@ the produced BMI files are not needed. Maintaining possibly hundreds of unused
 unique identifiers is error prone and the resulting code isn't really a pleasure
 to read. That pattern possibly can't be the definitive solution.
 
-As previously already mentioned, there have been discussions about additionally
-introducing a new syntax
+As previously already mentioned, there have been discussions about adding a new syntax
+to the standard:
 
 ```cpp
 // Translation unit #5
