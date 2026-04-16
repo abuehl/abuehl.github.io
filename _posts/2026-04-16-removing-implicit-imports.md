@@ -27,7 +27,7 @@ additionally also *implicitly* import the interface of `M` (TU #1).
 
 For small modules, this may make some sense. But this implies unneeded build
 dependencies for larger modules that export partitions in their primary module
-unterface unit (PMIU, TU #1).
+interface unit (PMIU, TU #1).
 
 See also my earlier blog posting
 ["How a Module Should Look"](https://abuehl.github.io/2026/04/14/how-a-module-should-look-like.html)
