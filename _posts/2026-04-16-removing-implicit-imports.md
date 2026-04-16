@@ -29,6 +29,10 @@ For small modules, this may make some sense. But this implies unneeded build
 dependencies for large modules that export partitions in their primary module
 unterface unit (PMIU, TU #1).
 
+See also my earlier blog posting
+["How a Module Should Look"](https://abuehl.github.io/2026/04/14/how-a-module-should-look-like.html)
+for a detailed example of this, using real code.
+
 If we want to have an implementation unit that implements some functions of `M`,
 which are declared in partition `:P`, we would be tempted to write the obvious:
 
@@ -46,9 +50,6 @@ imported partition `:P`, which alone would be sufficent to compile TU #4, but it
 indirectly imports all other partitions of the PMIU - but those are not needed
 in TU 4.
 
-See also my earlier blog posting
-["How a Module Should Look"](https://abuehl.github.io/2026/04/14/how-a-module-should-look-like.html)
-for a detailed example of this, using real code.
 
 ### What can be done?
 
