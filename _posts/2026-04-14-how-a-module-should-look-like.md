@@ -3,9 +3,14 @@ title: "How a Module Should Look"
 date: 2026-04-14
 ---
 
-Our `Core` module is in [`code/Core`](https://github.com/cadifra/cadifra/tree/main/code/Core).
+Our `Core` module is in
+[`code/Core`]
+(https://github.com/cadifra/cadifra/tree/2026.1/code/Core).
 
-The file [`Core/_Module.ixx`](https://github.com/cadifra/cadifra/blob/main/code/Core/_Module.ixx) contains:
+The file
+[`Core/_Module.ixx`]
+(https://github.com/cadifra/cadifra/blob/2026.1/code/Core/_Module.ixx)
+contains:
 
 ```cpp
 export module Core;
@@ -31,7 +36,8 @@ from that PMIU. All exported declarations in all these partitions are then usabl
 of the `Core` module.
 
 The files for the `:Transaction` partition are in
-[`code/Core/Transaction`](https://github.com/cadifra/cadifra/tree/main/code/Core/Transaction):
+[`code/Core/Transaction`]
+(https://github.com/cadifra/cadifra/tree/2026.1/code/Core/Transaction):
 
 ```
 >dir /b
@@ -41,7 +47,9 @@ Transaction.ixx
 TransactionImp.cpp
 ```
 
-The file [`Core/Transaction/Transaction.ixx`](https://github.com/cadifra/cadifra/blob/main/code/Core/Transaction/Transaction.ixx) contains:
+The file
+[`Core/Transaction/Transaction.ixx`](https://github.com/cadifra/cadifra/blob/2026.1/code/Core/Transaction/Transaction.ixx)
+contains:
 
 ```cpp
 export module Core:Transaction;
@@ -65,9 +73,13 @@ other module units.
 
 Partitions can only be imported into module units of the same module (see also
 the blog posting
-["C++ Modules: Internal Partitions"](https://abuehl.github.io/2026/04/09/internal-partitions.html)).
+["C++ Modules: Internal Partitions"]
+(https://abuehl.github.io/2026/04/09/internal-partitions.html)).
 
-The file [`Core/Transaction/FinalizerDock.cpp`](https://github.com/cadifra/cadifra/blob/main/code/Core/Transaction/FinalizerDock.cpp) contains:
+The file
+[`Core/Transaction/FinalizerDock.cpp`]
+(https://github.com/cadifra/cadifra/blob/2026.1/code/Core/Transaction/FinalizerDock.cpp)
+contains:
 
 ```cpp
 module Core;
@@ -127,4 +139,4 @@ We will see what happens. If we need to insert extra colons in our code, we will
 For now, we will leave those redundant imports in our code. Because we believe that
 our code looks like module implementations ideally should be.
 
-(last edited 2026-04-15)
+(last edited 2026-04-16)
