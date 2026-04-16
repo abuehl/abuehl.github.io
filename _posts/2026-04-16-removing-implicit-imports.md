@@ -25,9 +25,9 @@ The lines `"module M;"` in translation units #2 and #3 not only declare that tho
 translation units are module implementation units of module `M`, but those lines
 additionally also *implicitly* import the interface of `M` (TU #1).
 
-For small modules, this may make some sense. But for large modules that export
-partitions in their primary module unterface unit (PMIU, TU #1), it causes unneeded
-dependencies.
+For small modules, this may make some sense. But for large modules which export
+partitions in their primary module unterface unit (PMIU, TU #1), this implies
+unneeded build dependencies.
 
 If we want to have an implementation unit that implements some functions of `M`,
 which are declared in partition `:P`, we would be tempted to write the obvious:
@@ -61,8 +61,8 @@ the produced BMI files are not needed. Maintaining possibly hundreds of unused
 unique identifiers is error prone and the resulting code isn't really a pleasure
 to read. That pattern possibly can't be the definitive solution.
 
-As previously already mentioned, there have been discussion about introducing
-a new syntax
+As previously already mentioned, there have been discussions about additionally
+introducing a new syntax
 
 ```cpp
 // Translation unit #5
@@ -77,7 +77,7 @@ a new syntax to the standard.
 
 This has the benefit that existing code doesn't have to be changed.
 
-This is often a good idea. But there are some questions about the specific
+This is often a good idea, but there are some questions about the specific
 case here.
 
 The effect of this new syntax would be, that the standard would effectively
@@ -127,7 +127,9 @@ In theory, we could for example add the following new syntax in C++29:
 `"module import M;"`
 
 which would do the same as `"module M;"`. So existing code using
-`"module M;"` would not be affected.
+`"module M;"` would not be affected, but it could be migrated to
+using `"module import M;"`. Which would make the behavior very
+explicit.
 
 But C++29 could **deprecate** the old semantic of `"module M;"` which
 imports `M` as a side effect.
