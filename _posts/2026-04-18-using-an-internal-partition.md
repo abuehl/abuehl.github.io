@@ -55,9 +55,8 @@ To compile this file with the MSVC compiler, the
 [/internalPartition](https://learn.microsoft.com/en-us/cpp/build/reference/internal-partition?view=msvc-170)
 flag must be set. 
 
-We separated definitions of functions declared in the `:UndoerImp` partition into cpp files in the same
-directory as the `UndoerImp.cppm` file. These files are all in the directory
-[`Core/UndoerImp`](https://github.com/cadifra/cadifra/tree/2026.2/code/Core/UndoerImp):
+We separated definitions of functions declared in the `:UndoerImp` partition into a few cpp files. These
+files are all in the directory [`Core/UndoerImp`](https://github.com/cadifra/cadifra/tree/2026.2/code/Core/UndoerImp):
 
 ```
 >dir /b
