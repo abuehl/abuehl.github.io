@@ -48,8 +48,8 @@ The file `UndoerImp.cppm` declares a couple of classes for internal use in the i
 of the `Core` module.
 
 Note that the internal partition `:UndoerImp` is not imported in `_Module.ixx`.
-Because internal partitions are not meant to be imported in interfaces of
-modules, because they cannot export anything.
+Internal partitions are not meant to be imported in interfaces. They also cannot export
+anything.
 
 To compile this file with the MSVC compiler, the
 [/internalPartition](https://learn.microsoft.com/en-us/cpp/build/reference/internal-partition?view=msvc-170)
