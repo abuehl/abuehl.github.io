@@ -4,22 +4,31 @@ date: 2026-04-14
 ---
 
 Our `Core` module is in
-[`code/Core`](https://github.com/cadifra/cadifra/tree/2026.1/code/Core).
+[`code/Core`](https://github.com/cadifra/cadifra/tree/2026.2/code/Core).
 
 The file
-[`Core/_Module.ixx`](https://github.com/cadifra/cadifra/blob/2026.1/code/Core/_Module.ixx)
+[`Core/_Module.ixx`](https://github.com/cadifra/cadifra/blob/2026.2/code/Core/_Module.ixx)
 contains:
 
 ```cpp
 export module Core;
 
 export import :Attach;
-export import :Base;
 export import :Container;
+export import :CopyRegistry;
 export import :Diagram;
+export import :Element;
+export import :Grid;
 export import :Interfaces;
+export import :ObjectRegistry;
+export import :ObjectWithID;
+export import :Selection;
+export import :Shift;
 export import :Transaction;
+export import :Undoer;
+export import :Util;
 export import :View;
+export import :Weight;
 ```
 
 This is the interface of the `Core` module. The standard calls this the "primary module interface
@@ -34,7 +43,7 @@ from that PMIU. All exported declarations in all these partitions are then usabl
 of the `Core` module.
 
 The files for the `:Transaction` partition are in
-[`code/Core/Transaction`](https://github.com/cadifra/cadifra/tree/2026.1/code/Core/Transaction):
+[`code/Core/Transaction`](https://github.com/cadifra/cadifra/tree/2026.2/code/Core/Transaction):
 
 ```
 >dir /b
@@ -45,7 +54,7 @@ TransactionImp.cpp
 ```
 
 The file
-[`Core/Transaction/Transaction.ixx`](https://github.com/cadifra/cadifra/blob/2026.1/code/Core/Transaction/Transaction.ixx)
+[`Core/Transaction/Transaction.ixx`](https://github.com/cadifra/cadifra/blob/2026.2/code/Core/Transaction/Transaction.ixx)
 contains:
 
 ```cpp
@@ -73,7 +82,7 @@ the blog posting
 ["C++ Modules: Internal Partitions"](https://abuehl.github.io/2026/04/09/internal-partitions.html)).
 
 The file
-[`Core/Transaction/FinalizerDock.cpp`](https://github.com/cadifra/cadifra/blob/2026.1/code/Core/Transaction/FinalizerDock.cpp)
+[`Core/Transaction/FinalizerDock.cpp`](https://github.com/cadifra/cadifra/blob/2026.2/code/Core/Transaction/FinalizerDock.cpp)
 contains:
 
 ```cpp
@@ -134,4 +143,4 @@ We will see what happens. If we need to insert extra colons in our code, we will
 For now, we will leave those redundant imports in our code. Because we believe that
 our code looks like module implementations ideally should be.
 
-(last edited 2026-04-16)
+(last edited 2026-04-18)
