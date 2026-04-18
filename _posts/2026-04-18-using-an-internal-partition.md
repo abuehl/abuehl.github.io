@@ -35,9 +35,9 @@ This is the interface of the `Core` module. The files that are exported there ar
 partitions (see also the blog posting
 ["How a Module Should Look"](https://abuehl.github.io/2026/04/14/how-a-module-should-look-like.html)).
 
-We have an internal partition `:UndoerImp` (in file
+We have an internal partition `:UndoerImp` in file
 [`Core/UndoerImp/UndoerImp.cppm`](https://github.com/cadifra/cadifra/blob/2026.2/code/Core/UndoerImp/UndoerImp.cppm)
-):
+:
 
 
 ```cpp
@@ -68,15 +68,17 @@ contains:
 ```cpp
 module Core;
 import :UndoerImp;
+...
 ```
 
-That's a module implementation unit for the Core module.
+That's a module implementation unit for the `Core` module. A module is the collection
+of all module units with the same name (`Core`).
 
 Because we want to implement functions of the `:UndoerImp` partition, we need to import
 that partition.
 
 Readers who are not accustomed to how module implementation units work, might think
-that's all we get there - but that's not what happens.
+that's all we get there. But that's not what happens.
 
 The line `module Core;` not just declares that the file is a module unit of the
 `Core` module, but it also implicitly imports the whole interface of the `Core` module,
@@ -90,10 +92,10 @@ modules.
 
 I would be really interested to know what the exact motivation is for implicitly
 importing the whole interface of the `Core` module, when we want to implement
-and internal partition of `Core`.
+an internal partition of `Core`.
 
 See also:
 
-* C++ Modules: Internal Partitions](https://abuehl.github.io/2026/04/09/internal-partitions.html)
+* [C++ Modules: Internal Partitions](https://abuehl.github.io/2026/04/09/internal-partitions.html)
 
 (last edited 2026-04-18)
