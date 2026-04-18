@@ -32,8 +32,8 @@ export import :Weight;
 ```
 
 This is the interface of the `Core` module. The exported partitions are all *external*
-partitions (see also the blog posting
-["How a Module Should Look"](https://abuehl.github.io/2026/04/14/how-a-module-should-look-like.html)).
+partitions. See also the blog posting
+["How a Module Should Look"](https://abuehl.github.io/2026/04/14/how-a-module-should-look-like.html).
 
 We have an internal partition `:UndoerImp` in file
 [`Core/UndoerImp/UndoerImp.cppm`](https://github.com/cadifra/cadifra/blob/2026.2/code/Core/UndoerImp/UndoerImp.cppm)
