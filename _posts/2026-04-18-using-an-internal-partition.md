@@ -47,6 +47,10 @@ module Core:UndoerImp;
 The file `UndoerImp.cppm` declares a couple of classes for internal use in the implementation
 of the `Core` module.
 
+Note that the internal partition `:UndoerImp` is not imported in `_Module.ixx`.
+Because internal partitions are not meant to be imported in interfaces of
+modules, because they cannot export anything.
+
 To compile this file with the MSVC compiler, the
 [/internalPartition](https://learn.microsoft.com/en-us/cpp/build/reference/internal-partition?view=msvc-170)
 flag must be set. 
@@ -86,10 +90,6 @@ The line `module Core;` not just declares that the file is a module unit of the
 `Core` module, but it also *implicitly* imports the whole interface of the `Core` module.
 That is, all the external partitions listed in the `_Module.ixx` file are pulled
 in as well.
-
-Note that the internal partition `:UndoerImp` is not imported in `_Module.ixx`.
-Because internal partitions are not meant to be imported in interfaces of
-modules.
 
 I would be really interested to know what the exact motivation is for implicitly
 importing the whole interface of the `Core` module, when we want to implement
