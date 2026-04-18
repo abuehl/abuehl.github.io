@@ -31,7 +31,7 @@ export import :View;
 export import :Weight;
 ```
 
-This is the interface of the `Core` module. The files that are exported there are all external
+This is the interface of the `Core` module. The exported partitions there are all external
 partitions (see also the blog posting
 ["How a Module Should Look"](https://abuehl.github.io/2026/04/14/how-a-module-should-look-like.html)).
 
