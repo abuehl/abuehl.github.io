@@ -99,4 +99,4 @@ See also:
 
 * [C++ Modules: Internal Partitions](https://abuehl.github.io/2026/04/09/internal-partitions.html)
 
-(last edited 2026-04-18)
+(last edited 2026-04-19)
