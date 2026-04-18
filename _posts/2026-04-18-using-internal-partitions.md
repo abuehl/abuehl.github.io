@@ -1,5 +1,5 @@
 ---
-title: "Using an Internal Partition"
+title: "Using Internal Partitinos"
 date: 2026-04-18
 ---
 
@@ -89,10 +89,6 @@ The line `module Core;` not just declares that the file is a module unit of the
 the whole interface of the `Core` module.
 That is, all the external partitions listed in the `_Module.ixx` file are pulled
 in as well. But we don't need that.
-
-I would be really interested to know what the exact motivation is for implicitly
-importing the whole interface of the `Core` module, when we want to implement
-an internal partition of `Core`.
 
 See also:
 
