@@ -39,11 +39,13 @@ We have an internal partition `:UndoerImp` in file
 [`Core/UndoerImp/UndoerImp.cppm`](https://github.com/cadifra/cadifra/blob/2026.2/code/Core/UndoerImp/UndoerImp.cppm)
 :
 
-
 ```cpp
 module Core:UndoerImp;
 ...
 ```
+
+The file `UndoerImp.cppm` declares a couple of classes for internal use in the implementation
+of the `Core` module.
 
 To compile this file with the MSVC compiler, the
 [/internalPartition](https://learn.microsoft.com/en-us/cpp/build/reference/internal-partition?view=msvc-170)
