@@ -83,8 +83,7 @@ that's all we get there. But that's not what happens.
 The line `module Core;` not just declares that the file is a module unit of the
 `Core` module, but it also implicitly imports the whole interface of the `Core` module,
 that is, all the external partitions listed in the `_Module.ixx` file are pulled
-in as well, even though all we want is just to implement some functions of the
-internal partition `:UndoerImp`.
+in as well.
 
 Note that the internal partition `:UndoerImp` is not imported in `_Module.ixx`.
 Because internal partitions are not meant to be imported in interfaces of
