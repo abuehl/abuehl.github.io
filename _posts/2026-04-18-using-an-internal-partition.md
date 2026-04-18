@@ -81,15 +81,15 @@ That's a module implementation unit for the `Core` module. A module is the colle
 of all module units with the same name (`Core`).
 
 Because we want to implement functions of the `:UndoerImp` partition, we need to import
-that partition.
-
-Readers who are not accustomed to how module implementation units work, might think
-that's all we get there. But that's not what happens.
+that partition. Readers who are not accustomed to how module implementation units work,
+might think that's all we get there. But that's not what happens.
 
 The line `module Core;` not just declares that the file is a module unit of the
-`Core` module, but it also *implicitly* imports the whole interface of the `Core` module.
+`Core` module, but it also
+[implicitly imports](https://eel.is/c++draft/module#unit-8)
+the whole interface of the `Core` module.
 That is, all the external partitions listed in the `_Module.ixx` file are pulled
-in as well.
+in as well. But we don't need that.
 
 I would be really interested to know what the exact motivation is for implicitly
 importing the whole interface of the `Core` module, when we want to implement
