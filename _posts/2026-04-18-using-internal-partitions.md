@@ -1,5 +1,5 @@
 ---
-title: "Using Internal Partitinos"
+title: "Using Internal Partitions"
 date: 2026-04-18
 ---
 
