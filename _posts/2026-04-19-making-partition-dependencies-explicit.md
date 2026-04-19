@@ -101,11 +101,11 @@ import :Transaction;
 ...
 ```
 
-The import of the `:Transaction` partition is redunant, as that partition is already
+The import of the `:Transaction` partition is redundant, as that partition is already
 implicitly imported by the line `module Core;`.
 
 Explicitly importing the `:Transaction` partition makes it clear, that the declarations
-from the `:Transaction` are needed for the definitions in `FinalizerDock.cpp`.
+from the `:Transaction` partition are needed for the definitions in `FinalizerDock.cpp`.
 
 The correctness of those redundant explicit imports can be verified by temporarily
 commenting out the line `#include "_Partitions.h"` in `_Module.ixx` and rebuilding
