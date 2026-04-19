@@ -108,10 +108,10 @@ Explicitly importing the `:Transaction` partition makes it clear, that the decla
 from the `:Transaction` are needed for the definitions in `FinalizerDock.cpp`.
 
 The correctness of those redundant explicit imports can be verified by temporarily
-commenting out the line `#include "_Partitions.h"` in `_Module.ixx` and rebuiling
+commenting out the line `#include "_Partitions.h"` in `_Module.ixx` and rebuilding
 only the files for the `Core` module.
 
 Of course, the `#include "_Partitions.h"` is required when building the whole
-program, as otherwise the module `M` wouln't export anything.
+program, as otherwise module `M` wouln't export anything.
 
 (last edited 2026-04-19)
