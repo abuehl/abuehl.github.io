@@ -112,6 +112,6 @@ commenting out the line `#include "_Partitions.h"` in `_Module.ixx` and rebuildi
 only the files for the `Core` module.
 
 Of course, the `#include "_Partitions.h"` is required when building the whole
-program, as otherwise module `M` wouldn't export anything.
+program, as otherwise module `Core` wouldn't export anything.
 
 (last edited 2026-04-19)
