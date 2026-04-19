@@ -25,7 +25,7 @@ When using partitions, this adds extra dependencies on module units. See also
 ["Using Internal Partitions"](https://abuehl.github.io/2026/04/18/using-internal-partitions.html).
 
 When using partitions, required dependencies can be made explicit in
-source code by adding explicit imports.
+source code by adding redundant explicit imports.
 
 ```cpp
 // Translation unit #3
@@ -56,7 +56,7 @@ Although redundant, the C++ standard allows to import partition `:P1` in TU #6,
 in order to make the dependency on `:P1` explicit for readers of the code.
 
 The exports of `:P1` and `:P2` in TU #3 can be temporarily commented out when
-compiling the module units for module M (TU #3 to #6). If the explicit import
+compiling the module units for module `M` (TU #3 to #6). If the explicit import
 in TU #6 were missing, the compiler would then report an error about
 missing declarations.
 
@@ -91,9 +91,8 @@ export import :Element;
 ```
 
 The file
-[Core/Transaction/FinalizerDock.cpp](https://github.com/cadifra/cadifra/blob/2026.3/code/Core/Transaction/FinalizerDock.cpp)
-
-implements functions of the :Transaction partition. It contains:
+[`Core/Transaction/FinalizerDock.cpp`](https://github.com/cadifra/cadifra/blob/2026.3/code/Core/Transaction/FinalizerDock.cpp)
+implements functions of the `:Transaction` partition. It contains:
 
 
 ```cpp
