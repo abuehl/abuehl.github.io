@@ -48,9 +48,9 @@ import :P1;
 ...
 ```
 
-Let's assume we define some functions of the module `M` (TU #3) in TU #6.
+Let's assume we define some functions of the module `M` in TU #6.
 
-TU #6 implicitly imports TU #3, which indirectly imports both TU #1 and #2.
+TU #6 implicitly imports TU #3, which indirectly imports both TU #4 and #5.
 
 Although redundant, the C++ standard allows to import partition `:P1` in TU #6,
 in order to make the dependency on `:P1` explicit for readers of the code.
