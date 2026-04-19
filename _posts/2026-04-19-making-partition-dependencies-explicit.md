@@ -3,8 +3,10 @@ title: "Making Partition Dependencies Explicit"
 date: 2026-04-19
 ---
 
-C++ as per the current standard, mandates that implementation units implicitly
-import the interface  of the module.
+The C++ language, as per the current standard,
+[mandates](https://eel.is/c++draft/module#unit-8)
+that implementation units of modules implicitly import the interface
+of the module.
 
 ```cpp
 // Translation unit #1
