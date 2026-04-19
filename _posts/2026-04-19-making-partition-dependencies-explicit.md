@@ -79,7 +79,7 @@ export module Core;
 
 The include file
 [`Core/_Partitions.h`](https://github.com/cadifra/cadifra/blob/2026.3/code/Core/_Partitions.h)
-then contains the exports of the external partititions:
+then contains the exports of the external partitions:
 
 ```cpp
 export import :Attach;
