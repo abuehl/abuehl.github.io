@@ -25,7 +25,7 @@ When using partitions, this adds extra dependencies on module units. See also
 ["Using Internal Partitions"](https://abuehl.github.io/2026/04/18/using-internal-partitions.html).
 
 When using partitions, required dependencies can be made explicit in
-source code by adding redundant explicit imports.
+the source code by adding redundant explicit imports.
 
 ```cpp
 // Translation unit #3
