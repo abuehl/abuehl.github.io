@@ -104,10 +104,16 @@ Weight/Weight.cpp
 
 This is only the list of files that are recompiled due to the implicit
 imports in implementation files of the `Core` module. Of course, all explicit
-importers of the `Core` module would need to be recompiled as well.
+importers of the `Core` module would need to be recompiled as well, which
+are way more for our UML Editor.
 
-Our `Core` module may be a rather small example of a module using partitions,
-but modules were said to deliver faster builds. Gratuitously recompiling files
-that don't really need to be recompiled surely doesn't help for that.
+Our `Core` module is just a small example for a module using partitions.
+For large modules, those unneeded recompilations may make a difference.
+Technically, they should be avoidable.
+
+But it's not just a problem with wasting CPU time for unneeded
+recompilations. The code is also more difficult to understand, as it'S
+not evident for readers of the code, where the declarations are coming
+from. That affects also small modules like our `Core` module.
 
 (last edited 2026-04-20)
