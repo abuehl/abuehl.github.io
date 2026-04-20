@@ -103,6 +103,6 @@ Wight/Weight.cpp
 
 Our `Core` module may be a rather small example of a module using partitions,
 but modules were said to deliver faster builds. Gratuitously recompiling files
-that don't really need to be recompiled surely doesn't help for that..
+that don't really need to be recompiled surely doesn't help for that.
 
 (last edited 2026-04-20)
