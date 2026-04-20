@@ -115,7 +115,10 @@ But it's not just a problem with wasting CPU time for unneeded
 recompilations. The code is also more difficult to understand, as it's
 not evident for readers of the code, where the implicitly imported
 declarations are coming from. That affects also smaller modules like
-our `Core` module. We have addressed that by explicitly (redunantly)
-importing the required Partitions.
+our `Core` module. We have addressed that by explicitly (redundantly)
+importing the required partitions. Those explicit imports can be
+tested by temporarily commenting out the exports in the primary module
+interface unit and then recompiling all files of the `Core` module. The
+compiler will error out if an import is missing.
 
 (last edited 2026-04-20)
