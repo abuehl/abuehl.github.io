@@ -31,7 +31,7 @@ export import :View;
 export import :Weight;
 ```
 
-This is the interface of the `Core` module. It contains a list of export interface partitions.
+This is the interface of the `Core` module. It contains a list of exported interface partitions.
 
 The file
 [`Core/Transaction/FinalizerDock.cpp`](https://github.com/cadifra/cadifra/blob/2026.2/code/Core/Transaction/FinalizerDock.cpp)
