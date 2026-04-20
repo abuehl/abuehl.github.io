@@ -112,8 +112,10 @@ For large modules, those unneeded recompilations may make a difference.
 Technically, they should be avoidable.
 
 But it's not just a problem with wasting CPU time for unneeded
-recompilations. The code is also more difficult to understand, as it'S
-not evident for readers of the code, where the declarations are coming
-from. That affects also small modules like our `Core` module.
+recompilations. The code is also more difficult to understand, as it's
+not evident for readers of the code, where the implicitly imported
+declarations are coming from. That affects also small modules like
+our `Core` module. We have addressed that by explicitly (redunantly)
+importing the required Partitions.
 
 (last edited 2026-04-20)
