@@ -46,8 +46,8 @@ This is an implementation file of the `Core` module, aka an "implementation unit
 
 `FinalizerDock.cpp` only needs declarations from the `:Transaction` partition, but due to the
 fact that `"module Core;"` implicitly imports the whole interface of the `Core` module (as
-[mandated by the standard](https://eel.is/c++draft/module#unit-8)
-), all partitions of the `Core` module are implicitly imported as well.
+[mandated by the standard](https://eel.is/c++draft/module#unit-8)), all partitions of
+the `Core` module are implicitly imported as well.
 
 If the interface partition 
 [`Core/Transaction/Transaction.ixx`](https://github.com/cadifra/cadifra/blob/2026.2/code/Core/Transaction/Transaction.ixx)
