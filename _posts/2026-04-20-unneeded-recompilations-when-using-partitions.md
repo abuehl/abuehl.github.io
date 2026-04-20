@@ -119,6 +119,6 @@ our `Core` module. We have addressed that by explicitly (redundantly)
 importing the required partitions. Those explicit imports can be
 tested by temporarily commenting out the exports in the primary module
 interface unit and then recompiling all files of the `Core` module. The
-compiler will error out if an import is missing.
+compiler will then error out if an explicit import is missing.
 
 (last edited 2026-04-20)
