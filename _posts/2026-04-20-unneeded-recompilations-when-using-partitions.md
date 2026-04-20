@@ -54,14 +54,12 @@ If the interface partition
 is modified, ideally only the files which use declarations from it, would need to be
 recompiled. That is the files:
 
-```
-Diagram/TransferSet.cpp
-Element/Env.cpp
-Element/IElement.cpp
-Transaction/FinalizerDock.cpp
-Transaction/Transaction.cpp
-Transaction/TransactionImp.cpp
-```
+[`Diagram/TransferSet.cpp`](https://github.com/cadifra/cadifra/blob/2026.2/code/Core/Diagram/TransferSet.cpp)
+[`Element/Env.cpp`](https://github.com/cadifra/cadifra/blob/2026.2/code/Core/Element/Env.cpp)
+[`Element/IElement.cpp`](https://github.com/cadifra/cadifra/blob/2026.2/code/Core/Element/IElement.cpp)
+[`Transaction/FinalizerDock.cpp`](https://github.com/cadifra/cadifra/blob/2026.2/code/Core/Transaction/FinalizerDock.cpp)
+[`Transaction/Transaction.cpp`](https://github.com/cadifra/cadifra/blob/2026.2/code/Core/Transaction/Transaction.cpp)
+[`Transaction/TransactionImp.cpp`](https://github.com/cadifra/cadifra/blob/2026.2/code/Core/Transaction/TransactionImp.cpp)
 
 But due to the implicit imports of every `"module Core;"`, the following files are
 recompiled instead:
