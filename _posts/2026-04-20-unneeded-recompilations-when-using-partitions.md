@@ -104,9 +104,9 @@ View/VISelectable.cpp
 Weight/Weight.cpp
 ```
 
-Of course, all explicit importers of the `Core` module would need to be
-recompiled as well. The list above shows only the implementation files
-of the `Core` module that are recompiled in this case.
+This is only the list of files that are recompiled due to the implicit
+imports in implementation files of the `Core` module. Of course, all explicit
+importers of the `Core` module would need to be recompiled as well.
 
 Our `Core` module may be a rather small example of a module using partitions,
 but modules were said to deliver faster builds. Gratuitously recompiling files
