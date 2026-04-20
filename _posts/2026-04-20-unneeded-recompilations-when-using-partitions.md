@@ -124,7 +124,8 @@ redundant explicit imports can also be used to search where a
 specific partition is imported. This enables finding all effectively
 needed dependencies.
 
-The C++ language should provide a concise and easy way to explicitly
-express the minimally required dependencies in the source code.
+The C++ language currently lacks a concise and easy to use alternative
+for explicitly expressing the minimally required dependencies on
+partitions.
 
 (last edited 2026-04-20)
