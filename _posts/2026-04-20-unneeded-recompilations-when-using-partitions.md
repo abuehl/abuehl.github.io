@@ -128,4 +128,4 @@ The C++ language currently lacks a concise and easy to use alternative
 for explicitly expressing the minimally required dependencies on
 partitions.
 
-(last edited 2026-04-20)
+(last edited 2026-04-21)
