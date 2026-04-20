@@ -71,7 +71,7 @@ Attach/IPointAttachment.cpp
 Attach/ITerminal.cpp
 Attach/ITerminalReshapeInfo.cpp
 Container/IUpdateContainer.cpp
-Container/CopyRegistry.cpp
+CopyRegistry/CopyRegistry.cpp
 Diagram/CopyExtendSelection.cpp
 Diagram/TransferSet.cpp
 Element/ElementSet.cpp
@@ -93,6 +93,9 @@ Undoer/PosUndoer.cpp
 Undoer/Undoer.cpp
 Undoer/UndoerFunctions.cpp
 Undoer/UndoerParam.cpp
+UndoerImp/PosUndoerGroup.cpp
+UndoerImp/SequenceUndoer.cpp
+UndoerImp/TransactionUndoer.cpp
 View/ISelectionObserver.cpp
 View/IView.cpp
 View/IViewElement.cpp
