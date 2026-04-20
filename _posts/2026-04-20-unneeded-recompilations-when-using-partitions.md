@@ -98,7 +98,7 @@ View/IView.cpp
 View/IViewElement.cpp
 View/SelectionObserverDock.cpp
 View/VISelectable.cpp
-Wight/Weight.cpp
+Weight/Weight.cpp
 ```
 
 Our `Core` module may be a rather small example of a module using partitions,
