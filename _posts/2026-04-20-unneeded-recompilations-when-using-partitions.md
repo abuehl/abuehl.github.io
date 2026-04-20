@@ -61,8 +61,8 @@ recompiled. That is, the files:
 5. [`Transaction/Transaction.cpp`](https://github.com/cadifra/cadifra/blob/2026.2/code/Core/Transaction/Transaction.cpp)
 6. [`Transaction/TransactionImp.cpp`](https://github.com/cadifra/cadifra/blob/2026.2/code/Core/Transaction/TransactionImp.cpp)
 
-But due to the implicit imports of every `"module Core;"`, the following files are
-recompiled instead:
+But due to the implicit imports of all the `"module Core;"` in every cpp-file,
+the following files are recompiled instead:
 
 ```
 Attach/IPointAttachment.cpp
