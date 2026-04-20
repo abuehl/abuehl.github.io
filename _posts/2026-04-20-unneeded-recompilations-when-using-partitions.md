@@ -51,8 +51,8 @@ the `Core` module are implicitly imported as well.
 
 If the interface partition 
 [`Core/Transaction/Transaction.ixx`](https://github.com/cadifra/cadifra/blob/2026.2/code/Core/Transaction/Transaction.ixx)
-is modified, ideally only the files which use declarations from it, would need to be
-recompiled. That is the files:
+is modified, ideally only the files which use declarations from it would need to be
+recompiled. That is, the files:
 
 1. [`Diagram/TransferSet.cpp`](https://github.com/cadifra/cadifra/blob/2026.2/code/Core/Diagram/TransferSet.cpp)
 2. [`Element/Env.cpp`](https://github.com/cadifra/cadifra/blob/2026.2/code/Core/Element/Env.cpp)
