@@ -64,7 +64,7 @@ Transaction/TransactionImp.cpp
 ```
 
 But due to the implicit imports of every `"module Core;"`, the following files are
-recompiled instead, even though then do not use anything from `Transaction/Transaction.ixx`.
+recompiled instead:
 
 ```
 Attach/IPointAttachment.cpp
@@ -101,9 +101,8 @@ View/VISelectable.cpp
 Wight/Weight.cpp
 ```
 
-Our Core module may be a rather small example of module using partitions.
-
-Modules were said to deliver faster builds. Gratuitously recompiling that
-don't really need to be recompiling surely doens't help for that.
+Our `Core` module may be a rather small example of a module using partitions,
+but modules were said to deliver faster builds. Gratuitously recompiling files
+that don't really need to be recompiling surely doesn't help for that.
 
 (last edited 2026-04-20)
