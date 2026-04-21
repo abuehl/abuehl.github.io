@@ -118,10 +118,10 @@ declarations are coming from. That affects also smaller modules like
 our `Core` module. We have addressed that by explicitly (redundantly)
 importing the required partitions. Those explicit imports can be
 tested by temporarily commenting out the exports in the primary module
-interface unit and then recompiling all files of the `Core` module. The
-compiler will then error out if an explicit import is missing. Those
-redundant explicit imports can also be used to search where a
-specific partition is imported. This enables finding all effectively
+interface unit (`Core/_Module.ixx`) and then recompiling all files of
+the `Core` module. The compiler will then error out if an explicit import
+is missing. Those redundant explicit imports can also be used to search
+where a specific partition is imported. This enables finding all effectively
 needed dependencies.
 
 The C++ language currently lacks a concise and easy to use alternative
