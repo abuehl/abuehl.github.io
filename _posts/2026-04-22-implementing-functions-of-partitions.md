@@ -36,7 +36,7 @@ private:
 ...
 ```
 
-That class has a method `update`.
+That class has a method `"update"`.
 
 For some reason we have decided to implement that method in the file 
 [`IUpdateContainer.cpp`](https://github.com/cadifra/cadifra/blob/2026.4/code/Core/Container/IUpdateContainer.cpp),
@@ -100,7 +100,7 @@ However, it would have been possible to move the implementation of the
 `Container.ixx`. After all, partitions can contain declarations *and* definitions.
 
 When compiling the partition `Container.ixx`, the compiler creates both a BMI
-file and an `.obj` file. The BMI file is used for importing into other module
+file and a `.obj` file. The BMI file is used for importing into other module
 units, the `.obj` is linked into the binary.
 
 We could say, that a partition can be its own implementation. They do not
@@ -113,8 +113,13 @@ so. Equivalent to when the member function would be implemented right inside
 `Container.ixx`. In one case, the function is in `Container.ixx.obj`, in the
 other case it is in `IUpdateContainer.cpp.obj`.
 
+The cpp containing `"module Core;"` could do the same as the partition
+`"export module Core:Container;"` does: Not implicitly import any other
+module unit. All declarations that are required to compile any of the two
+can be imported explicitly (by the programmer).
+
 I fail to see why the complete declarations of `Core` should be needed if we have
-definitions of member functions in separate cpp files. The only difference is, that
+definitions of member functions in a separate cpp file. The only difference is, that
 we have an additional `.obj`, which is linked into the binary too.
 
 (last edited 2026-04-22)
