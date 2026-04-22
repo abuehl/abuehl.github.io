@@ -41,7 +41,7 @@ the latter.
 
 ### So what's the problem?
 
-When we use a partition, we need a unique name for it. But that name isn't needed
+When we use a partition, we need a unique name for it. But that name isn't used
 anywhere, because those implementation partitions aren't imported anywhere.
 
 So let's just add `foo.impl` to the name of that partition. Problem solved!
