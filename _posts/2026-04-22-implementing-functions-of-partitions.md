@@ -4,7 +4,8 @@ date: 2026-04-22
 ---
 
 There were some discussions about the fact that `"module M;"` imports the
-whole interface of `M`.
+whole interface of `M` (see
+["Uneeded Recompilations When Using Partitions"](https://abuehl.github.io/2026/04/20/unneeded-recompilations-when-using-partitions.html)).
 
 Looking at the external partition
 [`Core/Container/Container.ixx`](https://github.com/cadifra/cadifra/blob/2026.4/code/Core/Container/Container.ixx) of
