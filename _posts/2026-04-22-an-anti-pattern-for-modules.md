@@ -41,8 +41,9 @@ the latter.
 
 ### So what's the problem?
 
-When we use a partition, we need a unique name for it. But that name isn't used
-anywhere, because those implementation partitions aren't imported anywhere.
+When we use a partition, we need a [unique name](https://eel.is/c++draft/module#unit-3)
+for it. But that name isn't used anywhere, because those implementation partitions
+aren't imported anywhere.
 
 So let's just add `foo.impl` to the name of that partition. Problem solved!
 
@@ -50,12 +51,12 @@ Not exactly. That naming scheme is bound to fail. It fails if we have multiple
 implementation files per external partition.
 
 Ok, so we need a more clever naming scheme. Let's use `foo.impl1`, `foo.impl2`,
-`foo.impl3` etc. Problem soved.
+`foo.impl3` etc. Problem solved.
 
 Do we really want to maintain lists of numbers that must be unique across diverse
 files?
 
-Ok, not so great. So let's be even more clever and use the names of the files.
+Ok, not so great then. So let's be even more clever and use the names of the files.
 Let's say, we have a file `FinalizerDock.cpp` that implements some functions
 of external partition `:Transaction` of module `Core`. We can do
 
@@ -66,16 +67,16 @@ module Core:impl.Transaction.FinalizerDock;
 
 Pretty clever, isn't it? Did I already mention that files can be renamed?
 
-Whatever clever naming scheme we use: It's a maintenance burden!
+Whatever clever naming scheme we come up with: It's a maintenance burden!
 
-And there is another big elephant in the room. What should readers of the code
-think when the see:
+And there is another big elephant in the room: What should readers of the code
+think when they see:
 
 ```cpp
 module Core:impl.Transaction.FinalizerDock;
 ```
 
-Whoa, what's that? Is that `impl.Transaction.FinalizerDock` used somewhere
+Whoa, what's that? Is that magic `impl.Transaction.FinalizerDock` used somewhere
 else?
 
 No it isn't. And the compiler is producing a BMI file, which isn't used.
@@ -83,6 +84,6 @@ For every single cpp file.
 
 Let's be clear: That pattern isn't fit for mass use!
 
-It's an anti-pattern. Please, let's not use it.
+It's an anti-pattern. Please don't use it.
 
 (last edited 2026-04-22)
