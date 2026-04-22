@@ -6,8 +6,9 @@ date: 2026-04-22
 There were some discussions about the fact that `"module M;"` imports the
 whole interface of `M`.
 
-Looking at the external partition `Core/Container/Container.ixx` of the sources
-of our UML Editor, we can see that there is a class `IUpdateContainer`:
+Looking at the external partition
+[`Core/Container/Container.ixx`](https://github.com/cadifra/cadifra/blob/2026.4/code/Core/Container/Container.ixx) of
+our UML Editor, we can see that there is a class `IUpdateContainer`:
 
 ```cpp
 export module Core:Container;
@@ -36,8 +37,9 @@ private:
 
 That class has a method `update`.
 
-For some reason we have decided to implement that method in the
-file `IUpdateContainer.cpp`, which contains:
+For some reason we have decided to implement that method in the file 
+[`IUpdateContainer.cpp`](https://github.com/cadifra/cadifra/blob/2026.4/code/Core/Container/IUpdateContainer.cpp),
+which contains:
 
 ```cpp
 module Core;
@@ -73,11 +75,13 @@ export import :Transaction;
 export import :Undoer;
 export import :View;
 export import :Weight;
+...
 ```
 
 But to compile `IUpdateContainer.cpp`, only the declarations from the `:Container`
-partition would have been needed. If `"module Core;"` would not implicitly import
-anything, we would write
+partition would have been needed.
+
+If `"module Core;"` would not implicitly import anything, we would write
 
 ```cpp
 module Core;
@@ -90,22 +94,26 @@ are required to compile that file are available by just doing `"import :Containe
 
 Some people may say, that there or no implementation files for partitions.
 
-Howver, it would have been possible to move the implementation of the
+However, it would have been possible to move the implementation of the
 `IUpdateContainer::update` member function right into the file
-`Container.ixx`. After all, partitions can contain declarations and definitions.
+`Container.ixx`. After all, partitions can contain declarations *and* definitions.
 
 When compiling the partition `Container.ixx`, the compiler creates both a BMI
-file and an `.obj` file. The BMI file issued for importing into other module
+file and an `.obj` file. The BMI file is used for importing into other module
 units, the `.obj` is linked into the binary.
+
+We could say, that a partition can be its own implementation. They do not
+implicitly import anything, but that still works fine.
 
 Moving the implementation of the member function `IUpdateContainer::update` into
 a separate cpp file (as we did), should just create another `.obj`. There is no
-reason to import anything more than just `:Container;` if we choose to say
+reason to import anything more than just `:Container;`, if we choose to say
 so. Equivalent to when the member function would be implemented right inside
 `Container.ixx`.
 
 I fail to see why the complete declarations of `Core` should be needed if we have
 definitions of member functions in separate files. The only difference is, that
-we have an additional `.obj` which is linked into the binary too.
+we have an additional `.obj`, which is linked into the binary too.
 
 (last edited 2026-04-22)
+
