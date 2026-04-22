@@ -108,12 +108,13 @@ implicitly import anything, but that still works fine.
 
 Moving the implementation of the member function `IUpdateContainer::update` into
 a separate cpp file (as we did), should just create another `.obj`. There is no
-reason to import anything more than just `:Container;`, if we choose to say
+reason to import anything more than just `:Container`, if we choose to do
 so. Equivalent to when the member function would be implemented right inside
-`Container.ixx`.
+`Container.ixx`. In one case, the function is in `Container.ixx.obj`, in the
+other case it is in `IUpdateContainer.cpp.obj`.
 
 I fail to see why the complete declarations of `Core` should be needed if we have
-definitions of member functions in separate files. The only difference is, that
+definitions of member functions in separate cpp files. The only difference is, that
 we have an additional `.obj`, which is linked into the binary too.
 
 (last edited 2026-04-22)
