@@ -13,8 +13,12 @@ to solve our everyday annoyances. Unneeded recompilations in implementations
 of modules may be one of those annoyances.
 
 If we look into the module toolbox of the C++ language, we will quickly notice that
-there is a family of module units, which do not implicitly import anything: Partitions!
+there is a family of module units, which do not implicitly import anything:
+[Partitions](https://abuehl.github.io/2026/04/09/internal-partitions.html)!
 Exactly what we are looking for!
+
+> Do you know the standard joke of module users? "If you have a problem
+> with using modules, use partitions!"
 
 The problem with `"module M;"` is, that it not just declares that what follows
 in that file belongs to module `M`, but it imports at the same time the whole
