@@ -32,7 +32,7 @@ be exported by the primary interface of the module (the module unit which has
 `"export module M;"`). Anyway, we are implementing something, so we don't have
 anything to export.
 
-So, what we need are internal partitions (`"module M:foo;"`). Great!
+So, what we need are internal partitions (`"module M:foo;"`).
 
 Partitions can contain declarations, but they can also contain implementations of
 functions. The compiler produces a BMI file and a `.obj` file for each of these
