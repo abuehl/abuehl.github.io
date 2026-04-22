@@ -1,5 +1,5 @@
 ---
-title: "An Anti-Pattern for modules"
+title: "An Anti-Pattern for Modules"
 date: 2026-04-22
 ---
 
