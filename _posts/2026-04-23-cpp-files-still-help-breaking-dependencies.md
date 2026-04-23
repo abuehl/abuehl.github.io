@@ -70,9 +70,8 @@ export void foo();
 ```
 
 For the build system, the new TU #3 depends on TU #2 and TU #1,
-but TU #1b no longer depends on TU #2.
-
-The dependency is deferred to the linking phase.
+but TU #1b no longer depends on TU #2. The dependency is deferred
+to the linking phase.
 
 That's still the same as when we did everything using header files.
 
