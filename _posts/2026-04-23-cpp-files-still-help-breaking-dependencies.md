@@ -71,7 +71,7 @@ export void foo();
 
 For the build system, TU #1b then no longer depends on TU #2.
 
-The new TU #3 depends on TU #1b and TU #3, but TU #1b no longer
+The new TU #3 depends on TU #2 and TU #1, but TU #1b no longer
 dependens on TU #2.
 
 The dependency is deferred to the linking phase.
