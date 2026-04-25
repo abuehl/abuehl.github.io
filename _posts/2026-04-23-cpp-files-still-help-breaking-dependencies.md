@@ -73,6 +73,6 @@ export void foo();
 
 For the build system, the new TU #3 depends on TU #1b and TU #2,
 but TU #1b no longer depends on TU #2. The dependency is moved
-to a cpp file.
+to a cpp file (TU #3).
 
 (last edited 2026-04-25)
