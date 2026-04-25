@@ -49,7 +49,7 @@ If we move the definition of function `foo` to a new cpp file (TU #3):
 
 ```cpp
 // Translation unit #3 (a cpp file)
-module M;
+module M;  // implicitly imports TU #1b
 
 import R;
 
@@ -71,10 +71,8 @@ export void foo();
 ...
 ```
 
-For the build system, the new TU #3 depends on TU #1 and TU #2,
+For the build system, the new TU #3 depends on TU #1b and TU #2,
 but TU #1b no longer depends on TU #2. The dependency is deferred
 to a cpp file.
-
-That's still the same as when we did everything using header files.
 
 (last edited 2026-04-25)
