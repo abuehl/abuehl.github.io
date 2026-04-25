@@ -73,11 +73,8 @@ export void foo();
 
 For the build system, the new TU #3 depends on TU #1 and TU #2,
 but TU #1b no longer depends on TU #2. The dependency is deferred
-to the linking phase.
+to a cpp file.
 
 That's still the same as when we did everything using header files.
 
-The hiding of information which modules provide isn't possible when
-using only header files.
-
-(last edited 2026-04-23)
+(last edited 2026-04-25)
