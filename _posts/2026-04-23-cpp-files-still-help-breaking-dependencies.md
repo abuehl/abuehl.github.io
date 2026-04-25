@@ -43,7 +43,7 @@ The contents of `R` are not visible to importers of `M`.
 But for the build system, TU #1a still depends on TU #2. The translation units must
 be compiled in the right order and the BMI of TU #2 is used when compiling TU #1a.
 
-### Breaking the Dependency
+### Breaking the dependency on R
 
 If we move the definition of function `foo` to a new cpp file (TU #3):
 
