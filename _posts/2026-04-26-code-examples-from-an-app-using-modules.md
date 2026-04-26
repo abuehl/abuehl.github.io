@@ -72,12 +72,31 @@ pointers or references to each other. They are very tightly coupled.
 It would have been possible to put all these classes into a single
 module unit, but the resulting file would have been too large.
 
-Remember: If you have a pointer to class in module M, you need
+Remember: If you have a pointer to a class in module M, you need
 to import M. This is a consequence of the attaching rules
 of modules.
 
-Note that Core.Main:UndoerImp is an internal partition. Altough
-we prefer not using internal partitions, this is a case for
+Note that `Core.Main:UndoerImp` is an internal partition. Altough
+we prefer to avoid using internal partitions, this is a case for
 using them.
+
+The external partitions of `Core.Main` are properly exported by
+its primary module interface unit `Core/Main/Main.ixx`:
+
+```cpp
+export module Core.Main;
+
+export import :CopyRegistry;
+export import :Diagram;
+export import :Element;
+export import :Selection;
+export import :Transaction;
+export import :Undoer;
+export import :View;
+export import :Weight;
+```
+
+Failing to do so would render the resulting program IF-NDR ("ill-formed,
+no diagnostic required").
 
 (last edited 2026-04-26)
