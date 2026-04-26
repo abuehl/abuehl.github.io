@@ -39,6 +39,8 @@ The `App` package contains a number of modules
 * `App.ISdiApp`
 * `App.Main`
 
+There are no partitions in the `App` package.
+
 ## Core
 
 The `Core` package contains the following modules
@@ -99,5 +101,25 @@ export import :Weight;
 Failing to do so would render the resulting program IF-NDR ("ill-formed,
 no diagnostic required"). In our case, the compiler would complain about
 a type not beeing defined at places which import `Core.Main`.
+
+## Editor
+
+The Editor package is the top level package. It has the following
+modules:
+
+* `Editor.CmdHandlerDock`
+* `Editor.Internals`
+* `Editor.LicenseInfo`
+* `Editor.Main`
+* `Editor.MenuEntry`
+* `Editor.Messages`
+* `Editor.Metafile`
+* `Editor.NewWindowPlacement`
+* `Editor.OLEdiagram`
+* `Editor.Print`
+* `Editor.StorageHolder`
+* `Editor.TransferSetFormatHandler`
+* `Editor.Util`
+* `Editor.WindowList`
 
 (last edited 2026-04-26)
