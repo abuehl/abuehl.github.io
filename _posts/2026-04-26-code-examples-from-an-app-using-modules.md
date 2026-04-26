@@ -122,4 +122,28 @@ modules:
 * `Editor.Util`
 * `Editor.WindowList`
 
+The `Editor.Main` module contains two partitions:
+
+* `export module Editor.Main:Diagram`
+* `export module Editor.Main:Window`
+
+The reason for this is that the classes in `Editor.Main:Diagram` use pointers
+to class `Editor::Window` in `Editor.Main:Window`, and the classes in
+`Editor.Main:Window` use pointers to class `Editor::Diagram` in
+`Editor.Main:Diagram`.
+
+However, there are no internal partitions in `Editor`.
+
+We kept `Editor.Main` as small as possible and moved as much as we could
+out of it.
+
+Modules from the Editor package are import in our `WinMain.cpp`:
+
+```cpp
+import Editor.Main;
+import Editor.Util;
+import Editor.LicenseInfo;
+```
+
+
 (last edited 2026-04-26)
