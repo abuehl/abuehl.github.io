@@ -81,8 +81,9 @@ Remember: If you have a pointer (or reference) to a class in a module M,
 you need to import M. This is a consequence of the attaching rules
 of modules.
 
-Note that `Core.Main:UndoerImp` is an internal partition. Altough
-we prefer to avoid using internal partitions, this is a case for
+Note that `Core.Main:UndoerImp` is an
+[internal partition](https://abuehl.github.io/2026/04/09/internal-partitions.html).
+Altough we prefer to avoid using internal partitions, this is a case for
 using it.
 
 The external partitions of `Core.Main` are properly exported by
