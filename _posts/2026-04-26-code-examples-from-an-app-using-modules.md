@@ -72,8 +72,8 @@ pointers or references to each other. They are very tightly coupled.
 It would have been possible to put all these classes into a single
 module unit, but the resulting file would have been too large.
 
-Remember: If you have a pointer to a class in a module M, you need
-to import M. This is a consequence of the attaching rules
+Remember: If you have a pointer (or reference) to a class in a module M,
+you need to import M. This is a consequence of the attaching rules
 of modules.
 
 Note that `Core.Main:UndoerImp` is an internal partition. Altough
