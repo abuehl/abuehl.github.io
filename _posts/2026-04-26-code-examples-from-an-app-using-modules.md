@@ -31,7 +31,8 @@ For each of these we have a Visual Studio project. We use MSBuild (not CMake).
 
 ## App
 
-The `App` package contains a number of modules
+The [`App` package](https://github.com/cadifra/cadifra/tree/2026.5/code/App) contains
+a number of modules
 
 * `App.Com`
 * `App.Dialog`
@@ -43,7 +44,8 @@ There are no partitions in the `App` package.
 
 ## Core
 
-The `Core` package contains the following modules
+The [`Core` package](https://github.com/cadifra/cadifra/tree/2026.5/code/Core) contains
+the following modules
 
 * `Core.Attach`
 * `Core.Container`
@@ -104,8 +106,8 @@ a type not beeing defined at places which import `Core.Main`.
 
 ## Editor
 
-The Editor package is the top level package. It has the following
-modules:
+The [`Editor` package](https://github.com/cadifra/cadifra/tree/2026.5/code/Editor) is
+the top level package. It has the following modules:
 
 * `Editor.CmdHandlerDock`
 * `Editor.Internals`
