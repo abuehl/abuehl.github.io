@@ -97,6 +97,7 @@ export import :Weight;
 ```
 
 Failing to do so would render the resulting program IF-NDR ("ill-formed,
-no diagnostic required").
+no diagnostic required"). In our case, the compiler would complain about
+a type not beeing defined at places which import `Core.Main`.
 
 (last edited 2026-04-26)
