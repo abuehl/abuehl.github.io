@@ -31,7 +31,7 @@ For each of these we have a Visual Studio project. We use MSBuild (not CMake).
 
 ## App
 
-The App package contains a number of modules
+The `App` package contains a number of modules
 
 * `App.Com`
 * `App.Dialog`
@@ -41,7 +41,7 @@ The App package contains a number of modules
 
 ## Core
 
-The Core package contains the following modules
+The `Core` package contains the following modules
 
 * `Core.Attach`
 * `Core.Container`
@@ -54,5 +54,27 @@ The Core package contains the following modules
 * `Core.ObjectRegistry`
 * `Core.ObjectWithID`
 * `Core.Shift`
+
+`Core.Main` consists of several partitions:
+
+* `export module Core.Main:CopyRegistry`
+* `export module Core.Main:Diagram`
+* `export module Core.Main:Element`
+* `export module Core.Main:Selection`
+* `export module Core.Main:Transaction`
+* `export module Core.Main:Undoer`
+* `module Core.Main:UndoerImp`
+* `export module Core.Main:View`
+* `export module Core.Main:Weight`
+
+The reason for using partitions there is, that the classes there use
+pointers or references to each other. They are very tightly coupled.
+
+It would have been possible to put all these classes into a single
+module unit, but the resulting file would have been too large. 
+
+Note that Core.Main:UndoerImp is an internal partition. Altough
+we prefer not using internal partitions, this is a case for
+using them.
 
 (last edited 2026-04-26)
