@@ -69,7 +69,6 @@ The `Core` package contains the following modules
 
 The reason for using partitions there is, that the classes there use
 pointers or references to each other. They are very tightly coupled.
-
 It would have been possible to put all these classes into a single
 module unit, but the resulting file would have been too large. 
 
