@@ -59,7 +59,8 @@ the following modules
 * `Core.ObjectWithID`
 * `Core.Shift`
 
-`Core.Main` consists of several partitions:
+The core [`Core.Main module`](https://github.com/cadifra/cadifra/tree/2026.5/code/Core/Main)
+consists of several partitions:
 
 * `export module Core.Main:CopyRegistry`
 * `export module Core.Main:Diagram`
@@ -124,7 +125,8 @@ the top level package. It has the following modules:
 * `Editor.Util`
 * `Editor.WindowList`
 
-The `Editor.Main` module contains two partitions:
+The [`Editor.Main` module](https://github.com/cadifra/cadifra/tree/2026.5/code/Editor/Main)
+contains two partitions:
 
 * `export module Editor.Main:Diagram`
 * `export module Editor.Main:Window`
