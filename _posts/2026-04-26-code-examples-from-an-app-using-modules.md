@@ -27,7 +27,7 @@ Code from the following packages is now (partially) published:
 
 For each of these we have a Visual Studio project. We use MSBuild (not CMake).
 
-<img src="/assets/cadifra-packages.png" alt="Cadifra Packages" width="800"/>
+<img src="/assets/cadifra-packages.png" alt="Cadifra Packages" width="700"/>
 
 ## App
 
