@@ -131,10 +131,9 @@ contains two partitions:
 * `export module Editor.Main:Diagram`
 * `export module Editor.Main:Window`
 
-The reason for this is that the classes in `Editor.Main:Diagram` use pointers
-to class `Editor::Window` in `Editor.Main:Window`, and the classes in
-`Editor.Main:Window` use pointers to class `Editor::Diagram` in
-`Editor.Main:Diagram`.
+The reason for this is that the classes in `:Diagram` use pointers
+to class `Editor::Window` in `:Window`, and the classes in `:Window` use
+pointers to class `Editor::Diagram` in `:Diagram`.
 
 However, there are no internal partitions in `Editor`.
 
