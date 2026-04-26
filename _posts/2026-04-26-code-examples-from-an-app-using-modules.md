@@ -18,7 +18,7 @@ Code from the following packages is now (partially) published:
 
 * `App`: Basic infrastructure for our application (only ixx files)
 * `Canvas`: Abstract interfaces for drawing (only ixx files)
-* `Core`: Core abstractions for our an UML Editor (complete)
+* `Core`: Core abstractions for our UML Editor (complete)
 * `Eitor`: The top level package of our UML Editor (only ixx files)
 * `GraphUtil`: Some basic graphical calculations (complete)
 * `WinUtil`: Lots of basic utilities that deal with the Windows API (complete)
