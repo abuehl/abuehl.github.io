@@ -137,7 +137,7 @@ However, there are no internal partitions in `Editor`.
 We kept `Editor.Main` as small as possible and moved as much as we could
 out of it.
 
-Modules from the Editor package are import in our `WinMain.cpp`:
+Modules from the `Editor` package are imported in our `WinMain.cpp`:
 
 ```cpp
 import Editor.Main;
