@@ -78,7 +78,7 @@ of modules.
 
 Note that `Core.Main:UndoerImp` is an internal partition. Altough
 we prefer to avoid using internal partitions, this is a case for
-using them.
+using it.
 
 The external partitions of `Core.Main` are properly exported by
 its primary module interface unit `Core/Main/Main.ixx`:
