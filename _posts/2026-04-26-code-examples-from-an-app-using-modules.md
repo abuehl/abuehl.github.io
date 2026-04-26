@@ -3,7 +3,7 @@ title: "Code Examples From an App Using C++ Modules"
 date: 2026-04-26
 ---
 
-We've now published a bit more code from our UML Editor Windows App at
+We've now published a bit more code from our UML Editor Windows app at
 [https://github.com/cadifra/cadifra/tree/2026.5/code](https://github.com/cadifra/cadifra/tree/2026.5/code).
 
 The code follows our
