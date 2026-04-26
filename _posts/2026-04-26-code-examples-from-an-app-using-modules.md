@@ -23,7 +23,7 @@ Code from the following packages is now (partially) published:
 * `GraphUtil`: Some basic graphical calculations (complete)
 * `WinUtil`: Lots of basic utilities that deal with the Windows API (complete)
 * `d1`: Lots of fundamental utilities (complete)
-* `xml`: Handling of xml input (a few files)
+* `xml`: Handling of xml diagram files (a few source files)
 
 For each of these we have a Visual Studio project. We use MSBuild (not CMake).
 
