@@ -4,7 +4,7 @@ date: 2026-04-26
 ---
 
 We've now published a bit more code from our UML Editor Windows app at
-[https://github.com/cadifra/cadifra/tree/2026.5/code](https://github.com/cadifra/cadifra/tree/2026.5/code).
+[https://github.com/cadifra/cadifra/tree/2026.6/code](https://github.com/cadifra/cadifra/tree/2026.5/code).
 
 The code follows our
 ["Recommendations for Using C++ Modules"](https://github.com/abuehl/docs/blob/main/recommendations-for-using-modules.md).
@@ -31,7 +31,7 @@ For each of these we have a Visual Studio project. We use MSBuild (not CMake).
 
 ## App
 
-The [`App` package](https://github.com/cadifra/cadifra/tree/2026.5/code/App) contains
+The [`App` package](https://github.com/cadifra/cadifra/tree/2026.6/code/App) contains
 a number of modules
 
 * `App.Com`
@@ -44,7 +44,7 @@ There are no partitions in the `App` package.
 
 ## Core
 
-The [`Core` package](https://github.com/cadifra/cadifra/tree/2026.5/code/Core) contains
+The [`Core` package](https://github.com/cadifra/cadifra/tree/2026.6/code/Core) contains
 the following modules
 
 * `Core.Attach`
@@ -58,8 +58,9 @@ the following modules
 * `Core.ObjectRegistry`
 * `Core.ObjectWithID`
 * `Core.Shift`
+* `Core.UndoerImp`
 
-The core [`Core.Main module`](https://github.com/cadifra/cadifra/tree/2026.5/code/Core/Main)
+The core [`Core.Main module`](https://github.com/cadifra/cadifra/tree/2026.6/code/Core/Main)
 consists of several partitions:
 
 * `export module Core.Main:CopyRegistry`
@@ -68,7 +69,6 @@ consists of several partitions:
 * `export module Core.Main:Selection`
 * `export module Core.Main:Transaction`
 * `export module Core.Main:Undoer`
-* `module Core.Main:UndoerImp`
 * `export module Core.Main:View`
 * `export module Core.Main:Weight`
 
@@ -81,10 +81,10 @@ Remember: If you have a pointer (or reference) to a class in a module M,
 you need to import M. This is a consequence of the attaching rules
 of modules.
 
-Note that `Core.Main:UndoerImp` is an
-[internal partition](https://abuehl.github.io/2026/04/09/internal-partitions.html).
-Altough we prefer to avoid using internal partitions, this is a case for
-using it.
+We previously had an internal partition used in Core.Main, but we
+[we managed to eliminate that as well](https://github.com/cadifra/cadifra/commit/207131642e9adbd85756de4cde297ac6b1c53f4f),
+by transforming it into the regular module `Core.UndoerImp`. Now,
+our entiere code base is free of internal partitions.
 
 The external partitions of `Core.Main` are properly exported by
 its primary module interface unit `Core/Main/Main.ixx`:
@@ -108,7 +108,7 @@ a type not beeing defined at places which import `Core.Main`.
 
 ## Editor
 
-The [`Editor` package](https://github.com/cadifra/cadifra/tree/2026.5/code/Editor) is
+The [`Editor` package](https://github.com/cadifra/cadifra/tree/2026.6/code/Editor) is
 the top level package. It has the following modules:
 
 * `Editor.CmdHandlerDock`
@@ -126,7 +126,7 @@ the top level package. It has the following modules:
 * `Editor.Util`
 * `Editor.WindowList`
 
-The [`Editor.Main` module](https://github.com/cadifra/cadifra/tree/2026.5/code/Editor/Main)
+The [`Editor.Main` module](https://github.com/cadifra/cadifra/tree/2026.6/code/Editor/Main)
 contains two partitions:
 
 * `export module Editor.Main:Diagram`
@@ -149,4 +149,4 @@ import Editor.Util;
 import Editor.LicenseInfo;
 ```
 
-(last edited 2026-04-26)
+(last edited 2026-04-27)
