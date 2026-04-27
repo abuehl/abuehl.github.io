@@ -81,7 +81,7 @@ Remember: If you have a pointer (or reference) to a class in a module M,
 you need to import M. This is a consequence of the attaching rules
 of modules.
 
-We previously had an internal partition used in Core.Main, but we
+We previously had an internal partition used in `Core.Main`, but we
 [we managed to eliminate that as well](https://github.com/cadifra/cadifra/commit/207131642e9adbd85756de4cde297ac6b1c53f4f),
 by transforming it into the regular module `Core.UndoerImp`. Now,
 our entiere code base is free of internal partitions.
