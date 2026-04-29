@@ -43,6 +43,10 @@ Importers of `M` don't get `R`.
 But for the build system, TU #1a still depends on TU #2. The translation units must
 be compiled in the right order and the BMI of TU #2 is used when compiling TU #1a.
 
+Note that the compiler creates both a BMI file and a `.obj` file for TU #1a. The
+BMI file contains the declaration of function foo, and the obj file the compiled
+code of the definition of foo, which is linked by the linker.
+
 ### Breaking the dependency on R
 
 If we move the definition of function `foo` to a new cpp file (TU #3):
@@ -75,4 +79,4 @@ For the build system, the new TU #3 depends on TU #1b and TU #2,
 but TU #1b no longer depends on TU #2. The dependency is moved
 to a cpp file (TU #3).
 
-(last edited 2026-04-25)
+(last edited 2026-04-29)
