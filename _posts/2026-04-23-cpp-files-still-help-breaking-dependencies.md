@@ -40,12 +40,12 @@ export struct T
 
 Importers of `M` don't get `R`.
 
+Note that the compiler creates both a BMI file and a `.obj` file for TU #1a. The
+BMI file contains the declaration of function `foo`, and the obj file the compiled
+code of the definition of `foo`, which is linked by the linker.
+
 But for the build system, TU #1a still depends on TU #2. The translation units must
 be compiled in the right order and the BMI of TU #2 is used when compiling TU #1a.
-
-Note that the compiler creates both a BMI file and a `.obj` file for TU #1a. The
-BMI file contains the declaration of function foo, and the obj file the compiled
-code of the definition of foo, which is linked by the linker.
 
 ### Breaking the dependency on R
 
