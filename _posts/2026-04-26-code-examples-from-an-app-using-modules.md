@@ -4,7 +4,7 @@ date: 2026-04-26
 ---
 
 We've now published a bit more code from our UML Editor Windows app at
-[https://github.com/cadifra/cadifra/tree/2026.6/code](https://github.com/cadifra/cadifra/tree/2026.6/code).
+[https://github.com/cadifra/cadifra/tree/2026.7/code](https://github.com/cadifra/cadifra/tree/2026.7/code).
 
 The code follows our
 ["Recommendations for Using C++ Modules"](https://github.com/abuehl/docs/blob/main/recommendations-for-using-modules.md).
@@ -31,46 +31,68 @@ For each of these we have a Visual Studio project. We use MSBuild (not CMake).
 
 ## App
 
-The [`App` package](https://github.com/cadifra/cadifra/tree/2026.6/code/App) contains
+The [`App` package](https://github.com/cadifra/cadifra/tree/2026.7/code/App) contains
 a number of modules
 
 * `App.Com`
+* `App.ComboBox`
+* `App.Command`
+* `App.CommandLine`
+* `App.Control`
 * `App.Dialog`
-* `App.ExecRegistrar`
+* `App.Document`
+* `App.IApplication`
 * `App.ISdiApp`
+* `App.LifeTimeSupervisor`
 * `App.Main`
+* `App.NewWindowDefaultsProvider`
+* `App.NumberedWindow`
+* `App.ObjectDescriptor`
+* `App.RegistryAccessProvider`
 
 There are no partitions in the `App` package.
 
 ## Core
 
-The [`Core` package](https://github.com/cadifra/cadifra/tree/2026.6/code/Core) contains
+The [`Core` package](https://github.com/cadifra/cadifra/tree/2026.7/code/Core) contains
 the following modules
 
 * `Core.Attach`
 * `Core.Container`
+* `Core.Contains`
+* `Core.CopyExtendSelection`
 * `Core.Exceptions`
+* `Core.Filter`
+* `Core.Finalizer`
+* `Core.IDirtyMarker`
+* `Core.IDocumentChange`
 * `Core.IGrid`
+* `Core.Interfaces`
+* `Core.IUndoRedoCountChange`
 * `Core.Interfaces`
 * `Core.Main`
 * `Core.Names`
 * `Core.ObjectID`
 * `Core.ObjectRegistry`
 * `Core.ObjectWithID`
+* `Core.SelectionObserver`
 * `Core.Shift`
+* `Core.StandardSelectionRestorer`
+* `Core.TransferSet`
+* `Core.TransactionDataPtr`
+* `Core.Undoer`
 * `Core.UndoerImp`
+* `Core.Weight`
 
-The core [`Core.Main module`](https://github.com/cadifra/cadifra/tree/2026.6/code/Core/Main)
+The core [`Core.Main module`](https://github.com/cadifra/cadifra/tree/2026.7/code/Core/Main)
 consists of several partitions:
 
-* `export module Core.Main:CopyRegistry`
 * `export module Core.Main:Diagram`
 * `export module Core.Main:Element`
 * `export module Core.Main:Selection`
 * `export module Core.Main:Transaction`
 * `export module Core.Main:Undoer`
 * `export module Core.Main:View`
-* `export module Core.Main:Weight`
 
 The reason for using partitions there is, that the classes there use
 pointers or references to each other. They are very tightly coupled.
@@ -87,19 +109,17 @@ by transforming it into the regular module `Core.UndoerImp`. Now,
 our entiere code base is free of internal partitions.
 
 The external partitions of `Core.Main` are properly exported by
-its primary module interface unit `Core/Main/Main.ixx`:
+its primary module interface unit `Core/Main/_Main.ixx`:
 
 ```cpp
 export module Core.Main;
 
-export import :CopyRegistry;
 export import :Diagram;
 export import :Element;
 export import :Selection;
 export import :Transaction;
 export import :Undoer;
 export import :View;
-export import :Weight;
 ```
 
 Failing to do so would render the resulting program IF-NDR ("ill-formed,
@@ -108,7 +128,7 @@ a type not beeing defined at places which import `Core.Main`.
 
 ## Editor
 
-The [`Editor` package](https://github.com/cadifra/cadifra/tree/2026.6/code/Editor) is
+The [`Editor` package](https://github.com/cadifra/cadifra/tree/2026.7/code/Editor) is
 the top level package. It has the following modules:
 
 * `Editor.CmdHandlerDock`
@@ -149,4 +169,4 @@ import Editor.Util;
 import Editor.LicenseInfo;
 ```
 
-(last edited 2026-04-27)
+(last edited 2026-05-10)
