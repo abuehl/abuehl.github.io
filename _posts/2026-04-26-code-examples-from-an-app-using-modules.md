@@ -146,7 +146,7 @@ the top level package. It has the following modules:
 * `Editor.Util`
 * `Editor.WindowList`
 
-The [`Editor.Main` module](https://github.com/cadifra/cadifra/tree/2026.6/code/Editor/Main)
+The [`Editor.Main` module](https://github.com/cadifra/cadifra/tree/2026.7/code/Editor/Main)
 contains two partitions:
 
 * `export module Editor.Main:Diagram`
