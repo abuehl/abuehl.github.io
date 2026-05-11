@@ -32,7 +32,7 @@ found no advantage when using bigger modules. The build speed for a full
 build roughly remains the same no matter how many modules we have (~2 minutes
 using the MSVC compiler with MSBuild).
 
-Smaller modules provide the follwoing advantages:
+Smaller modules provide the following advantages:
 
 * The number of implementation files (`*.cpp`) which need to be recompiled\
 if a module interface is changed, is smaller
