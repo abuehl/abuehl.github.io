@@ -126,8 +126,8 @@ Size="3800 1000">
 </Package>
 
 <Package id="r20"
-Pos="20600 -6600"
-Size="3200 1900">
+Pos="20600 -3900"
+Size="3200 1000">
 <Text>IElementImp</Text>
 </Package>
 
@@ -138,25 +138,25 @@ Size="3900 1000">
 </Package>
 
 <Package id="r22"
-Pos="20600 -9400"
-Size="3200 1400">
+Pos="20500 -7600"
+Size="3300 1000">
 <Text>PageDefaults</Text>
 </Package>
 
 <Package id="r23"
-Pos="14300 -10100"
+Pos="14200 -7600"
 Size="3700 1000">
 <Text>PageInfo</Text>
 </Package>
 
 <Package id="r24"
-Pos="14300 -11700"
+Pos="14200 -9600"
 Size="3700 1000">
 <Text>Order</Text>
 </Package>
 
 <Package id="r25"
-Pos="14300 -13500"
+Pos="14200 -11600"
 Size="3700 1000">
 <Text>PictureDescription</Text>
 </Package>
@@ -281,7 +281,7 @@ Type="2"/>
 
 <Dependency id="r59">
 <End id="r60"
-Pos="10900 -7300"
+Pos="10900 -7500"
 Party="r15"
 Type="1"/>
 <Segment id="r61"
@@ -293,58 +293,30 @@ Party="r19"
 Type="2"/>
 </Dependency>
 
-<Dependency id="r63">
-<End id="r64"
-Pos="10900 -7800"
-Party="r15"
-Type="1"/>
-<Segment id="r65"
-Ends="r64 r66"
-Oblique="1"/>
-<End id="r66"
-Pos="20600 -8000"
-Party="r20"
-Type="2"/>
-</Dependency>
-
 <Dependency id="r67">
 <End id="r68"
-Pos="10900 -9700"
+Pos="10900 -9100"
 Party="r15"
 Type="1"/>
 <Segment id="r69"
 Ends="r68 r70"
 Oblique="1"/>
 <End id="r70"
-Pos="14300 -12100"
+Pos="14200 -10000"
 Party="r24"
-Type="2"/>
-</Dependency>
-
-<Dependency id="r71">
-<End id="r72"
-Pos="10900 -8300"
-Party="r15"
-Type="1"/>
-<Segment id="r73"
-Ends="r72 r74"
-Oblique="1"/>
-<End id="r74"
-Pos="20600 -9800"
-Party="r22"
 Type="2"/>
 </Dependency>
 
 <Dependency id="r75">
 <End id="r76"
-Pos="10900 -9000"
+Pos="10900 -8300"
 Party="r15"
 Type="1"/>
 <Segment id="r77"
 Ends="r76 r78"
 Oblique="1"/>
 <End id="r78"
-Pos="14300 -10600"
+Pos="14200 -8100"
 Party="r23"
 Type="2"/>
 </Dependency>
@@ -386,35 +358,35 @@ Type="1"/>
 Ends="r88 r90"
 Oblique="1"/>
 <End id="r90"
-Pos="14300 -14000"
+Pos="14200 -12100"
 Party="r25"
 Type="2"/>
 </Dependency>
 
 <Dependency id="r91">
 <End id="r92"
-Pos="18000 -4600"
+Pos="18000 -4400"
 Party="r21"
 Type="1"/>
 <Segment id="r93"
 Ends="r92 r94"
 Oblique="1"/>
 <End id="r94"
-Pos="20600 -7300"
+Pos="20600 -4400"
 Party="r20"
 Type="2"/>
 </Dependency>
 
 <Dependency id="r95">
 <End id="r96"
-Pos="18000 -10600"
+Pos="17900 -8100"
 Party="r23"
 Type="1"/>
 <Segment id="r97"
 Ends="r96 r98"
 Oblique="1"/>
 <End id="r98"
-Pos="20600 -10300"
+Pos="20500 -8100"
 Party="r22"
 Type="2"/>
 </Dependency>
