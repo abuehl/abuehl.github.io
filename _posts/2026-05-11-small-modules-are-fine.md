@@ -4,7 +4,7 @@ date: 2026-05-11
 ---
 
 We've now added even more small modules for the `Canvas` package of our
-UML editor app.
+UML editor app (for Windows).
 
 <img src="/assets/cadifra-packages.png" alt="Cadifra Packages" width="700"/>
 
@@ -29,7 +29,8 @@ The names of the modules in the `Canvas` package all start with the prefix
 
 We've tried using smaller numbers of larger modules in the past, but we
 found no advantage when using bigger modules. The build speed for a full
-build roughly remains the same no matter how many modules we have (~2 minutes).
+build roughly remains the same no matter how many modules we have (~2 minutes
+using the MSVC compiler with MSBuild).
 
 Smaller modules provide the follwoing advantages:
 
