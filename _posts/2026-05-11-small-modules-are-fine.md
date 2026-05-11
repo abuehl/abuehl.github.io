@@ -21,7 +21,7 @@ The C++ modules of the `Canvas` package with their dependencies look like this:
 <img src="/assets/canvas-modules.png" alt="Canvas Modules" width="700"/>
 
 The names of the modules in the Canvas package all start with the prefix
-`Canvas.`. That prefix is omitted in the above diagram.
+`"Canvas."`. That prefix is omitted in the above diagram.
 
 We've tried using smaller numbers of larger modules in the past, but we
 found no advantage when using bigger modules. The build speed for a full
