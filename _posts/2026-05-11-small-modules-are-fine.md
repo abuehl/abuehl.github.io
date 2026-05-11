@@ -165,7 +165,7 @@ For our UML Editor, using small modules makes a lot of sense. Trying
 to aggregate things into bigger modules mostly proved to be a waste of
 (developing) time.
 
-In theory, using `import Canvas`, might look like how modules are
+In theory, using `import Canvas` might look like how modules are
 meant to be used. But in practice, that proved to be not the best fit
 for our use case.
 
