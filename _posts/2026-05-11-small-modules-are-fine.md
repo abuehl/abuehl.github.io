@@ -40,7 +40,7 @@ if a module interface is changed, is smaller
 * The cohesion of the types in a module is better
 
 The main module of the `Canvas` package is the
-[`Canvas.Canvas`](https://github.com/cadifra/cadifra/blob/2026.8/code/Canvas/Canvas/_Canvas.ixx) module.
+[`Canvas.Canvas`](https://github.com/cadifra/cadifra/blob/2026.8/code/Canvas/Canvas/_Canvas.ixx) module:
 
 ```cpp
 export module Canvas.Canvas;
