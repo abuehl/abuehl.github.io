@@ -31,7 +31,7 @@ Smaller modules provide the follwoing advantages:
 
 * The number of implementation files (`*.cpp`) which need to be recompiled\
 if a module interface is changed, is smaller.
-* The code is easier to navigate
-* The cohesion of the types in a module is larger
+* The code is easier to navigate.
+* The cohesion of the types in a module is better.
 
 (last edited 2026-05-11)
