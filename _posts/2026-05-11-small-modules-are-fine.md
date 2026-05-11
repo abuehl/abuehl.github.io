@@ -18,7 +18,7 @@ C++ modules works fine for our use case.
 
 The C++ modules of the `Canvas` package with their dependencies look like this:
 
-<img src="/assets/canvas-modules.png" alt="Canvas Modules" width="700"/>
+<img src="/assets/canvas-modules.png" alt="Canvas Modules" width="800"/>
 
 The names of the modules in the Canvas package all start with the prefix
 `"Canvas."`. That prefix is omitted in the above diagram.
