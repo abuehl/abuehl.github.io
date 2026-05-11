@@ -24,7 +24,7 @@ The C++ modules of the `Canvas` package with their dependencies look like this:
 
 <img src="/assets/canvas-modules.png" alt="Canvas Modules"/>
 
-The names of the modules in the Canvas package all start with the prefix
+The names of the modules in the `Canvas` package all start with the prefix
 `"Canvas."`. That prefix is omitted in the above diagram.
 
 We've tried using smaller numbers of larger modules in the past, but we
@@ -34,9 +34,9 @@ build roughly remains the same no matter how many modules we have (~2 minutes).
 Smaller modules provide the follwoing advantages:
 
 * The number of implementation files (`*.cpp`) which need to be recompiled\
-if a module interface is changed, is smaller.
-* The code is easier to navigate.
-* The cohesion of the types in a module is better.
+if a module interface is changed, is smaller
+* The code is easier to navigate
+* The cohesion of the types in a module is better
 
 The main module of the `Canvas` package is the
 [`Canvas.Canvas`](https://github.com/cadifra/cadifra/blob/2026.8/code/Canvas/Canvas/_Canvas.ixx) module.
