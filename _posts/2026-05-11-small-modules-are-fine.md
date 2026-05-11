@@ -34,7 +34,8 @@ if a module interface is changed, is smaller.
 * The code is easier to navigate.
 * The cohesion of the types in a module is better.
 
-The main module of the `Canvas` package is the `Canvas.Canvas` module.
+The main module of the `Canvas` package is the
+[`Canvas.Canvas` module](https://github.com/cadifra/cadifra/blob/2026.8/code/Canvas/Canvas/_Canvas.ixx).
 
 ```cpp
 export module Canvas.Canvas;
@@ -53,12 +54,10 @@ import d1.Rect;
 
 import std;
 
-
 namespace Canvas
 {
 
 export using PolyPoints = std::vector<d1::fPoint>;
-
 
 export class Canvas
 {
@@ -117,10 +116,8 @@ protected:
     Canvas& operator=(const Canvas&) = delete;
 };
 
-
 export void addBoxAdjustMarkers(Canvas& c, Group&, const d1::fnRect& r,
     bool isTarget = true);
-
 
 export void addBoxMidPointsAdjustMarkers(Canvas& c, Group&, const d1::fnRect& r,
     bool isTarget = true);
