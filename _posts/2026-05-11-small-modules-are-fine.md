@@ -137,7 +137,7 @@ import Canvas.Group;
 import Canvas.Scroller;
 ```
 
-For a diagram editing task which draws something on a screen canvas.
+for a diagram editing task which draws something on a screen canvas.
 
 In our experience, using small modules is not an obstacle for using the
 `Canvas` package. It's rather the opposite: The explicit imports make
