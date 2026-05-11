@@ -20,9 +20,6 @@ a [printer canvas](https://github.com/cadifra/cadifra/blob/2026.8/code/Canvas/_P
 a [metafile canvas](https://github.com/cadifra/cadifra/blob/2026.8/code/Canvas/_MetafileCanvas.ixx).
 Windows Metafile is a graphics format used on Windows.
 
-Usage of the code of the `Canvas` package confirms again that using small
-C++ modules works fine for our use case.
-
 The C++ modules of the `Canvas` package with their dependencies look like this:
 
 <img src="/assets/canvas-modules.png" alt="Canvas Modules"/>
