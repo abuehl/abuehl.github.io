@@ -14,7 +14,7 @@ canvas or a metafile canvas. Windows Metafile is graphics format used on Windows
 <img src="/assets/cadifra-packages.png" alt="Cadifra Packages" width="700"/>
 
 Usage of the code of the `Canvas` package confirms again that using small
-modules works fine for our use case.
+C++ modules works fine for our use case.
 
 The C++ modules of the `Canvas` package with their dependencies look like this:
 
