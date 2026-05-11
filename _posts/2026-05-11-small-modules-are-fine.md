@@ -125,4 +125,44 @@ export void addBoxMidPointsAdjustMarkers(Canvas& c, Group&, const d1::fnRect& r,
 }
 ```
 
+The `Canvas` class has quite a number of abstract member functions and the list of
+imports in the `Canvas.Canvas` is remarkable, but that list is only needed there.
+
+Users of the `Canvas` package typically only need to import a handful of modules.
+A typical list of imports is for example:
+
+```cpp
+import Canvas.ScreenCanvas;
+import Canvas.Group;
+import Canvas.Scroller;
+```
+
+For a diagram editing task which draws something on a screen canvas.
+
+In our experience, using small modules is not an obstacle for using the
+`Canvas` package. It's rather the opposite: The explicit imports make
+immediately clear, what exactly is used from the `Canvas` package.
+
+More specific users like the `TextBlock` package, which handles in-place
+editing of text, for example need the following imports:
+
+```cpp
+import Canvas.ScreenCanvas;
+import Canvas.Group;
+import Canvas.Scroller;
+import Canvas.Caret;
+```
+
+Editing text additionally requires the
+[`Canvas.Caret`](https://github.com/cadifra/cadifra/blob/2026.8/code/Canvas/Caret/_Caret.ixx) module,
+which is an abstraction for the current editing position on a screen canvas.
+
+For our UML Editor, using small modules makes a lot of sense. Trying
+to aggregate things into bigger modules mostly proved to be a waste of
+(developing) time.
+
+In theory, using `import Canvas`, might look like how modules are
+meant to be used. But in practice, that proved to be not the best fit
+for our use case.
+
 (last edited 2026-05-11)
