@@ -4,19 +4,21 @@ date: 2026-05-11
 ---
 
 We've now added even more small modules for the `Canvas` package of our
-UML editor app. The complete source code is published at 
+UML editor app.
+
+<img src="/assets/cadifra-packages.png" alt="Cadifra Packages" width="700"/>
+
+The complete source code for the `Canvas` package is published at 
 [https://github.com/cadifra/cadifra/tree/2026.8/code/Canvas](https://github.com/cadifra/cadifra/tree/2026.8/code/Canvas).
 
 The `Canvas` package is a part with mostly abstract base classes used for
 drawing simple objects in a
 [canvas](https://github.com/cadifra/cadifra/blob/2026.8/code/Canvas/Canvas/_Canvas.ixx),
 which can be a
-[screen canvaas](https://github.com/cadifra/cadifra/blob/2026.8/code/Canvas/ScreenCanvas/_ScreenCanvas.ixx),
+[screen canvas](https://github.com/cadifra/cadifra/blob/2026.8/code/Canvas/ScreenCanvas/_ScreenCanvas.ixx),
 a [printer canvas](https://github.com/cadifra/cadifra/blob/2026.8/code/Canvas/_PrinterCanvas.ixx) or
 a [metafile canvas](https://github.com/cadifra/cadifra/blob/2026.8/code/Canvas/_MetafileCanvas.ixx).
 Windows Metafile is a graphics format used on Windows.
-
-<img src="/assets/cadifra-packages.png" alt="Cadifra Packages" width="700"/>
 
 Usage of the code of the `Canvas` package confirms again that using small
 C++ modules works fine for our use case.
