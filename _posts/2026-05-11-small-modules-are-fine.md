@@ -4,7 +4,7 @@ date: 2026-05-11
 ---
 
 We've now added even more small modules for the `Canvas` package of our
-UML editor app (for Windows). The following diagram shows the packages of
+UML editor app for Windows. The following diagram shows the packages of
 our app:
 
 <img src="/assets/cadifra-packages.png" alt="Cadifra Packages" width="700"/>
