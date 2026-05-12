@@ -25,7 +25,7 @@ The C++ modules of the `Canvas` package with their dependencies look like this:
 
 <img src="/assets/canvas-modules.png" alt="Canvas Modules"/>
 
-Obviosly, I used our UML Editor to draw
+Obviously, I used our UML Editor to draw
 [that diagram](https://github.com/abuehl/abuehl.github.io/blob/main/assets/canvas-modules.cdd).
 
 The names of the modules in the `Canvas` package all start with the prefix
