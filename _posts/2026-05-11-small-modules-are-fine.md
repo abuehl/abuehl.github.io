@@ -295,7 +295,7 @@ implicitly get the imports of the imported interface. For example, importers of
 in the interface of `Canvas.Group`. With header files, this is not possible.
 When you include a header file, you implicitly get all the declarations that
 are indirectly included, which can be confusing if you change an include in
-and included header: Code which previously compiled suddenly may stop
+an included header: Code which previously compiled suddenly may stop
 compiling. Modules provide a barrier for that. Users of a module have to
 explicitly import what they need. There is no automatic implicit import of
 additional things.
