@@ -129,7 +129,7 @@ export void addBoxMidPointsAdjustMarkers(Canvas& c, Group&, const d1::fnRect& r,
 ```
 
 The `Canvas` class has quite a number of abstract member functions and the list of
-imports in the `Canvas.Canvas` is remarkable, but that list is only needed there.
+imports in the `Canvas.Canvas` module is remarkable, but that list is only needed there.
 
 Users of the `Canvas` package typically only need to import a handful of modules.
 A typical list of imports is for example:
@@ -168,8 +168,8 @@ In theory, using `import Canvas` might look like how modules are
 meant to be used. But in practice, that proved to be not the best fit
 for our use case.
 
-There are no partitions in the the `Canvas` package. We also didn't use the
-keyword sequence `export import`.
+There are no [partitions](https://abuehl.github.io/2026/04/09/internal-partitions.html) in
+the `Canvas` package. We also didn't use the keyword sequence `export import`.
 
 The [`Canvas.IElementImp`](https://github.com/cadifra/cadifra/blob/2026.8/code/Canvas/_IElementImp.ixx) module
 is an example of a very small module:
