@@ -197,14 +197,12 @@ public:
 It is imported in the module
 [`Canvas.Group`](https://github.com/cadifra/cadifra/blob/2026.8/code/Canvas/_Group.ixx):
 
-
 ```cpp
 export module Canvas.Group;
 
 import Canvas.IElementImp;
 
 import std;
-
 
 namespace Canvas
 {
@@ -235,7 +233,6 @@ public:
 private:
     std::vector<std::shared_ptr<IElementImp>> elements_;
 };
-
 
 export class Group
 {
@@ -326,7 +323,6 @@ import d1.types;
 
 import std;
 
-
 namespace Canvas
 {
 
@@ -375,7 +371,6 @@ public:
     ...
 };
 
-
 constexpr Color
     Color::Black = { 0, 0, 0 },
     Color::White = { 255, 255, 255 },
@@ -384,18 +379,15 @@ constexpr Color
     Color::Blue = { 0, 0, 255 },
     Color::Yellow = { 255, 255, 0 };
 
-
 export class ColorCache
 {
     ...
 };
 
-
 export class Brush
 {
     ...
 };
-
 
 export class BrushCache
 {
