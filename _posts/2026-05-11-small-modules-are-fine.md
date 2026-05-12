@@ -168,4 +168,260 @@ In theory, using `import Canvas` might look like how modules are
 meant to be used. But in practice, that proved to be not the best fit
 for our use case.
 
+There are no partitions in the the `Canvas` package. We also didn't use the
+keyword sequence `export import`.
+
+The [`Canvas.IElementImp`](https://github.com/cadifra/cadifra/blob/2026.8/code/Canvas/_IElementImp.ixx) module
+is an example of a very small module:
+
+```cpp
+export module Canvas.IElementImp;
+
+import d1.Point;
+
+
+namespace Canvas
+{
+
+export class IElementImp
+{
+public:
+    virtual void move(const d1::fVector&) = 0;
+
+    virtual ~IElementImp() = default;
+};
+
+}
+```
+
+It is imported in the module
+[`Canvas.Group`](https://github.com/cadifra/cadifra/blob/2026.8/code/Canvas/_Group.ixx):
+
+
+```cpp
+export module Canvas.Group;
+
+import Canvas.IElementImp;
+
+import std;
+
+
+namespace Canvas
+{
+
+class GroupImp: public IElementImp
+{
+public:
+    GroupImp() {}
+
+    GroupImp(const GroupImp&) = delete;
+    GroupImp& operator=(const GroupImp&) = delete;
+
+    void add(const std::shared_ptr<IElementImp>& e)
+    {
+        elements_.push_back(e);
+    }
+
+    //-- IElementImp
+
+    void move(const d1::fVector& v) override
+    {
+        for (auto& e : elements_)
+            e->move(v);
+    }
+
+    //--
+
+private:
+    std::vector<std::shared_ptr<IElementImp>> elements_;
+};
+
+
+export class Group
+{
+public:
+    Group() = default;
+
+    Group(const std::shared_ptr<GroupImp>& e):
+        imp_{ e } {}
+
+    void clear()
+    {
+        imp_ = {};
+    }
+
+    void move(const d1::fVector& v)
+    {
+        if (imp_)
+            imp_->move(v);
+    }
+
+    operator bool() const { return imp_.get() != 0; }
+
+    void add(const std::shared_ptr<IElementImp>& e)
+    {
+        if (not imp_)
+            imp_ = std::make_shared<GroupImp>();
+        imp_->add(e);
+    }
+
+private:
+    std::shared_ptr<GroupImp> imp_;
+};
+
+}
+```
+
+You might be tempted to think that having separate modules for each of these
+is exaggerated. But, in fact, such small modules are no problem.
+
+It sure would be rather meaningless to have a small module `A`, which users
+always have to import together with a module `B`. Then it would make sense to
+merge the contents of these into a single module.
+
+However, that's not the case here. For example, there are are 4 module interface
+units in our Cadifra app, which only import `Canvas.IElementImp` and there are 5
+module interface units, which only import `Canvas.Group`. `Canvas.IElementImp`
+is used for implementing canvas elements and `Canvas.Group` is used in the
+`Canvas.Canvas` interface for grouping such elements. Destructing a
+`Group` object removes all its visible objects from the screen canvas.
+
+The build speed of full builds is not affected by using these small modules. It
+remains at ~2 minutes, no matter if we have these declarations together in bigger
+modules or in the current module structure.
+
+We haven't seen any specific relevant penalty when using such small modules.
+
+Some of the nice benefits of modules are, that importers of an interface do not
+implicitly get the imports of the imported interface. For example, importers of
+`Canvas.Group` do not automatically get `Canvas.IElementImp`, which is imported
+in the interface of `Canvas.Group`. With header files, this is not possible.
+When you include a header file, you implicitly get all the declarations that
+are indirectly included, which can be confusing if you change an include in
+and included header: Code which previously compiled suddenly may stop
+compiling. Modules provide a barrier for that. Users of a module have to
+explicitly import what they need. There is no automatic implicit import of
+additional things.
+
+A excellent feature of modules is furthermore, that you you can include a messy
+OS API header file (like, for example, the famous `<Windows.h>`) in an interface of
+a module and that doesn't affect importers of the interface.
+
+An example for this is the
+[`Canvas.Brush`](https://github.com/cadifra/cadifra/blob/2026.8/code/Canvas/Brush/_Brush.ixx) module,
+which has:
+
+```cpp
+module;
+
+#include <Windows.h>
+#include <gdiplus.h>
+
+#include "d1/d1assert.h"
+
+export module Canvas.Brush;
+
+import d1.Observer;
+import d1.types;
+
+import std;
+
+
+namespace Canvas
+{
+
+export class Color
+{
+public:
+    enum AutomaticColor;
+    Color(AutomaticColor ac = WINDOWTEXT);
+
+    Color(d1::uint8 red, d1::uint8 green, d1::uint8 blue);
+    // 0 = minimum intensity, 255 = maximum intensity
+
+    explicit Color(d1::uint32 color_bitarray);
+    // bit mask for blue : 0x00FF0000
+    // bit mask for green: 0x0000FF00
+    // bit mask for red  : 0x000000FF
+    //
+    // 0 = minimum intensity, 255 = maximum intensity
+    //
+    // Precondition: color_bitarray & 0xFF000000 == 0
+
+    Color(const Color& c);
+    Color& operator=(const Color& c);
+
+    bool isAutomatic() const;
+
+    d1::uint32 getRGB() const;
+    // Precondition: isAutomatic() == false;
+
+    AutomaticColor getAutomaticColor() const;
+    // Precondition: isAutomatic() == true;
+
+
+    bool operator==(const Color& c) const;
+    bool operator<(const Color& c) const; // allows sorting
+
+
+    // predefined colors:
+    const static Color Black, White, Red, Green, Blue, Yellow;
+
+    enum AutomaticColor
+    {
+        ...
+    };
+
+    ...
+};
+
+
+constexpr Color
+    Color::Black = { 0, 0, 0 },
+    Color::White = { 255, 255, 255 },
+    Color::Red = { 255, 0, 0 },
+    Color::Green = { 0, 255, 0 },
+    Color::Blue = { 0, 0, 255 },
+    Color::Yellow = { 255, 255, 0 };
+
+
+export class ColorCache
+{
+    ...
+};
+
+
+export class Brush
+{
+    ...
+};
+
+
+export class BrushCache
+{
+    ...
+};
+```
+
+Importers of `Canvas.Brush` are shielded from the `<Windows.h>` include. Macros
+from that don't affect importers of `Canvas.Brush`.
+
+It may be tempting to design the `Canvas` package as a single monolithic module.
+We tried that, but we see no real benefit in doing that. For our Windows app,
+it is largely pointless to have a monolithic `Canvas` module.
+
+We could even try to hide the internal structure of such a monolithic module
+by using partitions. But that would be pointless. There's nothing wrong
+with directly exposing a set of carefully designed interface modules.
+Users of the Canvas package just don't import modules which are dedicated for
+internal purposes. That happens naturally.
+
+We love using the big `std` module and we exlusively `import std;` when we need
+something from the C++ standard libary. It's very convenient and it has reduced
+the time for a full build of our Windows app from ~3 to ~2 minutes, which is
+quite nice.
+
+But not every module needs to be like the `std` module. Don't try to mimick
+`std` everywhere.
+
 (last edited 2026-05-12)
