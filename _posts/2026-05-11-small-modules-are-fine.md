@@ -303,7 +303,7 @@ compiling. Modules provide a barrier for that. Users of a module have to
 explicitly import what they need. There is no automatic implicit import of
 additional things.
 
-An excellent feature of modules is furthermore, that you you can include a messy
+An excellent feature of modules is furthermore, that you can include a messy
 OS API header file (like, for example, the famous `<Windows.h>`) in an interface of
 a module and that doesn't affect importers of the interface.
 
