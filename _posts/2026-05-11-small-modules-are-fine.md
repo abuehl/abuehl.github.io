@@ -182,7 +182,6 @@ export module Canvas.IElementImp;
 
 import d1.Point;
 
-
 namespace Canvas
 {
 
