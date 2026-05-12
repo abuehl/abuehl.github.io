@@ -405,7 +405,7 @@ it is largely pointless to have a monolithic `Canvas` module.
 We could even try to hide the internal structure of such a monolithic module
 by using partitions. But that would be pointless. There's nothing wrong
 with directly exposing a set of carefully designed interface modules.
-Users of the Canvas package just don't import modules which are dedicated for
+Users of the `Canvas` package just don't import modules which are dedicated for
 internal purposes. That happens naturally.
 
 We love using the big `std` module and we exlusively `import std;` when we need
@@ -413,7 +413,7 @@ something from the C++ standard libary. It's very convenient and it has reduced
 the time for a full build of our Windows app from ~3 to ~2 minutes, which is
 quite nice.
 
-But not every module needs to be like the `std` module. Don't try to mimick
+But not every module needs to be like the `std` module. Don't try to mimic
 `std` everywhere.
 
 (last edited 2026-05-12)
