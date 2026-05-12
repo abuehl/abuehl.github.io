@@ -414,9 +414,7 @@ internal purposes. That happens naturally.
 We love using the big `std` module and we exclusively `import std;` when we need
 something from the C++ standard library. It's very convenient and it has reduced
 the time for a full build of our Windows app from ~3 to ~2 minutes, which is
-quite nice.
-
-But not every module needs to be like the `std` module. Don't try to mimic
-`std` everywhere.
+quite nice. But not every module needs to be like the `std` module. Don't try to
+mimic `std` everywhere.
 
 (last edited 2026-05-12)
