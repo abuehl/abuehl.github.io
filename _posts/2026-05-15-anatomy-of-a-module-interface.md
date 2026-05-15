@@ -113,16 +113,14 @@ public:
     virtual ~Character();
 };
 
-export class FontChange;
-
-export using FontChangePtr = std::shared_ptr<FontChange>;
-
 export class FontChange: public TextItem
 {
     const FontUtil::FontRef font_;
 
 public:
-    static FontChangePtr getInstance(const FontUtil::FontRef& f);
+    using Ptr = std::shared_ptr<FontChange>;
+
+    static Ptr getInstance(const FontUtil::FontRef& f);
 
     void accept(ITextItemVisitor&) const;
 
@@ -146,14 +144,12 @@ public:
     virtual ~FontChange();
 };
 
-export class ParagraphStart;
-
-export using ParagraphStartPtr = std::shared_ptr<ParagraphStart>;
-
 export class ParagraphStart: public TextItem
 {
 public:
-    static ParagraphStartPtr getInstance();
+    using Ptr = std::shared_ptr<ParagraphStart>;
+
+    static Ptr getInstance();
 
     void accept(ITextItemVisitor&) const;
 
