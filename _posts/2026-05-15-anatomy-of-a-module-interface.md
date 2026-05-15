@@ -256,8 +256,7 @@ The consequences of this are quite drastic.
 You cannot forward declare a class `C` outside of a module `M`,
 if `C` is defined in `M`. `C` is strongly attached to `M`.
 
-**Outside of `M`, you have to import `M` if `C` is used as a pointer\
-or a references.**
+**Outside of `M`, you have to import `M` if `C` is used as a pointer or a references.**
 
 Beware that the MSVC compiler does not warn you, if you fail to
 comply with this rule.
