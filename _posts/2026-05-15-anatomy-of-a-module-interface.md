@@ -24,7 +24,6 @@ import LineBreak;
 
 import std;
 
-
 namespace TextBlock
 {
 
@@ -44,7 +43,6 @@ protected:
     ~ITextItemVisitor() = default;
 };
 
-
 export class TextItem
 {
 public:
@@ -63,7 +61,6 @@ public:
 
 export using TextItemPtr = std::shared_ptr<TextItem>;
 
-
 template <typename T>
 class Comp: public ITextItemVisitor
 {
@@ -79,14 +76,12 @@ public:
     bool res() const { return res_; }
 };
 
-
 inline bool textItemCompare(const auto& t, const TextItem& ti)
 {
     auto v = Comp{ t };
     ti.accept(v);
     return v.res();
 }
-
 
 export class Character: public TextItem
 {
@@ -120,11 +115,9 @@ public:
     virtual ~Character();
 };
 
-
 export class FontChange;
 
 export using FontChangePtr = std::shared_ptr<FontChange>;
-
 
 export class FontChange: public TextItem
 {
@@ -155,11 +148,9 @@ public:
     virtual ~FontChange();
 };
 
-
 export class ParagraphStart;
 
 export using ParagraphStartPtr = std::shared_ptr<ParagraphStart>;
-
 
 export class ParagraphStart: public TextItem
 {
