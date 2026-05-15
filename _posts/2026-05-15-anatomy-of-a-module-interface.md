@@ -239,11 +239,12 @@ protected:
 };
 ```
 
-`ITextItemVisitor` has visit member functions which take references to
+has `visit` member functions, which take references to
 `Character`, `FontChange` and `ParagraphStart`.
 
-C++ modules follow the strong ownership model: If you declare X
-in a module A, X must be defined in A too.
+C++ modules follow the strong ownership model: If you (forward)
+declare `X` in a module `A`, the definition for `X` must be
+in `A` too.
 
 The interface has the follwoing forward declarations:
 
@@ -253,34 +254,29 @@ export class FontChange;
 export class ParagraphStart;
 ```
 
-Those classes are later defined in the same module.
+Those classes are later fully declared in the same module.
 
 With header files, it was possible to forward declare a class, when
 that class was only used as a pointer or a reference.
 
 With modules, this is still possible, but a class which is
-forward declared in a module, must be declared in that same module.
+forward declared in a module, must be defined in that same module.
 
 The consequences of this are quite drastic.
 
 You cannot forward declare a class `C` outside of a module `M`,
 if `C` is defined in `M`. `C` is strongly attached to `M`.
 
-Outside of `M`, you have to import `M` if `C` is used as a pointer
-or a references.
+**Outside of `M`, you have to import `M` if `C` is used as a pointer\
+or a references.**
 
-Beware that the MSVC compiler does not warn you if you fail to
+Beware that the MSVC compiler does not warn you, if you fail to
 comply with this rule.
 
 The `TextBlock.TextItem` interface complies with the rule.
 
-All the classes which use each other (by reference) are All
+All classes which use each other (by reference) are all
 declared in the same module.
-
-The class `TextItem` uses `ITextItemVisitor` (by reference). It thus
-must be declared in the same module. If `TextItem` were declared
-in a separate module, that module would have to import the module
-which declares `ITextItemVisitor`.
 
 `ITextItemVisitor` uses `Character`, `FontChange` and `ParagraphStart`,
 which are derived from `TextItem`.
@@ -292,7 +288,7 @@ Then that module would have to be imported.
 However, module imports cannot have cycles. The compiler will flag
 import cycles as errors.
 
-The class `TextItem` has an accept member function:
+The class `TextItem` has an `accept` member function:
 
 ```cpp
     virtual void accept(ITextItemVisitor&) const = 0;
@@ -300,17 +296,22 @@ The class `TextItem` has an accept member function:
 
 which takes a `ITextItemVisitor` by reference. So, `TextItem` dependes on
 `ITextItemVisitor`. `ITextItemVisitor` in turn depends on
-`Character`, `FontChange` and `ParagraphStart`. This implies that
-all these classes need to be declared in the same module.
+`Character`, `FontChange` and `ParagraphStart`.
+
+This implies that all these classes need to be defined in the same module.
 
 Inside the module, we can forward declare classes, if those
-classes are declared in the same module.
+classes are defined in the same module.
 
 The interface of `ITextItemVisitor` is minimal. We cannot take out a
-class and  declare it in a different module.
+class and move its definition to a sepearate module.
 
 The Comp template class is not exported. It is used only as a helper
 for the `textItemCompare` function, which isn't exported either. That
 function is only used inside the module.
+
+If a translation unit gets too large to handle it meaningfully, you
+can use [partitions](https://abuehl.github.io/2025/10/11/partitions.html)
+to split the interface into smaller translation units. 
 
 (last edited 2026-05-15)
