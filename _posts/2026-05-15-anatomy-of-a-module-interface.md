@@ -278,7 +278,7 @@ The class `TextItem` has an `accept` member function:
     virtual void accept(ITextItemVisitor&) const = 0;
 ```
 
-which takes a `ITextItemVisitor` by reference. So, `TextItem` dependes on
+which takes a `ITextItemVisitor` by reference. So, `TextItem` depends on
 `ITextItemVisitor`. `ITextItemVisitor` in turn depends on
 `Character`, `FontChange` and `ParagraphStart`.
 
@@ -292,7 +292,7 @@ for the `textItemCompare` function, which isn't exported either. That
 function is only used inside the module.
 
 The interface of `TextBlock.TextItem` is pretty minimal. We cannot take out
-any (exported) class and move its definition to a sepearate module.
+any (exported) class and move its definition to a separate module.
 
 If a translation unit gets too large to handle it meaningfully, you
 can use [partitions](https://abuehl.github.io/2025/10/11/partitions.html)
