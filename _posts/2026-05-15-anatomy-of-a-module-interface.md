@@ -246,7 +246,7 @@ C++ modules follow the strong ownership model: If you (forward)
 declare `X` in a module `A`, the definition for `X` must be
 in `A` too.
 
-The interface has the follwoing forward declarations:
+The interface has the following forward declarations:
 
 ```cpp
 export class Character;
