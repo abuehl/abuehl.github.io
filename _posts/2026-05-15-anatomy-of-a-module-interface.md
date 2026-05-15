@@ -303,12 +303,12 @@ This implies that all these classes need to be defined in the same module.
 Inside the module, we can forward declare classes, if those
 classes are defined in the same module.
 
-The interface of `ITextItemVisitor` is minimal. We cannot take out a
-class and move its definition to a sepearate module.
-
-The Comp template class is not exported. It is used only as a helper
+The `Comp` template class is not exported. It is used only as a helper
 for the `textItemCompare` function, which isn't exported either. That
 function is only used inside the module.
+
+The interface of `TextBlock.TextItem` is pretty minimal. We cannot take out
+any (exported) class and move its definition to a sepearate module.
 
 If a translation unit gets too large to handle it meaningfully, you
 can use [partitions](https://abuehl.github.io/2025/10/11/partitions.html)
