@@ -26,11 +26,9 @@ import std;
 
 namespace TextBlock
 {
-
 export class Character;
 export class FontChange;
 export class ParagraphStart;
-
 
 export class ITextItemVisitor
 {
