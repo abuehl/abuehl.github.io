@@ -264,8 +264,8 @@ comply with this rule.
 
 The `TextBlock.TextItem` interface complies with the rule.
 
-All classes which use each other (by reference) are all
-declared in the same module.
+All classes which use each other (by reference) are defined
+in the same module.
 
 `ITextItemVisitor` uses `Character`, `FontChange` and `ParagraphStart`,
 which are derived from `TextItem`.
