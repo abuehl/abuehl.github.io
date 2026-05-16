@@ -91,7 +91,7 @@ public:
 
     static Ptr getInstance(wchar_t c);
 
-    void accept(ITextItemVisitor&) const;
+    void accept(ITextItemVisitor&) const override;
 
     bool operator<(wchar_t c) const;
 
@@ -99,7 +99,7 @@ public:
 
     auto getLineBreakClass() const { return lineBreakClass_; }
 
-    bool operator==(const TextItem& ti) const
+    bool operator==(const TextItem& ti) const override
     {
         return textItemCompare(*this, ti);
     }
@@ -122,13 +122,13 @@ public:
 
     static Ptr getInstance(const FontUtil::FontRef& f);
 
-    void accept(ITextItemVisitor&) const;
+    void accept(ITextItemVisitor&) const override;
 
     bool operator<(const FontUtil::FontRef& f) const;
 
     auto getFont() const -> FontUtil::FontRef { return font_; }
 
-    bool operator==(const TextItem& ti) const
+    bool operator==(const TextItem& ti) const override
     {
         return textItemCompare(*this, ti);
     }
@@ -151,9 +151,9 @@ public:
 
     static Ptr getInstance();
 
-    void accept(ITextItemVisitor&) const;
+    void accept(ITextItemVisitor&) const override;
 
-    bool operator==(const TextItem& ti) const
+    bool operator==(const TextItem& ti) const override
     {
         return textItemCompare(*this, ti);
     }
