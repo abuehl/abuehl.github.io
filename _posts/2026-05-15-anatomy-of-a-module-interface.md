@@ -252,7 +252,7 @@ The consequences of this are quite drastic.
 You cannot forward declare a class `C` outside of a module `M`,
 if `C` is defined in `M`. `C` is strongly attached to `M`.
 
-**Outside of `M`, you have to import `M` if `C` is used as a pointer or a references.**
+**Outside of `M`, you have to import `M` if `C` is used as a pointer or a reference.**
 
 Beware that the MSVC compiler does not warn you, if you fail to
 comply with this rule.
@@ -298,4 +298,4 @@ If a translation unit gets too large to handle it meaningfully, you
 can use [partitions](https://abuehl.github.io/2025/10/11/partitions.html)
 to split the interface into smaller translation units. 
 
-(last edited 2026-05-15)
+(last edited 2026-05-16)
