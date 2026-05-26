@@ -374,7 +374,7 @@ public:
     ...
 };
 
-constexpr Color
+const Color
     Color::Black = { 0, 0, 0 },
     Color::White = { 255, 255, 255 },
     Color::Red = { 255, 0, 0 },
