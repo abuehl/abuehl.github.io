@@ -189,7 +189,7 @@ PackageRep::PackageRep():
 `PackageRep` is only needed by reference in the interface of `Class.Package`.
 It can thus be forward declared there.
 
-`PackageRep` is not exported but it appears in the interface of Class.Package.
+`PackageRep` is not exported but it appears in the interface of `Class.Package`.
 
 Forward declarations are still possible when using modules. The declaration
 of `PackageRep` just needs to be in the same module as the forward declaration.
@@ -213,6 +213,7 @@ or
 
 ```cpp
 // file Class/Package/Package_Style.cpp
+module Class.Package;
 
 import :PackageRep;
 ...
