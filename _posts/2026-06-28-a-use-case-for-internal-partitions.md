@@ -22,8 +22,10 @@ export module Class.Package;
 
 ...
 
-class PackageRep;
+namespace Class
+{
 
+class PackageRep;
 
 export class Package:
     public View::Element,
@@ -32,6 +34,7 @@ export class Package:
 {
     ...
 };
+...
 ```
 
 The class template `Store::IRepOwnerWithPos` plugs into the undoer/
