@@ -7,7 +7,8 @@ I was very skeptical about the need for
 [internal partitions](https://abuehl.github.io/2026/04/09/internal-partitions.html)
 (a feature provided by C++ modules), but we now found a perfectly valid case for
 using them in our Windows app (a graphical editor for UML diagrams). Parts of
-the sources are published at [https://github.com/cadifra/cadifra](https://github.com/cadifra/cadifra).
+the sources of our app are published at
+[https://github.com/cadifra/cadifra](https://github.com/cadifra/cadifra).
 
 We have a C++ object for every model element in our app. The properties of those
 objects are stored in separate `...Rep` objects. These use the infrastructure of
@@ -27,7 +28,6 @@ class PackageRep;
 export class Package:
     public View::Element,
     ...
-
     protected Store::IRepOwnerWithPos<PackageRep>
 {
     ...
