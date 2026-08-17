@@ -85,7 +85,7 @@ export namespace green2
     using namespace blue;
 }
 
-//translation unit #2 (file "main.cpp")
+// translation unit #2 (file "main.cpp")
 import A;
 
 int main()
@@ -100,18 +100,14 @@ int main()
 }
 ```
 
-In module `A`, we have the namespaces `red`, `blue`.
+In module `A`, we have the namespaces `red` and `blue`.
 
-The module exports the functions `red::func1` and `blue::func2`. function
+The module exports the functions `red::func1` and `blue::func2`. Function
 `red::func3` is not exported.
 
 The module additionally has the namespaces `green1` and `green2`. These
 provide alternative methods to access the contents of the namespaces
-`red` and `blue`, by using the keyword sequence:
-
-```cpp
-using namespace
-```
+`red` and `blue`, by using the keyword sequence `using namespace`.
 
 Those are exported too.
 
