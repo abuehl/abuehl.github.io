@@ -37,7 +37,7 @@ namespace red
 
 An interesting question is, what
 
-```
+```cpp
 export using namespace red;
 ```
 
